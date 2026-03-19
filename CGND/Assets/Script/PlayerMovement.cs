@@ -1,17 +1,20 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : PlayerState {
     [Header("Settings")]
     [SerializeField] private float speed = 10f;
     private float _movement;
 
-    private float _horizontalMovement;
+    protected override void Awake() {
+        base.Awake();
+    }
 
     protected override void InitState() {
         base.InitState();
     }
     protected override void GetInput() {
-        _horizontalMovement = _horizontalInput;
+        _movement = Mathf.Abs(_horizontalInput) > 0.1f ? _horizontalInput : 0f;
     }
 
     public override void ExecuteState() {
@@ -19,14 +22,7 @@ public class PlayerMovement : PlayerState {
     }
 
     private void MovePlayer() {
-        if (Mathf.Abs(_horizontalMovement) > 0.1f) {
-            _movement = _horizontalMovement;
-        } else {
-            _movement = 0f;
-        }
-
-        float moveSpeed = _movement * speed;
-        _playerController.SetHorizontalForce(moveSpeed);
+        _playerController.SetHorizontalForce(_movement * speed);
     }
 
     public override void SetAnimation() {

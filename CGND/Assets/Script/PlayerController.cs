@@ -5,19 +5,20 @@ public class PlayerController : MonoBehaviour {
 
     [Header("Settings")]
     // Falling
-    [SerializeField] private float fallMultiplier = 1.5f;
-
     public Rigidbody2D theRB;
-
+    [SerializeField] private float fallMultiplier = 1.5f;
+    
     // Movement
-    public Vector2 _movePosition = Vector2.zero;
+    public Vector2 Force => _force;
     private Vector2 _force;
 
+    [Header("Face Direction")]
     // Face Direction
     public bool facingRight;
-    private int _internalFaceDirection = 1;
-    private int _faceDirection;
+    private int internalFaceDirection = 1;
+    private int faceDirection;
 
+    [Header("Jumping")]
     // Jumping
     public bool isJumping = false;
     public Transform groundChecker;
@@ -44,32 +45,34 @@ public class PlayerController : MonoBehaviour {
         // Movement
         theRB.linearVelocity = new Vector2(_force.x, theRB.linearVelocity.y);
 
-        //Jumping
+        // Jumping
         isGrounded = Physics2D.OverlapCircle(groundChecker.position, 0.5f, groundMask);
         if (isJumping) {
-            theRB.AddForce(new Vector2(theRB.linearVelocityX, _force.y), ForceMode2D.Impulse);
+            theRB.linearVelocityY = 0;
+            theRB.AddForce(new Vector2(0, _force.y), ForceMode2D.Impulse);
+            isGrounded = false;
             isJumping = false;
+            _force.y = 0;
         }
 
         // Falling
         if (theRB.linearVelocity.y < 0) {
             theRB.linearVelocity += Vector2.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
-
     }
 
     private void FaceDirection() {
-        _faceDirection = _internalFaceDirection;
-        facingRight = _faceDirection == 1;
+        faceDirection = internalFaceDirection;
+        facingRight = faceDirection == 1;
 
         if (_force.x > 0.0001f) {
-            _faceDirection = 1;
+            faceDirection = 1;
             facingRight = true;
         } else if (_force.x < -0.0001f) {
-            _faceDirection = -1;
+            faceDirection = -1;
             facingRight = false;
         }
-        _internalFaceDirection = _faceDirection;
+        internalFaceDirection = faceDirection;
     }
 
     private void RotateModel() {

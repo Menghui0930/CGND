@@ -1,9 +1,22 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class PlayerState : MonoBehaviour {
+    protected InputActionAsset defaultInputs;
+    protected InputAction playerMovement;
+    protected InputAction jumping;
+
     protected PlayerController _playerController;
+
+    // movement
+    protected Vector2 moveDirection;
     protected float _horizontalInput;
     protected float _verticalInput;
+
+    protected virtual void Awake() {
+        playerMovement = InputSystem.actions.FindAction("Move");
+    }
 
     protected virtual void Start() {
         InitState();
@@ -19,9 +32,10 @@ public class PlayerState : MonoBehaviour {
 
     // Gets the normal Input   
     public virtual void LocalInput() {
+        moveDirection = playerMovement.ReadValue<Vector2>();
 
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _verticalInput = Input.GetAxisRaw("Vertical");
+        _horizontalInput = moveDirection.x;
+        _verticalInput = moveDirection.y;
 
         GetInput();
     }

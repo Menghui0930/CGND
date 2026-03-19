@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerJump : PlayerState {
     [Header("Settings")]
@@ -7,19 +8,26 @@ public class PlayerJump : PlayerState {
 
     public int JumpLeft;
 
+    protected override void Awake() {
+        base.Awake();
+        jumping = InputSystem.actions.FindAction("Jump");
+    }
+
     protected override void InitState() {
         base.InitState();
         JumpLeft = maxJumps;
     }
 
     protected override void GetInput() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (jumping.WasPressedThisFrame()) {
             Jump();
         }
     }
 
     public override void ExecuteState() {
-        base.ExecuteState();
+        if (_playerController.isGrounded && _playerController.Force.y == 0) {
+            JumpLeft = maxJumps;
+        }
     }
 
     private void Jump() {
@@ -27,10 +35,13 @@ public class PlayerJump : PlayerState {
             return;
         }
 
-        JumpLeft -= 1;
-        float jumpForce = Mathf.Sqrt(jumpHeight * 2f * Mathf.Abs(Physics.gravity.y));
-        _playerController.SetVerticalForce(jumpForce);
-        _playerController.isJumping = true;
+        if (_playerController.isGrounded || JumpLeft > 0) {
+
+            JumpLeft -= 1;
+            float jumpForce = Mathf.Sqrt(jumpHeight * Mathf.Abs(Physics2D.gravity.y));
+            _playerController.SetVerticalForce(jumpForce);
+            _playerController.isJumping = true;
+        }
     }
 
     public override void SetAnimation() {
