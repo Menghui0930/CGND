@@ -1,43 +1,43 @@
 fileFormatVersion: 2
-guid: 6e26610c53ee3a5428ac1bd6a1443c8f
+guid: a25d906eeb255b24c85d4e79fdc36067
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4411376431094369397
-    second: Cha_Idle_0
+      213: 5906104448968894900
+    second: Cha_Idle_Hand_0
   - first:
-      213: -9085249970339205364
-    second: Cha_Idle_1
+      213: -7906535332560680627
+    second: Cha_Idle_Hand_1
   - first:
-      213: -350819686858132890
-    second: Cha_Idle_2
+      213: -3361365208795555657
+    second: Cha_Idle_Hand_2
   - first:
-      213: -2765281166001853700
-    second: Cha_Idle_3
+      213: -8345481407314407017
+    second: Cha_Idle_Hand_3
   - first:
-      213: -6456037672153364650
-    second: Cha_Idle_4
+      213: -3117054776807061205
+    second: Cha_Idle_Hand_4
   - first:
-      213: 2801714501430402459
-    second: Cha_Idle_5
+      213: 2926497013496723269
+    second: Cha_Idle_Hand_5
   - first:
-      213: -723005369587097277
-    second: Cha_Idle_6
+      213: 5647475382187934073
+    second: Cha_Idle_Hand_6
   - first:
-      213: 340031751273755197
-    second: Cha_Idle_7
+      213: 2507227662407969622
+    second: Cha_Idle_Hand_7
   - first:
-      213: -2381129733987540322
-    second: Cha_Idle_8
+      213: 5605377958227034822
+    second: Cha_Idle_Hand_8
   - first:
-      213: 9190882563830578158
-    second: Cha_Idle_9
+      213: -1423744508353519771
+    second: Cha_Idle_Hand_9
   - first:
-      213: 814062490372324890
-    second: Cha_Idle_10
+      213: -779680501854604054
+    second: Cha_Idle_Hand_10
   - first:
-      213: -4073600807892416409
-    second: Cha_Idle_11
+      213: -8659187696129911768
+    second: Cha_Idle_Hand_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -133,7 +133,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cha_Idle_0
+      name: Cha_Idle_Hand_0
       rect:
         serializedVersion: 2
         x: 0
@@ -148,14 +148,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b83f6162284a7c2c0800000000000000
-      internalID: -4411376431094369397
+      spriteID: 4b9252754b2b6f150800000000000000
+      internalID: 5906104448968894900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_1
+      name: Cha_Idle_Hand_1
       rect:
         serializedVersion: 2
         x: 32
@@ -170,14 +170,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c0fad46a945bae180800000000000000
-      internalID: -9085249970339205364
+      spriteID: d4945a27108564290800000000000000
+      internalID: -7906535332560680627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_2
+      name: Cha_Idle_Hand_2
       rect:
         serializedVersion: 2
         x: 64
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6627b908a53a12bf0800000000000000
-      internalID: -350819686858132890
+      spriteID: 7b85261e6280a51d0800000000000000
+      internalID: -3361365208795555657
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_3
+      name: Cha_Idle_Hand_3
       rect:
         serializedVersion: 2
         x: 96
@@ -214,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cfaa16c3e6fbf99d0800000000000000
-      internalID: -2765281166001853700
+      spriteID: 791d56550e4ee2c80800000000000000
+      internalID: -8345481407314407017
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_4
+      name: Cha_Idle_Hand_4
       rect:
         serializedVersion: 2
         x: 128
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 65742c651fb8766a0800000000000000
-      internalID: -6456037672153364650
+      spriteID: b290bf2023ffdb4d0800000000000000
+      internalID: -3117054776807061205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_5
+      name: Cha_Idle_Hand_5
       rect:
         serializedVersion: 2
         x: 160
@@ -258,14 +258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b9dd1d3be70b1e620800000000000000
-      internalID: 2801714501430402459
+      spriteID: 547b6bd47810d9820800000000000000
+      internalID: 2926497013496723269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_6
+      name: Cha_Idle_Hand_6
       rect:
         serializedVersion: 2
         x: 192
@@ -280,14 +280,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 341af0f627e57f5f0800000000000000
-      internalID: -723005369587097277
+      spriteID: 971431140fcdf5e40800000000000000
+      internalID: 5647475382187934073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_7
+      name: Cha_Idle_Hand_7
       rect:
         serializedVersion: 2
         x: 224
@@ -302,14 +302,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d32b603831908b400800000000000000
-      internalID: 340031751273755197
+      spriteID: 65b2cdc66467bc220800000000000000
+      internalID: 2507227662407969622
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_8
+      name: Cha_Idle_Hand_8
       rect:
         serializedVersion: 2
         x: 256
@@ -324,14 +324,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e926d896f1784fed0800000000000000
-      internalID: -2381129733987540322
+      spriteID: 6c24defed8d4acd40800000000000000
+      internalID: 5605377958227034822
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_9
+      name: Cha_Idle_Hand_9
       rect:
         serializedVersion: 2
         x: 288
@@ -346,14 +346,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eebf3751ff29c8f70800000000000000
-      internalID: 9190882563830578158
+      spriteID: 56fdca8b9e7dd3ce0800000000000000
+      internalID: -1423744508353519771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_10
+      name: Cha_Idle_Hand_10
       rect:
         serializedVersion: 2
         x: 320
@@ -368,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1ebc9b95812c4b00800000000000000
-      internalID: 814062490372324890
+      spriteID: ae478a8e6b40e25f0800000000000000
+      internalID: -779680501854604054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cha_Idle_11
+      name: Cha_Idle_Hand_11
       rect:
         serializedVersion: 2
         x: 352
@@ -390,8 +390,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76804d8e5a9a777c0800000000000000
-      internalID: -4073600807892416409
+      spriteID: 8245eb03ba264d780800000000000000
+      internalID: -8659187696129911768
       vertices: []
       indices: 
       edges: []
@@ -400,7 +400,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cb97cc79c41840644990fcfcab3a3469
+    spriteID: 3aea70fb4cc956e4abb0aa949431f009
     internalID: 0
     vertices: []
     indices: 
@@ -412,18 +412,18 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":35.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Cha_Idle_0: -4411376431094369397
-      Cha_Idle_1: -9085249970339205364
-      Cha_Idle_10: 814062490372324890
-      Cha_Idle_11: -4073600807892416409
-      Cha_Idle_2: -350819686858132890
-      Cha_Idle_3: -2765281166001853700
-      Cha_Idle_4: -6456037672153364650
-      Cha_Idle_5: 2801714501430402459
-      Cha_Idle_6: -723005369587097277
-      Cha_Idle_7: 340031751273755197
-      Cha_Idle_8: -2381129733987540322
-      Cha_Idle_9: 9190882563830578158
+      Cha_Idle_Hand_0: 5906104448968894900
+      Cha_Idle_Hand_1: -7906535332560680627
+      Cha_Idle_Hand_10: -779680501854604054
+      Cha_Idle_Hand_11: -8659187696129911768
+      Cha_Idle_Hand_2: -3361365208795555657
+      Cha_Idle_Hand_3: -8345481407314407017
+      Cha_Idle_Hand_4: -3117054776807061205
+      Cha_Idle_Hand_5: 2926497013496723269
+      Cha_Idle_Hand_6: 5647475382187934073
+      Cha_Idle_Hand_7: 2507227662407969622
+      Cha_Idle_Hand_8: 5605377958227034822
+      Cha_Idle_Hand_9: -1423744508353519771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

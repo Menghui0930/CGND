@@ -8,6 +8,7 @@ public class PlayerState : MonoBehaviour {
     protected InputAction jumping;
 
     protected PlayerController _playerController;
+    protected Animator _animator;
 
     // movement
     protected Vector2 moveDirection;
@@ -24,6 +25,7 @@ public class PlayerState : MonoBehaviour {
 
     protected virtual void InitState() {
         _playerController = GetComponent<PlayerController>();
+        _animator = GetComponent<Animator>();
     }
 
     public virtual void ExecuteState() {

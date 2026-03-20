@@ -26,6 +26,7 @@ public class PlayerMovement : PlayerState {
     }
 
     public override void SetAnimation() {
-
+        _animator.SetBool("Idle", _horizontalInput == 0 && _playerController.isGrounded);
+        _animator.SetBool("Run", Mathf.Abs(_horizontalInput) > 0.1f && _playerController.isGrounded);
     }
 }
