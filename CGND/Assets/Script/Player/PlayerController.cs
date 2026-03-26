@@ -59,6 +59,8 @@ public class PlayerController : MonoBehaviour {
         if (theRB.linearVelocity.y < 0) {
             theRB.linearVelocity += Vector2.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
+
+        
     }
 
     private void FaceDirection() {

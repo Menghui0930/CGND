@@ -1004,6 +1004,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Revive",
+                    "type": "Button",
+                    "id": "6ad333ca-efdf-499a-a28c-24e0b65580e7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TriggerBlackFade",
+                    "type": "Button",
+                    "id": "a1b625e6-e87c-4b2b-b814-88b70409b7b3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1015,6 +1033,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Damage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f472590b-452d-408d-85be-37857c6cb289",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Revive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2fce853-46b2-427e-adcb-d8be7cd2f4b9",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TriggerBlackFade",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

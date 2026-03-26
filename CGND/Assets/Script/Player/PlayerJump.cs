@@ -40,11 +40,20 @@ public class PlayerJump : PlayerState {
             JumpLeft -= 1;
             float jumpForce = Mathf.Sqrt(jumpHeight * Mathf.Abs(Physics2D.gravity.y));
             _playerController.SetVerticalForce(jumpForce);
+            _animator.SetBool("Jump",true);
             _playerController.isJumping = true;
         }
     }
 
     public override void SetAnimation() {
+        if (_playerController.theRB.linearVelocityY > 0) {
+            _animator.SetFloat("FloatY", 1);
+        } else if (_playerController.theRB.linearVelocityY <= 0) {
+            _animator.SetFloat("FloatY", -1);
+        }
 
+        if (_playerController.isGrounded) {
+            _animator.SetBool("Jump",false);
+        }
     }
 }

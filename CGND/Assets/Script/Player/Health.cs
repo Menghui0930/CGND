@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Health : MonoBehaviour
 {
+    public static Action<PlayerMotor> OnDeath;
     public InputAction Damage;
 
     [Header("Settings")]
@@ -48,6 +50,7 @@ public class Health : MonoBehaviour
         if (_currentLifes <= 0) {
             _currentLifes = 0;
             //Death
+            OnDeath?.Invoke(gameObject.GetComponent<PlayerMotor>());
         }
         //status = "Hurt";
 
