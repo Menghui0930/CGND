@@ -51,6 +51,7 @@ public class Health : MonoBehaviour
             _currentLifes = 0;
             //Death
             OnDeath?.Invoke(gameObject.GetComponent<PlayerMotor>());
+            return;
         }
         //status = "Hurt";
 
@@ -68,7 +69,12 @@ public class Health : MonoBehaviour
     }
 
     public void ResetLife() {
-        _currentLifes = lifes;
+        _currentLifes = _maxLifes;
+        invincible = false;
+        StopAllCoroutines();
+        foreach (SpriteRenderer sr in allSR) {
+            sr.color = new Color(1, 1, 1, 1);
+        }
         //status = "Heal";
     }
 

@@ -57,8 +57,9 @@ public class LevelManager : MonoBehaviour
 
     private void PlayerDeath(PlayerMotor playerMotor) {
         //_currentPlayer = player;
+        player.GetComponent<Health>().ResetLife();
         player.gameObject.SetActive(false);
-        //StartCoroutine(RespawnCo());
+        StartCoroutine(RespawnCo());
     }
 
     private void RevivePlayer() {
@@ -70,17 +71,15 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    /*
+    
     private IEnumerator RespawnCo() {
-        //stopcharacter
-        yield return new WaitForSeconds(waitToRespawn - (1 / UIManager.Instance.fadeSpeed));
-        UIManager.Instance.FadeToBlack();
-        yield return new WaitForSeconds((1 / UIManager.Instance.fadeSpeed) + .2f);
-        UIManager.Instance.FadeFromBlack();
-        //character start
+        yield return new WaitForSeconds(1f);
+        WipeController.instance.FadeOut();
+        yield return new WaitForSeconds(1f);
+        WipeController.instance.FadeIn();
         RevivePlayer();
     }
-    */
+    
 
     private void OnEnable() {
         Health.OnDeath += PlayerDeath;

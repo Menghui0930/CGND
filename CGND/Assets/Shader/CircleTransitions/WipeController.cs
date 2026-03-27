@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class WipeController : MonoBehaviour
 {
+    public static WipeController instance;
     private Animator anim;
     private Image _image;
     private readonly int _circleSizeId = Shader.PropertyToID("_Circle_Size");
@@ -12,12 +13,16 @@ public class WipeController : MonoBehaviour
     public float circleSize = 0;
 
     private InputAction testBlackFade;
+    private void Awake() {
+        instance = this;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         anim = GetComponent<Animator>();
         _image = GetComponent<Image>();
         testBlackFade = InputSystem.actions.FindAction("TriggerBlackFade");
+        FadeIn();
     }
 
     // Update is called once per frame

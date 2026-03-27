@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController instance;
@@ -36,7 +36,6 @@ public class PlayerController : MonoBehaviour {
         theRB = GetComponent<Rigidbody2D>();
     }
 
-
     void Update() {
         // Face Direction
         FaceDirection();
@@ -46,7 +45,7 @@ public class PlayerController : MonoBehaviour {
         theRB.linearVelocity = new Vector2(_force.x, theRB.linearVelocity.y);
 
         // Jumping
-        isGrounded = Physics2D.OverlapCircle(groundChecker.position, 0.5f, groundMask);
+        isGrounded = Physics2D.OverlapCircle(groundChecker.position, 0.3f, groundMask);
         if (isJumping) {
             theRB.linearVelocityY = 0;
             theRB.AddForce(new Vector2(0, _force.y), ForceMode2D.Impulse);
@@ -79,6 +78,14 @@ public class PlayerController : MonoBehaviour {
 
     private void RotateModel() {
         transform.localScale = facingRight ? new Vector3(1, 1, 1) : new Vector3(-1, 1, 1);
+    }
+
+    private void OnDrawGizmos() {
+        if (groundChecker == null) return;
+
+        // 根據 isGrounded 變換顏色
+        Gizmos.color = isGrounded ? Color.green : Color.red;
+        Gizmos.DrawWireSphere(groundChecker.position, 0.3f); // 跟你的半徑一樣
     }
 
 

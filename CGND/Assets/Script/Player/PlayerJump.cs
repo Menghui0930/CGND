@@ -8,6 +8,7 @@ public class PlayerJump : PlayerState {
 
     public int JumpLeft;
 
+
     protected override void Awake() {
         base.Awake();
         jumping = InputSystem.actions.FindAction("Jump");
@@ -25,7 +26,7 @@ public class PlayerJump : PlayerState {
     }
 
     public override void ExecuteState() {
-        if (_playerController.isGrounded && _playerController.Force.y == 0) {
+        if (_playerController.isGrounded && _playerController.Force.y == 0 && _playerController.theRB.linearVelocityY ==0f) {
             JumpLeft = maxJumps;
         }
     }
