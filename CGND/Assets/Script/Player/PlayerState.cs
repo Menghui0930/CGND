@@ -7,6 +7,8 @@ public class PlayerState : MonoBehaviour {
     protected InputAction playerMovement;
     protected InputAction jumping;
     protected InputAction dashing;
+    protected InputAction attack;
+    protected InputAction switching;
 
     protected PlayerController _playerController;
     protected Animator _animator;
