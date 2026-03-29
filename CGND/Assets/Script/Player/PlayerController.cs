@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
     public static PlayerController instance;
@@ -16,8 +15,8 @@ public class PlayerController : MonoBehaviour {
     [Header("Face Direction")]
     // Face Direction
     public bool facingRight;
-    //private int internalFaceDirection = 1;
-    //private int faceDirection;
+    private int internalFaceDirection = 1;
+    private int faceDirection;
 
     [Header("Jumping")]
     // Jumping
@@ -64,7 +63,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FaceDirection() {
-        /*
         faceDirection = internalFaceDirection;
         facingRight = faceDirection == 1;
 
@@ -76,10 +74,6 @@ public class PlayerController : MonoBehaviour {
             facingRight = false;
         }
         internalFaceDirection = faceDirection;
-        */
-
-        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        facingRight = mouseWorldPos.x > transform.position.x;
     }
 
     private void RotateModel() {
@@ -89,9 +83,9 @@ public class PlayerController : MonoBehaviour {
     private void OnDrawGizmos() {
         if (groundChecker == null) return;
 
-        // if ground will red color 
+        // 根據 isGrounded 變換顏色
         Gizmos.color = isGrounded ? Color.green : Color.red;
-        Gizmos.DrawWireSphere(groundChecker.position, 0.3f); 
+        Gizmos.DrawWireSphere(groundChecker.position, 0.3f); // 跟你的半徑一樣
     }
 
 
