@@ -5,10 +5,15 @@ public class PlayerBasicAttack : PlayerState {
     [SerializeField] private float shootingSpeed = 15f;
     [SerializeField] private float fireRate = 0.2f;
     [SerializeField] private Transform magicPosition;
-    [SerializeField] private GameObject magicBallPrefab;
+    [SerializeField] private GameObject grassBallPrefab;
+    [SerializeField] private GameObject waterBallPrefab;
+    [SerializeField] private GameObject windBallPrefab;
 
     private bool isHolding = false;
     private float fireTimer = 0f;
+
+    private PlayerElementSwitch _playerElementSwitch;
+    private GameObject elementBallPrefab;
 
     protected override void Awake() {
         base.Awake();
@@ -17,6 +22,7 @@ public class PlayerBasicAttack : PlayerState {
 
     protected override void InitState() {
         base.InitState();
+        _playerElementSwitch = GetComponent<PlayerElementSwitch>();
     }
 
     public override void ExecuteState() {
@@ -50,7 +56,14 @@ public class PlayerBasicAttack : PlayerState {
     }
 
     private void Shoot() {
-        GameObject ball = Instantiate(magicBallPrefab, magicPosition.position, magicPosition.rotation);
+        elementBallPrefab = _playerElementSwitch.current_element switch {
+            PlayerElementSwitch.Element.Grass => grassBallPrefab,
+            PlayerElementSwitch.Element.Water => waterBallPrefab,
+            PlayerElementSwitch.Element.Wind => windBallPrefab,
+            _ => grassBallPrefab
+        };
+
+        GameObject ball = Instantiate(elementBallPrefab, magicPosition.position, magicPosition.rotation);
 
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mouseWorldPos.z = 0;

@@ -81,18 +81,18 @@ GameObject:
   - component: {fileID: 7298807976259640333}
   - component: {fileID: 75087927445195198}
   - component: {fileID: 5415787679197482351}
+  - component: {fileID: 3540245295065673831}
   - component: {fileID: 7709516707505948417}
   - component: {fileID: 5369188571248031492}
   - component: {fileID: 8542568505445409236}
   - component: {fileID: 5140635267745873971}
-  - component: {fileID: 3540245295065673831}
   - component: {fileID: 4624827715762026339}
   - component: {fileID: 1548983579806366506}
   - component: {fileID: 8194439507757785309}
   - component: {fileID: 3816925995774025164}
   - component: {fileID: 1762805250429374564}
   m_Layer: 0
-  m_Name: char
+  m_Name: Char
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,6 +240,28 @@ CapsuleCollider2D:
   m_Offset: {x: -0.3683412, y: 0}
   m_Size: {x: 1.326014, y: 2.2351115}
   m_Direction: 0
+--- !u!95 &3540245295065673831
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089567270684831309}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7afbe868736b9eb4bbece6f433d4f508, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &7709516707505948417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,28 +323,6 @@ MonoBehaviour:
   jumpHeight: 3
   maxJumps: 2
   JumpLeft: 0
---- !u!95 &3540245295065673831
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7089567270684831309}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7afbe868736b9eb4bbece6f433d4f508, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4624827715762026339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,7 +400,9 @@ MonoBehaviour:
   shootingSpeed: 15
   fireRate: 0.3
   magicPosition: {fileID: 2357673852386460044}
-  magicBallPrefab: {fileID: 2725977068258101326, guid: 423005190a5062143b508c93765da664, type: 3}
+  grassBallPrefab: {fileID: 2725977068258101326, guid: 1710ddf493518424daa36727eff033d0, type: 3}
+  waterBallPrefab: {fileID: 2725977068258101326, guid: 423005190a5062143b508c93765da664, type: 3}
+  windBallPrefab: {fileID: 1532130184104291775, guid: 9a08ba1276346d043ac4b3a50033a1de, type: 3}
 --- !u!114 &1762805250429374564
 MonoBehaviour:
   m_ObjectHideFlags: 0
