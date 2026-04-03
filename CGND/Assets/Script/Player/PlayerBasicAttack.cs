@@ -12,7 +12,7 @@ public class PlayerBasicAttack : PlayerState {
     private bool isHolding = false;
     private float fireTimer = 0f;
 
-    private PlayerElementSwitch _playerElementSwitch;
+    //private PlayerElementSwitch _playerElementSwitch;
     private GameObject elementBallPrefab;
 
     protected override void Awake() {
@@ -22,7 +22,7 @@ public class PlayerBasicAttack : PlayerState {
 
     protected override void InitState() {
         base.InitState();
-        _playerElementSwitch = GetComponent<PlayerElementSwitch>();
+        //_playerElementSwitch = GetComponent<PlayerElementSwitch>();
     }
 
     public override void ExecuteState() {
@@ -32,7 +32,7 @@ public class PlayerBasicAttack : PlayerState {
 
         if (fireTimer >= fireRate) {
             fireTimer = 0f;
-            Shoot();
+            //Shoot();
         }
     }
 
@@ -55,6 +55,7 @@ public class PlayerBasicAttack : PlayerState {
         isHolding = false;
     }
 
+    /*
     private void Shoot() {
         elementBallPrefab = _playerElementSwitch.current_element switch {
             PlayerElementSwitch.Element.Grass => grassBallPrefab,
@@ -79,5 +80,6 @@ public class PlayerBasicAttack : PlayerState {
 
         Destroy(ball, 3f);
     }
+    */
 }
 
