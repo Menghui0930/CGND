@@ -28,6 +28,9 @@ public class PlayerController : MonoBehaviour {
     public void SetHorizontalForce(float xForce) => _force.x = xForce;
     public void SetVerticalForce(float yForce) => _force.y = yForce;
 
+    //Attack
+    public bool isChargeAttack = false;
+
     private void Awake() {
         instance = this;
     }

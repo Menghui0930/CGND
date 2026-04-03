@@ -26,7 +26,7 @@ public class PlayerBasicAttack : PlayerState {
     }
 
     public override void ExecuteState() {
-        if (!isHolding) return;
+        if (!isHolding || _playerController.isChargeAttack) return;
 
         fireTimer += Time.deltaTime;
 
@@ -68,6 +68,9 @@ public class PlayerBasicAttack : PlayerState {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mouseWorldPos.z = 0;
         Vector2 direction = (mouseWorldPos - ball.transform.position).normalized;
+        if (!_playerController.facingRight) {
+            ball.transform.localScale = new Vector3(ball.transform.localScale.x * -1, ball.transform.localScale.y, transform.localScale.y);
+        }
 
         Rigidbody2D theRB = ball.GetComponent<Rigidbody2D>();
         if (theRB != null) {

@@ -7,6 +7,12 @@ public class PlayerState : MonoBehaviour {
     protected InputAction playerMovement;
     protected InputAction jumping;
     protected InputAction dashing;
+<<<<<<< HEAD
+=======
+    protected InputAction attack;
+    protected InputAction ChargeAttack;
+    protected InputAction switching;
+>>>>>>> MengHui
 
     protected PlayerController _playerController;
     protected Animator _animator;
