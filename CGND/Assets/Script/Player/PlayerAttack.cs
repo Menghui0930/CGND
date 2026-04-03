@@ -19,20 +19,20 @@ public class PlayerAttack : PlayerState
     private GameObject magicBallPrefab;
     private GameObject _currentMagicBall;
 
-    private PlayerElementSwitch _playerElementSwitch;
+    //private PlayerElementSwitch _playerElementSwitch;
 
     private bool isUpgradeWind;
 
 
     protected override void Awake() {
         base.Awake();
-        ChargeAttack = InputSystem.actions.FindAction("ChargeAttack");
+        //ChargeAttack = InputSystem.actions.FindAction("ChargeAttack");
 
     }
 
     protected override void InitState() {
         base.InitState();;
-        _playerElementSwitch = GetComponent<PlayerElementSwitch>();
+        //_playerElementSwitch = GetComponent<PlayerElementSwitch>();
     }
 
     protected override void GetInput() {
@@ -40,7 +40,7 @@ public class PlayerAttack : PlayerState
     }
 
     public override void ExecuteState() {
-        SwitchElement();
+        //SwitchElement();
             
         if (!isHolding) return;
 
@@ -66,13 +66,13 @@ public class PlayerAttack : PlayerState
     }
 
     private void OnEnable() {
-        ChargeAttack.started += OnAttackStarted;
-        ChargeAttack.canceled += OnAttackReleased;
+        //ChargeAttack.started += OnAttackStarted;
+        //ChargeAttack.canceled += OnAttackReleased;
     }
 
     private void OnDisable() {
-        ChargeAttack.started -= OnAttackStarted;
-        ChargeAttack.canceled -= OnAttackReleased;
+        //ChargeAttack.started -= OnAttackStarted;
+        //ChargeAttack.canceled -= OnAttackReleased;
     }
 
     private void OnAttackStarted(InputAction.CallbackContext context) {     
@@ -99,7 +99,7 @@ public class PlayerAttack : PlayerState
         //Destroy(_currentMagicBall);
         
     }
-
+    /*
     private void SwitchElement() {
         magicBallPrefab = _playerElementSwitch.current_element switch {
             PlayerElementSwitch.Element.Grass => grassBallPrefab,
@@ -117,6 +117,7 @@ public class PlayerAttack : PlayerState
 
 
     }
+    */
     /*
     private void SmallAttack() {
         holdTimer += Time.deltaTime;
