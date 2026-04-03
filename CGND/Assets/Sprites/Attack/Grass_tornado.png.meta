@@ -1,0 +1,855 @@
+fileFormatVersion: 2
+guid: bd2fe0903aeee9e45b977984bf78afa4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7777831911457512569
+    second: Grass_tornado_0
+  - first:
+      213: 8894539748068480533
+    second: Grass_tornado_1
+  - first:
+      213: -2103815335387727966
+    second: Grass_tornado_2
+  - first:
+      213: -1647873013981603046
+    second: Grass_tornado_3
+  - first:
+      213: 3739784557415102875
+    second: Grass_tornado_4
+  - first:
+      213: -411953694865860914
+    second: Grass_tornado_5
+  - first:
+      213: -1254047933936825578
+    second: Grass_tornado_6
+  - first:
+      213: -5869973104104073480
+    second: Grass_tornado_7
+  - first:
+      213: 3685189749728163579
+    second: Grass_tornado_8
+  - first:
+      213: 4925645363081412568
+    second: Grass_tornado_9
+  - first:
+      213: 582102268204142523
+    second: Grass_tornado_10
+  - first:
+      213: -5534812356762568885
+    second: Grass_tornado_11
+  - first:
+      213: 3141834939465330755
+    second: Grass_tornado_12
+  - first:
+      213: 2730672148540250709
+    second: Grass_tornado_13
+  - first:
+      213: -4383788685828751217
+    second: Grass_tornado_14
+  - first:
+      213: 2932380147008967971
+    second: Grass_tornado_15
+  - first:
+      213: -8963516711310191669
+    second: Grass_tornado_16
+  - first:
+      213: 2253060609776953262
+    second: Grass_tornado_17
+  - first:
+      213: -3897264340482545623
+    second: Grass_tornado_18
+  - first:
+      213: 1925709108165829693
+    second: Grass_tornado_19
+  - first:
+      213: -1902268974039906907
+    second: Grass_tornado_20
+  - first:
+      213: 5296273570759833715
+    second: Grass_tornado_21
+  - first:
+      213: 5645774908018323350
+    second: Grass_tornado_22
+  - first:
+      213: -1170163885395508016
+    second: Grass_tornado_23
+  - first:
+      213: 4027906687412499622
+    second: Grass_tornado_24
+  - first:
+      213: -7654210006172937238
+    second: Grass_tornado_25
+  - first:
+      213: 8606920398901753279
+    second: Grass_tornado_26
+  - first:
+      213: 6353084144827621591
+    second: Grass_tornado_27
+  - first:
+      213: 1643362061348800027
+    second: Grass_tornado_28
+  - first:
+      213: -4764172885149628623
+    second: Grass_tornado_29
+  - first:
+      213: -3352424488639526163
+    second: Grass_tornado_30
+  - first:
+      213: -4934667156875395088
+    second: Grass_tornado_31
+  - first:
+      213: -3062803065833424477
+    second: Grass_tornado_32
+  - first:
+      213: 509863236977744056
+    second: Grass_tornado_33
+  - first:
+      213: 2653147644667875338
+    second: Grass_tornado_34
+  - first:
+      213: -1039917073217526581
+    second: Grass_tornado_35
+  - first:
+      213: 3575616333125938481
+    second: Grass_tornado_36
+  - first:
+      213: 7353536036513782850
+    second: Grass_tornado_37
+  - first:
+      213: 4020755576730259341
+    second: Grass_tornado_38
+  - first:
+      213: 3166897465702406495
+    second: Grass_tornado_39
+  - first:
+      213: -5816443086392315631
+    second: Grass_tornado_40
+  - first:
+      213: 6820522327908570155
+    second: Grass_tornado_41
+  - first:
+      213: 5561440130673785327
+    second: Grass_tornado_42
+  - first:
+      213: -2260959629476052818
+    second: Grass_tornado_43
+  - first:
+      213: 7414326609990159187
+    second: Grass_tornado_44
+  - first:
+      213: 6627300558464324358
+    second: Grass_tornado_45
+  - first:
+      213: 6986024341113673350
+    second: Grass_tornado_46
+  - first:
+      213: -2668969126193052193
+    second: Grass_tornado_47
+  - first:
+      213: 854508655389667943
+    second: Grass_tornado_48
+  - first:
+      213: 8737031652105878450
+    second: Grass_tornado_49
+  - first:
+      213: -487594803907716760
+    second: Grass_tornado_50
+  - first:
+      213: 7754442304835912415
+    second: Grass_tornado_51
+  - first:
+      213: -7454605001295402900
+    second: Grass_tornado_52
+  - first:
+      213: -459455500659400773
+    second: Grass_tornado_53
+  - first:
+      213: 9060934970661096684
+    second: Grass_tornado_54
+  - first:
+      213: -3335507869461826378
+    second: Grass_tornado_55
+  - first:
+      213: 2489034646501723273
+    second: Grass_tornado_56
+  - first:
+      213: -4499173221380741625
+    second: Grass_tornado_57
+  - first:
+      213: -5811725330232864160
+    second: Grass_tornado_58
+  - first:
+      213: -2559552398157074305
+    second: Grass_tornado_59
+  - first:
+      213: 9045121057330643968
+    second: Grass_tornado_60
+  - first:
+      213: -8355991425191171443
+    second: Grass_tornado_61
+  - first:
+      213: -4965096930663275482
+    second: Grass_tornado_62
+  - first:
+      213: 1046372300269559821
+    second: Grass_tornado_63
+  - first:
+      213: 6836820431958738273
+    second: Grass_tornado_64
+  - first:
+      213: 7751381031491212384
+    second: Grass_tornado_65
+  - first:
+      213: 3245325157906571331
+    second: Grass_tornado_66
+  - first:
+      213: 3130493085737553874
+    second: Grass_tornado_67
+  - first:
+      213: 801603145679188276
+    second: Grass_tornado_68
+  - first:
+      213: -45216183391403344
+    second: Grass_tornado_69
+  - first:
+      213: 3210835908058947589
+    second: Grass_tornado_70
+  - first:
+      213: 2203434783932154529
+    second: Grass_tornado_71
+  - first:
+      213: -7292279497152632001
+    second: Grass_tornado_72
+  - first:
+      213: 5602017562767008566
+    second: Grass_tornado_73
+  - first:
+      213: -2077982182166223581
+    second: Grass_tornado_74
+  - first:
+      213: -5628466216236149080
+    second: Grass_tornado_75
+  - first:
+      213: 2460159122324984207
+    second: Grass_tornado_76
+  - first:
+      213: 8971740343851253468
+    second: Grass_tornado_77
+  - first:
+      213: 4975598333997477354
+    second: Grass_tornado_78
+  - first:
+      213: -4720080486753331385
+    second: Grass_tornado_79
+  - first:
+      213: 5177996819071695043
+    second: Grass_tornado_80
+  - first:
+      213: 644282693149335582
+    second: Grass_tornado_81
+  - first:
+      213: 1928900042100295642
+    second: Grass_tornado_82
+  - first:
+      213: 7687236883079363645
+    second: Grass_tornado_83
+  - first:
+      213: -1314748728260749239
+    second: Grass_tornado_84
+  - first:
+      213: -2013284919715539456
+    second: Grass_tornado_85
+  - first:
+      213: 8826289546707157202
+    second: Grass_tornado_86
+  - first:
+      213: -3314800861176832339
+    second: Grass_tornado_87
+  - first:
+      213: -4980180307776142173
+    second: Grass_tornado_88
+  - first:
+      213: 2732198425244317104
+    second: Grass_tornado_89
+  - first:
+      213: 7354439291264886679
+    second: Grass_tornado_90
+  - first:
+      213: 1567425226573113665
+    second: Grass_tornado_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Grass_tornado_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97c5f1d2ae860fb60800000000000000
+      internalID: 7777831911457512569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516d63c86c0cf6b70800000000000000
+      internalID: 8894539748068480533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a7f135591fbdc2e0800000000000000
+      internalID: -2103815335387727966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1b9cae79349129e0800000000000000
+      internalID: -1647873013981603046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b99f731ad3266e330800000000000000
+      internalID: 3739784557415102875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec65c911c42784af0800000000000000
+      internalID: -411953694865860914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b026e5c0ab89ee0800000000000000
+      internalID: -1254047933936825578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f697c0ff8aa98ea0800000000000000
+      internalID: -5869973104104073480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf6357a6d8c642330800000000000000
+      internalID: 3685189749728163579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df740c4c586b5440800000000000000
+      internalID: 4925645363081412568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbfc147cdea041800800000000000000
+      internalID: 582102268204142523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4779b87c756033b0800000000000000
+      internalID: -5534812356762568885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340fdb53b3a0a9b20800000000000000
+      internalID: 3141834939465330755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55a5bc3f9db45e520800000000000000
+      internalID: 2730672148540250709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f800dc2aa67a923c0800000000000000
+      internalID: -4383788685828751217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32590e01538e1b820800000000000000
+      internalID: 2932380147008967971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc31414ba013b9380800000000000000
+      internalID: -8963516711310191669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea72e27ffaa744f10800000000000000
+      internalID: 2253060609776953262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 928adbd1bb22ae9c0800000000000000
+      internalID: -3897264340482545623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Grass_tornado_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3465f42b3e79ba10800000000000000
+      internalID: 1925709108165829693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bfcdab33640aaff4d8763f9ee661b6e7
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Grass_tornado_0: 7777831911457512569
+      Grass_tornado_1: 8894539748068480533
+      Grass_tornado_10: 582102268204142523
+      Grass_tornado_11: -5534812356762568885
+      Grass_tornado_12: 3141834939465330755
+      Grass_tornado_13: 2730672148540250709
+      Grass_tornado_14: -4383788685828751217
+      Grass_tornado_15: 2932380147008967971
+      Grass_tornado_16: -8963516711310191669
+      Grass_tornado_17: 2253060609776953262
+      Grass_tornado_18: -3897264340482545623
+      Grass_tornado_19: 1925709108165829693
+      Grass_tornado_2: -2103815335387727966
+      Grass_tornado_3: -1647873013981603046
+      Grass_tornado_4: 3739784557415102875
+      Grass_tornado_5: -411953694865860914
+      Grass_tornado_6: -1254047933936825578
+      Grass_tornado_7: -5869973104104073480
+      Grass_tornado_8: 3685189749728163579
+      Grass_tornado_9: 4925645363081412568
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

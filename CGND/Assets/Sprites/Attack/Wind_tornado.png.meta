@@ -1,0 +1,855 @@
+fileFormatVersion: 2
+guid: 975525fad259f1943a6b729f782fb18e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2501687558182226290
+    second: Wind_tornado_0
+  - first:
+      213: 6692856810511310937
+    second: Wind_tornado_1
+  - first:
+      213: -5406219869995990484
+    second: Wind_tornado_2
+  - first:
+      213: -2906075710938224407
+    second: Wind_tornado_3
+  - first:
+      213: 8631684995603459709
+    second: Wind_tornado_4
+  - first:
+      213: -662163641360193445
+    second: Wind_tornado_5
+  - first:
+      213: -6236672041516877200
+    second: Wind_tornado_6
+  - first:
+      213: 183542545759841552
+    second: Wind_tornado_7
+  - first:
+      213: -822414538392617094
+    second: Wind_tornado_8
+  - first:
+      213: 7336616565720993579
+    second: Wind_tornado_9
+  - first:
+      213: 1612200941302965454
+    second: Wind_tornado_10
+  - first:
+      213: -4420825275880462464
+    second: Wind_tornado_11
+  - first:
+      213: 9012169213935984843
+    second: Wind_tornado_12
+  - first:
+      213: -5058940823535013798
+    second: Wind_tornado_13
+  - first:
+      213: 6484678695924806116
+    second: Wind_tornado_14
+  - first:
+      213: -5045742695438626694
+    second: Wind_tornado_15
+  - first:
+      213: 1271562745041238575
+    second: Wind_tornado_16
+  - first:
+      213: 6305810630679706668
+    second: Wind_tornado_17
+  - first:
+      213: -8162401337482394849
+    second: Wind_tornado_18
+  - first:
+      213: 5060377942172968992
+    second: Wind_tornado_19
+  - first:
+      213: -1778071156456942867
+    second: Wind_tornado_20
+  - first:
+      213: -7049947189437851992
+    second: Wind_tornado_21
+  - first:
+      213: -2066009082496129629
+    second: Wind_tornado_22
+  - first:
+      213: -3160766999380520823
+    second: Wind_tornado_23
+  - first:
+      213: -4551264261381597532
+    second: Wind_tornado_24
+  - first:
+      213: -7647415905900552554
+    second: Wind_tornado_25
+  - first:
+      213: 8816826175101509894
+    second: Wind_tornado_26
+  - first:
+      213: 8255303590191334010
+    second: Wind_tornado_27
+  - first:
+      213: 1857384088716314496
+    second: Wind_tornado_28
+  - first:
+      213: 8373812963236611398
+    second: Wind_tornado_29
+  - first:
+      213: 8903393626381208402
+    second: Wind_tornado_30
+  - first:
+      213: 6468846008849601042
+    second: Wind_tornado_31
+  - first:
+      213: -8549559425237312590
+    second: Wind_tornado_32
+  - first:
+      213: 1896095232180924429
+    second: Wind_tornado_33
+  - first:
+      213: 3473172082854705584
+    second: Wind_tornado_34
+  - first:
+      213: -7218845402174126565
+    second: Wind_tornado_35
+  - first:
+      213: 4329967523994698966
+    second: Wind_tornado_36
+  - first:
+      213: -6275242687572471685
+    second: Wind_tornado_37
+  - first:
+      213: 5061850322282847967
+    second: Wind_tornado_38
+  - first:
+      213: -2034533926413480544
+    second: Wind_tornado_39
+  - first:
+      213: 8074654666584724188
+    second: Wind_tornado_40
+  - first:
+      213: 2453868982901793846
+    second: Wind_tornado_41
+  - first:
+      213: -3265857614887434250
+    second: Wind_tornado_42
+  - first:
+      213: -5588437095219739467
+    second: Wind_tornado_43
+  - first:
+      213: -2986133681313014036
+    second: Wind_tornado_44
+  - first:
+      213: -4698505985363515655
+    second: Wind_tornado_45
+  - first:
+      213: 2871304960848700676
+    second: Wind_tornado_46
+  - first:
+      213: -4006915959097882982
+    second: Wind_tornado_47
+  - first:
+      213: -3773348032531257669
+    second: Wind_tornado_48
+  - first:
+      213: -3034970503085795381
+    second: Wind_tornado_49
+  - first:
+      213: 6621023953544608127
+    second: Wind_tornado_50
+  - first:
+      213: -2348004989052570834
+    second: Wind_tornado_51
+  - first:
+      213: -5973123148025134028
+    second: Wind_tornado_52
+  - first:
+      213: -3010157430379380723
+    second: Wind_tornado_53
+  - first:
+      213: -5953818077809968648
+    second: Wind_tornado_54
+  - first:
+      213: -3998965726318489455
+    second: Wind_tornado_55
+  - first:
+      213: 7629449520353285703
+    second: Wind_tornado_56
+  - first:
+      213: -6506191769626271996
+    second: Wind_tornado_57
+  - first:
+      213: 8881981418774590944
+    second: Wind_tornado_58
+  - first:
+      213: 8778790324906893460
+    second: Wind_tornado_59
+  - first:
+      213: -2123090164949944640
+    second: Wind_tornado_60
+  - first:
+      213: 8633472837765485197
+    second: Wind_tornado_61
+  - first:
+      213: 617508198699595606
+    second: Wind_tornado_62
+  - first:
+      213: -3677457259516138450
+    second: Wind_tornado_63
+  - first:
+      213: -8590843616011830493
+    second: Wind_tornado_64
+  - first:
+      213: 157082332390885355
+    second: Wind_tornado_65
+  - first:
+      213: -4321928918886214248
+    second: Wind_tornado_66
+  - first:
+      213: -289020085340337097
+    second: Wind_tornado_67
+  - first:
+      213: 7062071531163763089
+    second: Wind_tornado_68
+  - first:
+      213: 3253320293317449129
+    second: Wind_tornado_69
+  - first:
+      213: -2508743983311867790
+    second: Wind_tornado_70
+  - first:
+      213: 2874584120060694706
+    second: Wind_tornado_71
+  - first:
+      213: -5491087608302745853
+    second: Wind_tornado_72
+  - first:
+      213: -3728675658443203201
+    second: Wind_tornado_73
+  - first:
+      213: -1617898561654322555
+    second: Wind_tornado_74
+  - first:
+      213: 2915493282507589326
+    second: Wind_tornado_75
+  - first:
+      213: 1598481051311492191
+    second: Wind_tornado_76
+  - first:
+      213: 7021114336954195325
+    second: Wind_tornado_77
+  - first:
+      213: 825051897274870024
+    second: Wind_tornado_78
+  - first:
+      213: 8582641315500262560
+    second: Wind_tornado_79
+  - first:
+      213: 8927360618065155402
+    second: Wind_tornado_80
+  - first:
+      213: -8301273988132854434
+    second: Wind_tornado_81
+  - first:
+      213: 6139815095659406308
+    second: Wind_tornado_82
+  - first:
+      213: 4110968657832402558
+    second: Wind_tornado_83
+  - first:
+      213: -3141187515928961029
+    second: Wind_tornado_84
+  - first:
+      213: 622335461859616953
+    second: Wind_tornado_85
+  - first:
+      213: -8914852889357437417
+    second: Wind_tornado_86
+  - first:
+      213: 4552032923370170272
+    second: Wind_tornado_87
+  - first:
+      213: -2888957348252116592
+    second: Wind_tornado_88
+  - first:
+      213: -3601329106997608920
+    second: Wind_tornado_89
+  - first:
+      213: 796570486435264948
+    second: Wind_tornado_90
+  - first:
+      213: -1946368717418958791
+    second: Wind_tornado_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wind_tornado_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e86b88b9b68384dd0800000000000000
+      internalID: -2501687558182226290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 950a4131fcdc1ec50800000000000000
+      internalID: 6692856810511310937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c220b3febaf39f4b0800000000000000
+      internalID: -5406219869995990484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e8e227b98b8ba7d0800000000000000
+      internalID: -2906075710938224407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 288
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e630855c7e9c770800000000000000
+      internalID: 8631684995603459709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58eb8d2da58fc6f0800000000000000
+      internalID: -662163641360193445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07ab6c052d3e279a0800000000000000
+      internalID: -6236672041516877200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01daf2119f21c8200800000000000000
+      internalID: 183542545759841552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7fbdfca5523694f0800000000000000
+      internalID: -822414538392617094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2fcb0d35e5e0d560800000000000000
+      internalID: 7336616565720993579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4e9ecd630bf5610800000000000000
+      internalID: 1612200941302965454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 087a31985d216a2c0800000000000000
+      internalID: -4420825275880462464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc0ad5cc628a11d70800000000000000
+      internalID: 9012169213935984843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a503979df180bc9b0800000000000000
+      internalID: -5058940823535013798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 96
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e13429aae43ef950800000000000000
+      internalID: 6484678695924806116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70db5280cbe9f9b0800000000000000
+      internalID: -5045742695438626694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2abdcf549f75a110800000000000000
+      internalID: 1271562745041238575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2cbb86eb5db28750800000000000000
+      internalID: 6305810630679706668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f134035da3359be80800000000000000
+      internalID: -8162401337482394849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wind_tornado_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02821786de21a3640800000000000000
+      internalID: 5060377942172968992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cc4b88533817630418c5c65ab70556d4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":96.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Wind_tornado_0: -2501687558182226290
+      Wind_tornado_1: 6692856810511310937
+      Wind_tornado_10: 1612200941302965454
+      Wind_tornado_11: -4420825275880462464
+      Wind_tornado_12: 9012169213935984843
+      Wind_tornado_13: -5058940823535013798
+      Wind_tornado_14: 6484678695924806116
+      Wind_tornado_15: -5045742695438626694
+      Wind_tornado_16: 1271562745041238575
+      Wind_tornado_17: 6305810630679706668
+      Wind_tornado_18: -8162401337482394849
+      Wind_tornado_19: 5060377942172968992
+      Wind_tornado_2: -5406219869995990484
+      Wind_tornado_3: -2906075710938224407
+      Wind_tornado_4: 8631684995603459709
+      Wind_tornado_5: -662163641360193445
+      Wind_tornado_6: -6236672041516877200
+      Wind_tornado_7: 183542545759841552
+      Wind_tornado_8: -822414538392617094
+      Wind_tornado_9: 7336616565720993579
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
