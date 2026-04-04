@@ -32,14 +32,13 @@ public class SpikePlatform1 : MonoBehaviour
         {
             sr.color = Color.white;
         }
-
         if (playerOnPlatform)
         {
             timer += Time.deltaTime;
 
             if (timer >= waitTime)
             {
-                spikes.SetActive(true);   // show spikes
+                spikes.SetActive(true);   
             }
         }
     }
