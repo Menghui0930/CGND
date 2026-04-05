@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Text
+  - Enemy
+  - Water
+  - Vine
+  - WaterBall
   layers:
   - Default
   - TransparentFX
@@ -41,6 +46,18 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 211282163
+    locked: 0
+  - name: platform
+    uniqueID: 2297505459
+    locked: 0
+  - name: grass
+    uniqueID: 2562877365
+    locked: 0
+  - name: platform1
+    uniqueID: 1487702149
     locked: 0
   m_RenderingLayers:
   - Default
