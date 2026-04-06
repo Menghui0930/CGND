@@ -1,19 +1,16 @@
 using UnityEngine;
 
-public class OrbitingSpikes : MonoBehaviour
+public class MovingSpikes : MonoBehaviour
 {
-    
+    public int damage;
     public float speed = 5f;
     public Transform[] points;
-
     private int i;
 
     void Start()
     {
         transform.position = points[0].position;
-
     }
-
 
     void Update()
     {
@@ -25,17 +22,14 @@ public class OrbitingSpikes : MonoBehaviour
                 i = 0;
             }
         }
-
-        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed = Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, points[i].position, speed * Time.deltaTime); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-
             Debug.Log("Player Hit");
-           
         }
     }
 }

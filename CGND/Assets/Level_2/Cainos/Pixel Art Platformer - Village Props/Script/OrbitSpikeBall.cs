@@ -5,7 +5,7 @@ public class OrbitSpikeBall : MonoBehaviour
     public Transform platform;      
     public float radius = 2f;       
     public float speed = 90f;       
-    public int damage;
+    
     public float yOffset;
     public float startAngle = 0f;
 
@@ -31,7 +31,7 @@ public class OrbitSpikeBall : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Player Hit");
-            damage++;
+            
             
         }
     }
