@@ -63,5 +63,8 @@ TagManager:
   - name: flower
     uniqueID: 2917332201
     locked: 0
+  - name: Boss
+    uniqueID: 413180139
+    locked: 0
   m_RenderingLayers:
   - Default
