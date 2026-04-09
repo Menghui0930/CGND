@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2786325678147676055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7387556992549230996}
+  m_Layer: 0
+  m_Name: TornadoPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7387556992549230996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2786325678147676055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.14, y: 1.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7258713675296190203}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4623264407940169980
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,6 +178,7 @@ Transform:
   - {fileID: 5126764307995781969}
   - {fileID: 2357673852386460044}
   - {fileID: 2891981274866495830}
+  - {fileID: 7387556992549230996}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7298807976259640333
@@ -437,8 +469,8 @@ MonoBehaviour:
   shootingSpeed: 15
   grassBallPrefab: {fileID: 1856519853342817237, guid: 678a855e98ef32245b230452dff253db, type: 3}
   waterBallPrefab: {fileID: 5300786572387539733, guid: 3042ec390edd32244919a0c414ae6f77, type: 3}
-  windBallPrefab: {fileID: 66808777465483706, guid: dda585dece3e8e740a706e844f1248af, type: 3}
-  windTornadoPrefab: {fileID: 8766632411823735967, guid: e2378b71b3ce4e040a6a932cdcb0acdd, type: 3}
+  windBallPrefab: {fileID: 1682484094481008963, guid: 4fccd3cd0ef454f4f9ee23cd0149e534, type: 3}
+  windTornadoPrefab: {fileID: 1682484094481008963, guid: 4fccd3cd0ef454f4f9ee23cd0149e534, type: 3}
 --- !u!114 &1762805250429374564
 MonoBehaviour:
   m_ObjectHideFlags: 0

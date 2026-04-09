@@ -21,7 +21,7 @@ public class PlayerAttack : PlayerState
 
     private PlayerElementSwitch _playerElementSwitch;
 
-    private bool isUpgradeWind;
+    public bool isUpgradeWind;
 
 
     protected override void Awake() {
@@ -59,7 +59,7 @@ public class PlayerAttack : PlayerState
             isCharged=true;
             Debug.Log("Complete Charge");
         }
-        }
+    }
 
     public override void SetAnimation() {
         base.SetAnimation();
@@ -86,7 +86,11 @@ public class PlayerAttack : PlayerState
 
     private void OnAttackReleased(InputAction.CallbackContext context) {        
         if (isCharged) {
-            Shoot();
+            if (isUpgradeWind && _playerElementSwitch.current_element == PlayerElementSwitch.Element.Wind) {
+                ShootTornado();
+            } else {
+                Shoot();
+            }
         } else {
             Destroy(_currentMagicBall);
         }
@@ -160,6 +164,29 @@ public class PlayerAttack : PlayerState
         Vector2 direction = (mouseWorldPos - ball.transform.position).normalized;
         if (!_playerController.facingRight) {
             _currentMagicBall.transform.localScale = new Vector3(ball.transform.localScale.x * -1, ball.transform.localScale.y, 1);
+        }
+
+        Animator ballAnim = ball.GetComponent<Animator>();
+        ballAnim.SetTrigger("Shoot");
+        Rigidbody2D theRB = ball.GetComponent<Rigidbody2D>();
+        if (theRB != null) {
+            theRB.linearVelocity = direction * shootingSpeed;
+        }
+
+        Destroy(ball, 3f);
+    }
+
+    private void ShootTornado() {
+        if (_currentMagicBall == null) return;
+
+        GameObject ball = _currentMagicBall;
+        _currentMagicBall = null;
+
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mouseWorldPos.z = 0;
+        Vector2 direction = Vector2.right;
+        if (!_playerController.facingRight) {
+            direction = Vector2.left;
         }
 
         Animator ballAnim = ball.GetComponent<Animator>();
