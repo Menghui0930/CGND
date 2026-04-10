@@ -10,6 +10,10 @@ public class Tornado : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (other.CompareTag("Grass")) {
+            Destroy(other.gameObject);
+        }
+
         /*
         if (other.gameObject.CompareTag("Enemy")) {
             // get damage

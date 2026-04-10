@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2130917445752512559}
   - component: {fileID: 395120568836646882}
   - component: {fileID: 3377958111653481823}
-  - component: {fileID: 4071483622873611512}
+  - component: {fileID: 664806400541400543}
   m_Layer: 0
   m_Name: Grass_Ball_Bigl
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6143446266813613280, guid: 97abf5957ec5e6b4b985005987fc32a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,7 +180,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.19973367, y: 0}
   m_Radius: 0.707311
---- !u!114 &4071483622873611512
+--- !u!114 &664806400541400543
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1856519853342817237}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f14bb9cf3878014d995ce71494c2635, type: 3}
+  m_Script: {fileID: 11500000, guid: 040080756ad73f8489047681701083e8, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicBall
-  waterballDestroy: {fileID: 822649077703719597, guid: 6f1bfa32aa02f9446aed21e5a8383cc5, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::GrassMagicBall
+  grassballDestroy: {fileID: 822649077703719597, guid: 6f1bfa32aa02f9446aed21e5a8383cc5, type: 3}

@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2786325678147676055}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.14, y: 1.28, z: 0}
+  m_LocalPosition: {x: 2.14, y: 0.57, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -125,7 +125,7 @@ Transform:
   m_GameObject: {fileID: 6937728311170109130}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.58, y: 0.18000007, z: 0}
+  m_LocalPosition: {x: 0.78, y: 0.18000007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -228,7 +228,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -4411376431094369397, guid: 6e26610c53ee3a5428ac1bd6a1443c8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -466,11 +466,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
   chargeTime: 1.3
   magicPosition: {fileID: 2891981274866495830}
+  TornadomagicPosition: {fileID: 7387556992549230996}
   shootingSpeed: 15
   grassBallPrefab: {fileID: 1856519853342817237, guid: 678a855e98ef32245b230452dff253db, type: 3}
   waterBallPrefab: {fileID: 5300786572387539733, guid: 3042ec390edd32244919a0c414ae6f77, type: 3}
-  windBallPrefab: {fileID: 1682484094481008963, guid: 4fccd3cd0ef454f4f9ee23cd0149e534, type: 3}
+  windBallPrefab: {fileID: 66808777465483706, guid: dda585dece3e8e740a706e844f1248af, type: 3}
   windTornadoPrefab: {fileID: 1682484094481008963, guid: 4fccd3cd0ef454f4f9ee23cd0149e534, type: 3}
+  isUpgradeWind: 1
 --- !u!114 &1762805250429374564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -605,7 +607,7 @@ Transform:
   m_GameObject: {fileID: 7866517982464543573}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0.18000007, z: 0}
+  m_LocalPosition: {x: 0.28, y: 0.18000007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

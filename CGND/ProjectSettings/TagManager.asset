@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Text
   - Wall
+  - Enemy
+  - Grass
   layers:
   - Default
   - TransparentFX

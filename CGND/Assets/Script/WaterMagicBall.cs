@@ -29,13 +29,15 @@ public class WaterMagicBall : MonoBehaviour
             );
 
             if (hit.collider != null) {
-                // Base on hit normal reflect the velocity
-                Debug.Log("flip");
                 Vector2 reflected = Vector2.Reflect(velocity, hit.normal);
                 theRB.linearVelocity = reflected;
+                //Debug.Log(theRB.linearVelocity);
+                FlipBall(reflected); 
             } else {
-                // When it bounce at ceiling, raycast will a little bit hard 
-                theRB.linearVelocity = new Vector2(velocity.x, -velocity.y);
+                // Sometime raycast cannot detach ceiling so it will use this
+                Vector2 flipped = new Vector2(velocity.x, -velocity.y);
+                theRB.linearVelocity = flipped;
+                FlipBall(flipped); 
             }
 
             bounces++;
@@ -47,6 +49,15 @@ public class WaterMagicBall : MonoBehaviour
             DestroyBall();
         }
         */
+    }
+
+    private void FlipBall(Vector2 velocity) {
+        if (Mathf.Abs(velocity.x) < 0.01f) return;
+        //Debug.Log("flip");
+        float absX = Mathf.Abs(transform.localScale.x);
+        float dirX = velocity.x > 0 ? -absX : absX;
+        //Debug.Log(dirX);
+        transform.localScale = new Vector3(dirX, transform.localScale.y, transform.localScale.z);
     }
 
     private void DestroyBall() {
