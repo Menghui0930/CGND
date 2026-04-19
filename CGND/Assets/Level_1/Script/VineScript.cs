@@ -29,7 +29,6 @@ public class VineScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 检测水球碰到藤蔓
         if (collision.gameObject.CompareTag("WaterBall"))
         {
             Grow();
