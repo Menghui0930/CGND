@@ -5,12 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
-  - Text
   - Enemy
-  - Water
-  - Vine
-  - WaterBall
-  - Flower
+  - Trap
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -18,8 +15,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Background
+  - Tiles
   - 
   - 
   - 
@@ -47,27 +44,6 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: UI
-    uniqueID: 211282163
-    locked: 0
-  - name: platform
-    uniqueID: 2297505459
-    locked: 0
-  - name: grass
-    uniqueID: 2562877365
-    locked: 0
-  - name: platform1
-    uniqueID: 1487702149
-    locked: 0
-  - name: flower
-    uniqueID: 2917332201
-    locked: 0
-  - name: Boss
-    uniqueID: 413180139
-    locked: 0
-  - name: player
-    uniqueID: 4009070453
     locked: 0
   m_RenderingLayers:
   - Default

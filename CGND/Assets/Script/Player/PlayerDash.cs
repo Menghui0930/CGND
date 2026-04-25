@@ -8,7 +8,7 @@ public class PlayerDash : PlayerState
     [Header("Settings")]
     private bool canDash = true;
     //private bool isDashing;
-    [SerializeField] private float dashingDis = 3f;
+    [SerializeField] public float dashingDis = 3f;
     [SerializeField] private float dashingTime = 0.2f;
     [SerializeField] private float dashingCoolDown = 1f;
 

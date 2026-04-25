@@ -4,7 +4,7 @@ public class SpikeAppear : MonoBehaviour
 {
     public float popSpeed = 5f;
     private bool show = false;
-    public int damage = 1;
+    
     private Collider2D col;
 
    
@@ -49,6 +49,7 @@ public class SpikeAppear : MonoBehaviour
         {
             
             Debug.Log("Player Hit");
+            
         }
     }
 }
