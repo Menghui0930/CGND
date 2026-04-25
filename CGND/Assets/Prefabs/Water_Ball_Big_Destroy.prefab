@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 767500846773288132}
   m_Layer: 0
   m_Name: Water_Ball_Big_Destroy
-  m_TagString: Untagged
+  m_TagString: WaterBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
