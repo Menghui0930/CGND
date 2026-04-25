@@ -14,6 +14,11 @@ public class GrassMagicBall : MonoBehaviour
             GrassTilemapManager.instance.StartSpread(transform.position);
             DestroyBall();
         }
+
+        if (other.gameObject.CompareTag("Enemy")) {
+            // MagicPoint.Instance.IncreaseMP();
+            DestroyBall();
+        }
     }
 
     private void DestroyBall() {

@@ -47,5 +47,8 @@ public class GrassTilemapManager : MonoBehaviour {
 
         GameObject selectedGrass = grassPrefabs[Random.Range(0, grassPrefabs.Length)];
         GameObject grass = Instantiate(selectedGrass, worldPos,Quaternion.identity);
+
+        // grass position
+        grass.GetComponent<GrassObject>().Init(cell);
     }
 }

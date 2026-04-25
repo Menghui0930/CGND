@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7387556992549230996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TornadoPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5126764307995781969}
   - component: {fileID: 4039374786530096874}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2891981274866495830}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 'BigMagicPosition '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,16 +144,17 @@ GameObject:
   - component: {fileID: 75087927445195198}
   - component: {fileID: 5415787679197482351}
   - component: {fileID: 3540245295065673831}
+  - component: {fileID: 4624827715762026339}
+  - component: {fileID: 5904148772553658770}
   - component: {fileID: 7709516707505948417}
   - component: {fileID: 5369188571248031492}
   - component: {fileID: 8542568505445409236}
   - component: {fileID: 5140635267745873971}
-  - component: {fileID: 4624827715762026339}
   - component: {fileID: 1548983579806366506}
   - component: {fileID: 3816925995774025164}
   - component: {fileID: 8194439507757785309}
   - component: {fileID: 1762805250429374564}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Char
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -326,6 +327,47 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4624827715762026339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089567270684831309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f4ca3d1b0f0b4498c0c937b2c1d926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  Damage:
+    m_Name: Damage
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 777336f6-c00c-466e-a77e-bd83524446df
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  allSR:
+  - {fileID: 7298807976259640333}
+  - {fileID: 187172729962361256}
+  - {fileID: 5673718261806991661}
+  lifes: 3
+  invincibilityDuration: 1
+  blinkInterval: 0.2
+--- !u!114 &5904148772553658770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089567270684831309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba9e9687864227459c298783629dbd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagicPoint
+  maxMP: 5
 --- !u!114 &7709516707505948417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,34 +430,6 @@ MonoBehaviour:
   jumpHeight: 3
   maxJumps: 2
   JumpLeft: 0
---- !u!114 &4624827715762026339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7089567270684831309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89f4ca3d1b0f0b4498c0c937b2c1d926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  Damage:
-    m_Name: Damage
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 777336f6-c00c-466e-a77e-bd83524446df
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  allSR:
-  - {fileID: 7298807976259640333}
-  - {fileID: 187172729962361256}
-  - {fileID: 5673718261806991661}
-  lifes: 3
-  invincibilityDuration: 1
-  blinkInterval: 0.2
 --- !u!114 &1548983579806366506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +482,7 @@ MonoBehaviour:
   magicPosition: {fileID: 2891981274866495830}
   TornadomagicPosition: {fileID: 7387556992549230996}
   shootingSpeed: 15
+  isHolding: 0
   grassBallPrefab: {fileID: 1856519853342817237, guid: 678a855e98ef32245b230452dff253db, type: 3}
   waterBallPrefab: {fileID: 5300786572387539733, guid: 3042ec390edd32244919a0c414ae6f77, type: 3}
   windBallPrefab: {fileID: 66808777465483706, guid: dda585dece3e8e740a706e844f1248af, type: 3}
@@ -501,7 +516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8158162739491383267}
   - component: {fileID: 187172729962361256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2357673852386460044}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MagicPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -623,7 +638,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9044151247914780478}
   - component: {fileID: 6062518964292376279}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Magic Wand Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -714,7 +729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2564152033141424603}
   - component: {fileID: 5673718261806991661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Magic Wand Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

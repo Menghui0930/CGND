@@ -14,10 +14,9 @@ public class Tornado : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        /*
         if (other.gameObject.CompareTag("Enemy")) {
-            // get damage
+            MagicPoint.Instance.IncreaseMP();
+            Destroy(gameObject);
         }
-        */
     }
 }

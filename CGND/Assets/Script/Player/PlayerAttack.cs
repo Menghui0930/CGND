@@ -3,12 +3,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : PlayerState
 {
+    public static PlayerAttack Instance2;
+
     [Header("Settings")]
     [SerializeField]private float chargeTime = 2f;
     [SerializeField]private Transform magicPosition;
     [SerializeField]private Transform TornadomagicPosition;
     [SerializeField]private float shootingSpeed =15f;
-    private bool isHolding = false;
+    public bool isHolding = false;
     private bool isCharged = false;
     private float holdTimer = 0f;
 
@@ -27,6 +29,8 @@ public class PlayerAttack : PlayerState
 
     protected override void Awake() {
         base.Awake();
+        Instance2 = this;
+
         ChargeAttack = InputSystem.actions.FindAction("ChargeAttack");
 
     }
@@ -53,6 +57,10 @@ public class PlayerAttack : PlayerState
 
         if (_currentMagicBall == null) {
             _currentMagicBall = Instantiate(magicBallPrefab, currentPosition.position, currentPosition.rotation);
+        }
+
+        if (isHolding && isUpgradeWind && _playerElementSwitch.current_element == PlayerElementSwitch.Element.Wind) {
+            PlayerController.instance.SetHorizontalForce(0);
         }
 
         _currentMagicBall.transform.position = currentPosition.position;
@@ -160,6 +168,7 @@ public class PlayerAttack : PlayerState
 
     private void Shoot() {
         if (_currentMagicBall == null) return;
+        MagicPoint.Instance.DecreaseMP();
 
         GameObject ball = _currentMagicBall;
         _currentMagicBall = null; 
@@ -183,6 +192,7 @@ public class PlayerAttack : PlayerState
 
     private void ShootTornado() {
         if (_currentMagicBall == null) return;
+        MagicPoint.Instance.DecreaseMP();
 
         GameObject ball = _currentMagicBall;
         ball.GetComponent<BoxCollider2D>().enabled = true;
@@ -203,6 +213,11 @@ public class PlayerAttack : PlayerState
         }
 
         Destroy(ball, 3f);
+    }
+
+    public bool CheckHoldingTornado() {
+        bool isHoldingTornado = isHolding && isUpgradeWind && _playerElementSwitch.current_element == PlayerElementSwitch.Element.Wind;
+        return isHoldingTornado;
     }
 
 }

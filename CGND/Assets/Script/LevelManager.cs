@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+    public static event Action<PlayerMotor> OnPlayerSpawn;
 
     public InputAction Revive;
 
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour
     private GameObject player;
     private PlayerMotor currentPlayer;
 
+    public GameObject CurrentPlayer => player;
     private void Awake() {
         Instance = this;
         Revive = InputSystem.actions.FindAction("Revive");
@@ -46,7 +48,7 @@ public class LevelManager : MonoBehaviour
             player.GetComponent<Health>().ResetLife();
 
             // Call Event
-            //OnPlayerSpawn?.Invoke(_currentPlayer);
+            OnPlayerSpawn?.Invoke(currentPlayer);
         }
     }
 
@@ -56,10 +58,13 @@ public class LevelManager : MonoBehaviour
     }
 
     private void PlayerDeath(PlayerMotor playerMotor) {
-        //_currentPlayer = player;
-        player.GetComponent<Health>().ResetLife();
-        player.gameObject.SetActive(false);
-        StartCoroutine(RespawnCo());
+        if (player != null) {
+            //_currentPlayer = player;
+            player.gameObject.SetActive(false);
+            StartCoroutine(RespawnCo());
+        } else {
+            Debug.Log("PlayerDeath no player");
+        }
     }
 
     private void RevivePlayer() {

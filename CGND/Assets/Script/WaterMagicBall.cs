@@ -43,12 +43,10 @@ public class WaterMagicBall : MonoBehaviour
             bounces++;
         }
 
-        /*
-        if (other.CompareTag("Enemy")) {
-            // Damage
+        if (other.gameObject.CompareTag("Enemy")) {
+            //MagicPoint.Instance.IncreaseMP();
             DestroyBall();
         }
-        */
     }
 
     private void FlipBall(Vector2 velocity) {

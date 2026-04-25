@@ -12,10 +12,13 @@ public class MagicBall : MonoBehaviour
             Destroy(gameObject);
         }
 
-        /*
+        
         if (other.gameObject.CompareTag("Enemy")) {
-            // get damage
+            MagicPoint.Instance.IncreaseMP();
+            GameObject waterball = Instantiate(waterballDestroy, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+
         }
-        */
+        
     }
 }
