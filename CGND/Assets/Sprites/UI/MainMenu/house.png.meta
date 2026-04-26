@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: 5a9da1b2511d54f8c82476e3ea9d2b85
-AssetOrigin:
-  serializedVersion: 1
-  productId: 108124
-  packageName: Sunny Land Forest
-  packageVersion: 1.0
-  assetPath: Assets/Sunny Land Forest Assets/Artwork/Environment/props/rock.png
-  uploadId: 221328
+guid: ba02782cafc8e2744b39802dc0526e3f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

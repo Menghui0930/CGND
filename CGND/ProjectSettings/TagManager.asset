@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Trap
   - Wall
+  - Text
+  - WaterBall
+  - Grass
   layers:
   - Default
   - TransparentFX
@@ -42,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 611937379
+    locked: 0
+  - name: Ground
+    uniqueID: 677920521
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

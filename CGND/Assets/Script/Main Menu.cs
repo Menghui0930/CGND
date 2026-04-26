@@ -15,6 +15,10 @@ public class MainMenu : MonoBehaviour
 
     private bool isReversing = false;
 
+    [Header("CharacterUI")]
+    [SerializeField] private CanvasGroup characterUI;
+    [SerializeField] private bool isFading = false;
+
     void Start() {
         rectDeco = rectDeco.GetComponent<RectTransform>();
         rectMainMenu = GetComponent<RectTransform>();
@@ -35,6 +39,10 @@ public class MainMenu : MonoBehaviour
             rectMainMenu.anchoredPosition = Vector2.Lerp(targetPos, startPosMainMenu, t);
             rectDeco.anchoredPosition = Vector2.Lerp(targetPos, startPosDeco, t);
         }
+
+        if (isFading) {
+            characterUI.alpha = t; // 同样用 smoothstep 后的 t，0 → 1
+        }
     }
 
 
@@ -42,6 +50,7 @@ public class MainMenu : MonoBehaviour
     {
         isReversing = !isReversing;
         time = 0;
+        isFading = true;
         //SceneManager.LoadScene("Level_Tutorial");
 
     }
