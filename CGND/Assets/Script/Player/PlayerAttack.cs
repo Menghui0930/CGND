@@ -45,6 +45,8 @@ public class PlayerAttack : PlayerState
     }
 
     public override void ExecuteState() {
+        if(_playerController.isClimbing) return;
+
         SwitchElement();
             
         if (!isHolding) return;

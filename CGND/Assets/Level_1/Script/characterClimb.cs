@@ -40,10 +40,12 @@ public class characterClimb : MonoBehaviour
         if (collision.gameObject.CompareTag("Vine"))
         {
             VineScript vine = collision.gameObject.GetComponent<VineScript>();
+            /*
             if (vine != null && vine.isGrown)
             {
                 onVine = true;
             }
+            */
         }
     }
 

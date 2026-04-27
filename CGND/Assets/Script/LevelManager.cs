@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Multiplayer.PlayMode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -76,7 +77,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    
     private IEnumerator RespawnCo() {
         yield return new WaitForSeconds(1f);
         WipeController.instance.FadeOut();
@@ -84,7 +84,30 @@ public class LevelManager : MonoBehaviour
         WipeController.instance.FadeIn();
         RevivePlayer();
     }
-    
+
+    public void OnFinish() {
+        StartCoroutine(FinishCo());
+    }
+
+    private IEnumerator FinishCo() {
+        // Disable Player
+        currentPlayer.enabled = false;
+
+        // Character Move RIght
+        PlayerController pc = player.GetComponent<PlayerController>();
+        pc.SetHorizontalForce(5f);
+
+        // Wait
+        yield return new WaitForSeconds(2f);
+
+        // UI Wipe
+        WipeController.instance.FadeOut();
+        yield return new WaitForSeconds(2f);
+
+        // Next Scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 
     private void OnEnable() {
         Health.OnDeath += PlayerDeath;

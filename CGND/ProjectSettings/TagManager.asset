@@ -11,6 +11,10 @@ TagManager:
   - Text
   - WaterBall
   - Grass
+  - Vine
+  - Water
+  - Flower
+  - Hand
   layers:
   - Default
   - TransparentFX

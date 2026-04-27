@@ -1,37 +1,36 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 public class VineScript : MonoBehaviour
 {
-    public Sprite shortVine;    
-    public Sprite longVine;   
-    public bool isGrown = false;
+    [SerializeField] private GameObject vinePrefab;
+    [SerializeField] private float vineSpacing = -0.983f;
+    [SerializeField] private int maxGrowth = 10; 
+    [SerializeField] private GameObject root; 
 
-    private SpriteRenderer sr;
-    private BoxCollider2D col;
+    private int growthCount = 0;
+    private bool hasGrown = false;
 
-    void Start()
-    {
-        sr = GetComponent<SpriteRenderer>();
-        col = GetComponent<BoxCollider2D>();
-        sr.sprite = shortVine;
-    }
+    public void Grow() {
+        if (hasGrown) return;
+        if (growthCount >= maxGrowth) return;
 
-    public void Grow()
-    {
-        if (!isGrown)
-        {
-            isGrown = true;
-            sr.sprite = longVine;
-            col.size = new Vector2(col.size.x, col.size.y * 3f);
-            col.offset = new Vector2(col.offset.x, col.offset.y - col.size.y);
+        hasGrown = true;
+
+        VineRoot.instance.ExtendColliderDown(Mathf.Abs(vineSpacing));
+
+            //ExtendColliderDown(Mathf.Abs(vineSpacing));
+
+        Vector3 spawnPos = new Vector3(0f, vineSpacing, 0f); 
+        GameObject newVine = Instantiate(vinePrefab, transform);
+        newVine.transform.localPosition = spawnPos;
+
+        VineScript vineScript = newVine.GetComponent<VineScript>();
+        if (vineScript != null) {
+            vineScript.vinePrefab = vinePrefab;
+            vineScript.growthCount = growthCount + 1;
+            vineScript.maxGrowth = maxGrowth;
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("WaterBall"))
-        {
-            Grow();
-        }
-    }
 }

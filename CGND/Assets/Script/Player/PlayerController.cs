@@ -26,6 +26,9 @@ public class PlayerController : MonoBehaviour {
     public bool isGrounded = false;
     public LayerMask groundMask;
 
+    [Header("Climbing")]
+    public bool isClimbing = false;
+
     public void SetHorizontalForce(float xForce) => _force.x = xForce;
     public void SetVerticalForce(float yForce) => _force.y = yForce;
 
