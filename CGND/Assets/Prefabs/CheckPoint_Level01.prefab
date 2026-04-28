@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6909514411122663050}
   - component: {fileID: 3972738636759373941}
   m_Layer: 0
-  m_Name: Char_cp_0
+  m_Name: CheckPoint_Level01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2063020585789272632, guid: 58aa2e1ad3127ae4abd005dbe1222360, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7387556992549230996}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: TornadoPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5126764307995781969}
   - component: {fileID: 4039374786530096874}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: GroundChecker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 4623264407940169980}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071067, w: 0.70710695}
-  m_LocalPosition: {x: -0.351, y: -1.08, z: 0}
+  m_LocalPosition: {x: 0.017, y: -1.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2891981274866495830}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: 'BigMagicPosition '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 8194439507757785309}
   - component: {fileID: 1762805250429374564}
   - component: {fileID: 4412082855071027361}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Char
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -303,8 +303,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.3683412, y: 0}
-  m_Size: {x: 1.326014, y: 2.2351115}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1.25, y: 2.1875}
   m_Direction: 0
 --- !u!95 &3540245295065673831
 Animator:
@@ -390,6 +390,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  isClimbing: 0
   isChargeAttack: 0
 --- !u!114 &5369188571248031492
 MonoBehaviour:
@@ -520,7 +521,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerClimbing
   climbSpeed: 4
-  isClimbing: 0
 --- !u!1 &7181365446697738697
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +532,7 @@ GameObject:
   - component: {fileID: 8158162739491383267}
   - component: {fileID: 187172729962361256}
   - component: {fileID: 1898469663471821649}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Hand
   m_TagString: Hand
   m_Icon: {fileID: 0}
@@ -647,17 +647,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.3071928, y: 0.014628291}
+  m_Offset: {x: 0.030552387, y: 0.014628291}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2.1875}
+    oldSize: {x: 1.25, y: 2.1875}
     newSize: {x: 2, y: 2.1875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.24461555, y: 0.2712052}
+  m_Size: {x: 0.24461651, y: 0.2712052}
   m_EdgeRadius: 0
 --- !u!1 &7866517982464543573
 GameObject:
@@ -668,7 +668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2357673852386460044}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: MagicPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -700,7 +700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9044151247914780478}
   - component: {fileID: 6062518964292376279}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Magic Wand Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2564152033141424603}
   - component: {fileID: 5673718261806991661}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Magic Wand Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -807,7 +807,7 @@ Transform:
   m_GameObject: {fileID: 8944144006209393354}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.06336154, w: 0.99799067}
-  m_LocalPosition: {x: -0.487, y: -0.247, z: 0}
+  m_LocalPosition: {x: -0.407, y: -0.247, z: 0}
   m_LocalScale: {x: 0.60477275, y: 0.60477275, z: 0.6047727}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -1,140 +1,113 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DashEnemy : MonoBehaviour
-{
+public class DashEnemy : MonoBehaviour {
     [Header("Detection")]
-    public float detectionRange = 10f;    
-    public Transform player;             
+    public float detectionRange = 10f;
+    public Transform player;
 
     [Header("Dash")]
-    public float dashSpeed = 8f;          
-    public float dashDuration = 0.3f;    
+    public float dashSpeed = 8f;
+    public float dashDuration = 0.3f;
     public float dashCooldown = 1.5f;
 
-    [Header("Boundary")]
-    public float leftLimit = -30f;    
-    public float rightLimit = 30f;
-
     [Header("Bounce")]
-    public float bounceForce = 5f;       
+    public float bounceForce = 5f;
 
-    private float dashTimer = 0f;
-    private float cooldownTimer = 0f;
-    private bool isDashing = false;
-    private float dashDirection = 1f;
-    private bool hasDashed = false;
+    [Tooltip("For sprite size tolerance, a range of 0.05 to 0.15 is recommended.）")]
+    public float headTolerance = 0.1f;
 
-    private Rigidbody2D rb;
-    private SpriteRenderer sr;
-    private Animator anim;
+    private enum State { Idle, Cooldown, Dashing }
+    private State _state = State.Idle;
 
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
-        rb.freezeRotation = true;
+    private float _timer = 0f;
+    private float _dashDirection = 1f;
+
+    private Rigidbody2D _rb;
+    private Animator _anim;
+    public Collider2D _triggerCol; 
+
+    void Start() {
+        _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _rb.freezeRotation = true;
     }
 
-    void Update()
-    {
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-        bool playerInRange = distanceToPlayer <= detectionRange;
+    void Update() {
+        // check player
+        bool playerInRange = Vector2.Distance(transform.position, player.position) <= detectionRange;
 
-       
-
-        if (playerInRange)
-        {
-            cooldownTimer += Time.deltaTime;
-
-            if (!isDashing && cooldownTimer >= dashCooldown)
-            {
-                StartDash();
-            }
-        }
-        else if (!isDashing && hasDashed)
-        {
-            rb.linearVelocity = Vector2.zero; 
-        }
-        else
-        {
-            
-            isDashing = false;
-            hasDashed = false;
-            cooldownTimer = 0f;
-            rb.linearVelocity = Vector2.zero;
-            anim.SetBool("isDashing", false);
+        if (!playerInRange) {
+            if (_state != State.Idle) EnterIdle();
+            return;
         }
 
-        if (isDashing)
-        {
-            dashTimer += Time.deltaTime;
-            rb.linearVelocity = new Vector2(dashDirection * dashSpeed, rb.linearVelocity.y);
-            Debug.Log("enemy is dashing");
+        switch (_state) {
+            case State.Idle:
+                _state = State.Cooldown;
+                _timer = 0f;
+                break;
 
-            //bool hitLeftWall = transform.position.x <= leftLimit && dashDirection == -1f;
-           // bool hitRightWall = transform.position.x >= rightLimit && dashDirection == 1f;
+            case State.Cooldown:
+                _timer += Time.deltaTime;
+                if (_timer >= dashCooldown) StartDash();
+                break;
 
-            //if (hitLeftWall || hitRightWall)
-            //{
-             //   isDashing = false;
-             //   dashTimer = 0f;
-            //    cooldownTimer = 0f;
-            //    rb.linearVelocity = Vector2.zero;
-            //    anim.SetBool("isDashing", false);
-            //}
-
-
-
-
-
-
-
-            if (dashTimer >= dashDuration)
-            {
-                isDashing = false;
-                hasDashed = true;
-                dashTimer = 0f;
-                cooldownTimer = 0f;
-                rb.linearVelocity = Vector2.zero;
-                anim.SetBool("isDashing", false);
-            }
+            case State.Dashing:
+                _timer += Time.deltaTime;
+                _rb.linearVelocity = new Vector2(_dashDirection * dashSpeed, _rb.linearVelocity.y);
+                if (_timer >= dashDuration) EndDash();
+                break;
         }
     }
 
-    void StartDash()
-    {
-        isDashing = true;
-        dashTimer = 0f;
 
-       
-        dashDirection = player.position.x > transform.position.x ? 1f : -1f;
-        anim.SetBool("isDashing", true);
-        Debug.Log("enemy is dashing");
+    void StartDash() {
+        _state = State.Dashing;
+        _timer = 0f;
+        _dashDirection = player.position.x > transform.position.x ? 1f : -1f;
+        _anim.SetBool("isDashing", true);
+    }
+
+    void EndDash() {
+        _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y);
+        _anim.SetBool("isDashing", false);
+        _state = State.Cooldown;
+        _timer = 0f;
+    }
+
+    void EnterIdle() {
+        _state = State.Idle;
+        _timer = 0f;
+        _rb.linearVelocity = new Vector2(0f, _rb.linearVelocity.y);
+        _anim.SetBool("isDashing", false);
     }
 
 
-   
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (!other.CompareTag("Player")) return;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            foreach (ContactPoint2D contact in collision.contacts)
-            {
-                
-                if (contact.normal.y < -0.5f)
-                {
-                    Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
-                    playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
-                    Debug.Log("Bounced from top");
-                    return;
-                }
-            }
-            
+        // A player's feet >=enemy's head (allowing for headTolerance error) for a player to be considered to have stomped on the enemy's head.
+        float playerBottom = other.bounds.min.y;
+        float enemyTop = _triggerCol != null
+                             ? _triggerCol.bounds.max.y
+                             : GetComponent<Collider2D>().bounds.max.y;
+
+        if (playerBottom >= enemyTop - headTolerance) {
+            Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
+            if (playerRb != null)
+                playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, bounceForce);
         }
+    }
 
+    private void SetPlayer(PlayerMotor currentPlayer) {
+        player = currentPlayer.transform;
+    }
 
+    private void OnEnable() {
+        LevelManager.OnPlayerSpawn += SetPlayer;
+    }
 
+    private void OnDisable() {
+        LevelManager.OnPlayerSpawn -= SetPlayer;
     }
 }
