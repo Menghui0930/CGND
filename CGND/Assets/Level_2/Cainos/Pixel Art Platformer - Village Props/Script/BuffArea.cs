@@ -32,10 +32,12 @@ public class BuffArea : MonoBehaviour
             pd = collision.GetComponent<PlayerDash>();
             if (pd != null)
             {
-                pd.dashingDis += bonusSpeed;    
-                buffActive = true;
-                timer = 0f;
-                Debug.Log("Dash Speed Up");
+                if (!buffActive) {
+                    pd.dashingDis += bonusSpeed;
+                    buffActive = true;
+                    timer = 0f;
+                    Debug.Log("Dash Speed Up");
+                }
             }
         }
     }

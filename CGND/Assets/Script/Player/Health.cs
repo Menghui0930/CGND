@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Health : MonoBehaviour
 {
+    public static Action<int> OnLifesChanged;
     public static Action<PlayerMotor> OnDeath;
     public InputAction Damage;
 
@@ -50,10 +51,12 @@ public class Health : MonoBehaviour
         if (_currentLifes <= 0) {
             _currentLifes = 0;
             //Death
+            UpdateLifesUI();
             OnDeath?.Invoke(gameObject.GetComponent<PlayerMotor>());
             return;
         }
         //status = "Hurt";
+        UpdateLifesUI();
 
         invincible = true;
         invincibilityTimer = invincibilityDuration;
@@ -66,6 +69,7 @@ public class Health : MonoBehaviour
             _currentLifes = _maxLifes;
         }
         //status = "Heal";
+        UpdateLifesUI();
     }
 
     public void ResetLife() {
@@ -75,7 +79,14 @@ public class Health : MonoBehaviour
         foreach (SpriteRenderer sr in allSR) {
             sr.color = new Color(1, 1, 1, 1);
         }
+
+        UpdateLifesUI();
         //status = "Heal";
+    }
+
+    private void UpdateLifesUI() {
+        // UIManager
+        OnLifesChanged?.Invoke(_currentLifes);
     }
 
     private IEnumerator Invincibility() {

@@ -26,6 +26,7 @@ public class PlayerBasicAttack : PlayerState {
     }
 
     public override void ExecuteState() {
+        if(_playerController.isClimbing) return;
         if (!isHolding || _playerController.isChargeAttack) return;
 
         fireTimer += Time.deltaTime;

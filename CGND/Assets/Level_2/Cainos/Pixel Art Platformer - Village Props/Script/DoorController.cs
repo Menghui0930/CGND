@@ -4,6 +4,12 @@ public class DoorController : MonoBehaviour
 {
     public int totalButtons = 4;      
     private int pressedCount = 0;
+    private Animator animator;
+    private bool isOpen;
+
+    private void Start() {
+        animator = GetComponent<Animator>();
+    }
 
     public void ButtonPressed()
     {
@@ -12,13 +18,21 @@ public class DoorController : MonoBehaviour
 
         if (pressedCount >= totalButtons)
         {
-            OpenDoor();
+            if (!isOpen) {
+                isOpen = true;  
+                OpenDoor();
+            }
         }
     }
 
     private void OpenDoor()
     {
         Debug.Log("All buttons pressed, door will open");
-        gameObject.SetActive(false);       
+        //gameObject.SetActive(false);
+        animator.Play("Door_Open");
+    }
+
+    private void DestroySelf() {
+        Destroy(gameObject);
     }
 }

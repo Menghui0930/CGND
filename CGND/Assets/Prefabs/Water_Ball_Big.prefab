@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4293711394090492180}
   - component: {fileID: 38101546964708385}
   - component: {fileID: 403419384998946856}
-  - component: {fileID: 9124222157421734245}
+  - component: {fileID: 3299254042682556448}
   m_Layer: 0
   m_Name: Water_Ball_Big
-  m_TagString: Untagged
+  m_TagString: WaterBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +180,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.18218191, y: 0}
   m_Radius: 0.71922094
---- !u!114 &9124222157421734245
+--- !u!114 &3299254042682556448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,7 +189,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5300786572387539733}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f14bb9cf3878014d995ce71494c2635, type: 3}
+  m_Script: {fileID: 11500000, guid: 4ef9e5eaf790d974d95ab5e1b2540f09, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicBall
+  m_EditorClassIdentifier: Assembly-CSharp::WaterMagicBall
   waterballDestroy: {fileID: 8855085987596910881, guid: b3b6cc03a2b8f4d42a1c0a795b6a3a61, type: 3}
+  maxBounces: 2

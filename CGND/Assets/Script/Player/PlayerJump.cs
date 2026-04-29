@@ -28,10 +28,15 @@ public class PlayerJump : PlayerState {
     public override void ExecuteState() {
         if (_playerController.isGrounded && _playerController.Force.y == 0 && _playerController.theRB.linearVelocityY ==0f) {
             JumpLeft = maxJumps;
+            _playerController.isJumping = false;
+        }
+
+        if (_playerController.isClimbing) {
+            JumpLeft = 1;
         }
     }
 
-    private void Jump() {
+    public void Jump() {
         if (JumpLeft == 0) {
             return;
         }
@@ -47,6 +52,8 @@ public class PlayerJump : PlayerState {
     }
 
     public override void SetAnimation() {
+        if (_playerController.isClimbing) return;
+
         if (_playerController.theRB.linearVelocityY > 0) {
             _animator.SetFloat("FloatY", 1);
         } else if (_playerController.theRB.linearVelocityY <= 0) {
@@ -55,6 +62,7 @@ public class PlayerJump : PlayerState {
 
         if (_playerController.isGrounded) {
             _animator.SetBool("Jump",false);
+            _animator.SetBool("ClimbFall",false);
         }
     }
 }

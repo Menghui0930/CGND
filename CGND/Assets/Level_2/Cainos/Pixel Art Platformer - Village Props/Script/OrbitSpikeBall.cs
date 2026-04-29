@@ -7,6 +7,7 @@ public class OrbitSpikeBall : MonoBehaviour
     public float speed = 90f;       
     
     public float yOffset;
+    public float xOffset;
     public float startAngle = 0f;
 
     private float angle = 0f;
@@ -22,7 +23,7 @@ public class OrbitSpikeBall : MonoBehaviour
         float x = Mathf.Cos(angle * Mathf.Deg2Rad) * radius;
         float y = Mathf.Sin(angle * Mathf.Deg2Rad) * radius;
 
-        Vector3 center = platform.position + new Vector3(0f, yOffset, 0f);
+        Vector3 center = platform.position + new Vector3(xOffset, yOffset, 0f);
         transform.position = center + new Vector3(x, y, 0f);
     }
 

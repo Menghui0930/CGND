@@ -15,7 +15,7 @@ public class PressButton : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "waterBallPrefab" && !isPressed)
+        if (collision.gameObject.tag == "WaterBall" && !isPressed)
         {
             isPressed = true;
             sr.color = pressedColor;
