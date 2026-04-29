@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6222573233449262910}
   - component: {fileID: 4454628922618362299}
   - component: {fileID: 5145068409861585730}
-  - component: {fileID: 7374594419498673522}
+  - component: {fileID: 8422025726897862107}
   m_Layer: 0
   m_Name: Wind_Ball_Big
   m_TagString: Untagged
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2954870147961241215, guid: 492c6bbd2b40fc740931906b89415e02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,7 +180,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7374594419498673522
+--- !u!114 &8422025726897862107
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

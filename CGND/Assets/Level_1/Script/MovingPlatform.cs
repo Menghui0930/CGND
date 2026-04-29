@@ -2,21 +2,28 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    public float moveDistance = 3.5f; 
-    public float speed = 1.7f;        
+    public Transform[] points;
+    public float MoveSpeed;
+    public int currrentPoint;
 
-    private Vector3 startPos;       
+    public Transform platform;
 
     void Start()
     {
-        startPos = transform.position;
+        platform.position = points[currrentPoint].position;
     }
 
     void Update()
     {
-        float movement = Mathf.PingPong(Time.time * speed, moveDistance);
+        platform.position = Vector3.MoveTowards(platform.position, points[currrentPoint].position, MoveSpeed * Time.deltaTime);
 
-        transform.position = startPos + new Vector3(0, -movement, 0);
+        if (Vector3.Distance(platform.position, points[currrentPoint].position) < 0.5f) {
+            currrentPoint++;
+
+            if (currrentPoint >= points.Length) {
+                currrentPoint = 0;
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

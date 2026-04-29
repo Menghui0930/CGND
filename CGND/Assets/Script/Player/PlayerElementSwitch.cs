@@ -2,8 +2,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//public enum Element_public { Grass, Water, Wind }
+
 public class PlayerElementSwitch : PlayerState
 {
+    public static PlayerElementSwitch Instance_playerElementSwitch;
     public enum Element { Grass, Water, Wind }
 
     [Header("Element Sprites")]
@@ -17,6 +20,7 @@ public class PlayerElementSwitch : PlayerState
 
     protected override void Awake() {
         base.Awake();
+        Instance_playerElementSwitch = this;
         switching = InputSystem.actions.FindAction("Switch_element");
     }
 
@@ -72,5 +76,16 @@ public class PlayerElementSwitch : PlayerState
         ball_SR.color = new Color(1, 1, 1, 1);
     }
 
+    
+    public string GetCurrentElement() {
+        string currentELementString = current_element switch {
+            Element.Grass => "Grass",
+            Element.Water => "Water",
+            Element.Wind => "Wind",
+            _ => "Grass"
+        };
+        return currentELementString;
+    }
+    
 
 }
