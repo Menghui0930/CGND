@@ -3,8 +3,8 @@ guid: e00d079c68a98a14e954befc9d2572dc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1260024433015442170
-    second: Scene 12_0
+      213: -1915512158720045060
+    second: Scene 11_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scene 12_0
+      name: Scene 11_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2185
-        height: 1191
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: afac232cb818c7110800000000000000
-      internalID: 1260024433015442170
+      spriteID: cffcc8827dbba65e0800000000000000
+      internalID: -1915512158720045060
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Scene 12_0: 1260024433015442170
+      Scene 11_0: -1915512158720045060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

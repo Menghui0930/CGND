@@ -893,28 +893,35 @@ MonoBehaviour:
     canSkipVideo: 0
     sceneName: 
   - sceneType: 0
-    sceneSprite: {fileID: 6486017040935882970, guid: 8390ba163d053f5488aa9bb2afd68f6a, type: 3}
+    sceneSprite: {fileID: -892837223851487152, guid: 96567586d49d89c47a58711ca0bba504, type: 3}
     videoClip: {fileID: 0}
     loopVideo: 0
     autoNextAfterVideo: 0
     canSkipVideo: 0
     sceneName: 
   - sceneType: 0
-    sceneSprite: {fileID: 3815884517542739314, guid: 96567586d49d89c47a58711ca0bba504, type: 3}
+    sceneSprite: {fileID: 3815884517542739314, guid: cc067af971a9ca649926c336e3bde48c, type: 3}
     videoClip: {fileID: 0}
     loopVideo: 0
     autoNextAfterVideo: 0
     canSkipVideo: 0
     sceneName: 
   - sceneType: 0
-    sceneSprite: {fileID: -1915512158720045060, guid: cc067af971a9ca649926c336e3bde48c, type: 3}
+    sceneSprite: {fileID: -1915512158720045060, guid: e00d079c68a98a14e954befc9d2572dc, type: 3}
     videoClip: {fileID: 0}
     loopVideo: 0
     autoNextAfterVideo: 0
     canSkipVideo: 0
     sceneName: 
   - sceneType: 0
-    sceneSprite: {fileID: 1260024433015442170, guid: e00d079c68a98a14e954befc9d2572dc, type: 3}
+    sceneSprite: {fileID: 1260024433015442170, guid: 6a90eee0a37cbd443900c7ca5385642e, type: 3}
+    videoClip: {fileID: 0}
+    loopVideo: 0
+    autoNextAfterVideo: 0
+    canSkipVideo: 0
+    sceneName: 
+  - sceneType: 0
+    sceneSprite: {fileID: 7077351266533944855, guid: 027e7679c2c731c4d9e5328c961edcfd, type: 3}
     videoClip: {fileID: 0}
     loopVideo: 0
     autoNextAfterVideo: 0
@@ -922,13 +929,6 @@ MonoBehaviour:
     sceneName: 
   - sceneType: 0
     sceneSprite: {fileID: 3517912989815138830, guid: ea579075ef378594c874766d53d9cb76, type: 3}
-    videoClip: {fileID: 0}
-    loopVideo: 0
-    autoNextAfterVideo: 0
-    canSkipVideo: 0
-    sceneName: 
-  - sceneType: 0
-    sceneSprite: {fileID: 3517912989815138830, guid: 027e7679c2c731c4d9e5328c961edcfd, type: 3}
     videoClip: {fileID: 0}
     loopVideo: 0
     autoNextAfterVideo: 0

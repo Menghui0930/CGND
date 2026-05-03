@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
 public class Camera2D : MonoBehaviour
@@ -27,6 +27,15 @@ public class Camera2D : MonoBehaviour
     [SerializeField] private float minY = -10f;
     [SerializeField] private float maxY = 100f;
 
+    [Header("Boss Camera")]
+    [SerializeField] private float normalSize = 5f;
+    [SerializeField] private float bossSize = 8f;
+    [SerializeField] private float zoomSpeed = 2f;
+    [SerializeField] private float bossVerticalOffset = 3f; 
+    private float _originalVerticalOffset;
+    private Camera _camera;
+    private bool isBossZoom = false;
+
     private float _targetHorizontalSmoothFollow;
     private float _targetVerticalSmoothFollow;
 
@@ -35,11 +44,30 @@ public class Camera2D : MonoBehaviour
     private void Awake() {
         instance = this;
     }
+    void Start()
+    {
+        _camera = GetComponent<Camera>();
+    }
 
     private void Update() {
         MoveCamera();
+        float targetSize = isBossZoom ? bossSize : normalSize;
+        _camera.orthographicSize = Mathf.Lerp(
+            _camera.orthographicSize, targetSize, zoomSpeed * Time.deltaTime);
     }
 
+    public void SetBossZoom(bool zoom)
+    {
+        isBossZoom = zoom;
+        if (zoom)
+        {
+            verticalOffset = bossVerticalOffset; // 切换到 Boss offset
+        }
+        else
+        {
+            verticalOffset = _originalVerticalOffset; // 恢复原本 offset
+        }
+    }
     private void MoveCamera() {
         if (Target == null) return;
 

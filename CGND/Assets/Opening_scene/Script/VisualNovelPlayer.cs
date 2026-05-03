@@ -523,8 +523,40 @@ public class VisualNovelPlayer : MonoBehaviour
     void OnStoryEnd()
     {
         Debug.Log("故事播放完毕！");
+        StartCoroutine(FadeToMainMenu());
     }
 
+    private IEnumerator FadeToMainMenu()
+    {
+        // 创建一个黑色panel来遮住屏幕
+        GameObject fadeObj = new GameObject("FadePanel");
+        fadeObj.transform.SetParent(GetComponentInParent<Canvas>().transform, false);
+
+        Image fadeImage = fadeObj.AddComponent<Image>();
+        fadeImage.color = new Color(0, 0, 0, 0);
+
+        RectTransform rect = fadeObj.GetComponent<RectTransform>();
+        rect.anchorMin = Vector2.zero;
+        rect.anchorMax = Vector2.one;
+        rect.offsetMin = Vector2.zero;
+        rect.offsetMax = Vector2.zero;
+
+        // Fade Out
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            fadeImage.color = new Color(0, 0, 0, Mathf.Lerp(0f, 1f, elapsed / fadeDuration));
+            yield return null;
+        }
+
+        fadeImage.color = new Color(0, 0, 0, 1f);
+
+        // 跳到 MainMenu
+        PlayerPrefs.SetInt("HasPlayedBefore", 1);
+        PlayerPrefs.Save();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+    }
     void OnDestroy()
     {
         // 清理VideoPlayer事件

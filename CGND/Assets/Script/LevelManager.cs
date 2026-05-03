@@ -79,9 +79,9 @@ public class LevelManager : MonoBehaviour
 
     private IEnumerator RespawnCo() {
         yield return new WaitForSeconds(1f);
-        WipeController.instance.FadeOut();
+        //WipeController.instance.FadeOut();
         yield return new WaitForSeconds(1f);
-        WipeController.instance.FadeIn();
+        //WipeController.instance.FadeIn();
         RevivePlayer();
     }
 
