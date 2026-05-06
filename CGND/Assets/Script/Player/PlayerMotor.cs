@@ -4,12 +4,16 @@ using UnityEngine.Playables;
 public class PlayerMotor : MonoBehaviour {
     private PlayerState[] _playerStates;
 
+    private bool isControllable = false;
+
     private void Start() {
         _playerStates = GetComponents<PlayerState>();
     }
 
 
     void Update() {
+        if(!isControllable) return;
+
         if (_playerStates.Length > 0) {
             foreach (PlayerState state in _playerStates) {
                 state.LocalInput();
@@ -21,5 +25,13 @@ public class PlayerMotor : MonoBehaviour {
 
     public void SpawnPlayer(Vector3 newPosition) {
         transform.position = new Vector3(newPosition.x,newPosition.y,0);
+    }
+
+    public void EnableControl() {
+        isControllable = true;
+    }
+
+    public void DisableControl() {
+        isControllable = false;
     }
 }

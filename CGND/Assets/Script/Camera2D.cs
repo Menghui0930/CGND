@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+﻿using Unity.VisualScripting;
 using UnityEngine;
 
 public class Camera2D : MonoBehaviour
@@ -27,6 +27,11 @@ public class Camera2D : MonoBehaviour
     [SerializeField] private float minY = -10f;
     [SerializeField] private float maxY = 100f;
 
+    [Header("Offset Transition")]
+    [SerializeField] private float offsetTransitionSpeed = 2f;
+    [SerializeField] private float _targetHorizontalOffset;
+    [SerializeField] private float _targetVerticalOffset;
+
     private float _targetHorizontalSmoothFollow;
     private float _targetVerticalSmoothFollow;
 
@@ -36,21 +41,29 @@ public class Camera2D : MonoBehaviour
         instance = this;
     }
 
+    private void Start() {
+        _targetHorizontalOffset = horizontalOffset;
+        _targetVerticalOffset = verticalOffset;
+    }
+
     private void Update() {
         MoveCamera();
     }
 
+
     private void MoveCamera() {
         if (Target == null) return;
-
         if (stopFollow) return;
+
+        // 平滑过渡 offset
+        horizontalOffset = Mathf.Lerp(horizontalOffset, _targetHorizontalOffset, offsetTransitionSpeed * Time.deltaTime);
+        verticalOffset = Mathf.Lerp(verticalOffset, _targetVerticalOffset, offsetTransitionSpeed * Time.deltaTime);
 
         Vector3 targetPos = GetTargetPosition(Target);
 
         _targetHorizontalSmoothFollow = Mathf.Lerp(
             _targetHorizontalSmoothFollow, targetPos.x,
             horizontalSmoothness * Time.deltaTime);
-
         _targetVerticalSmoothFollow = Mathf.Lerp(
             _targetVerticalSmoothFollow, targetPos.y,
             verticalSmoothness * Time.deltaTime);
@@ -82,11 +95,28 @@ public class Camera2D : MonoBehaviour
         transform.localPosition = targetPos;
     }
 
+    // 新增：只设置 Target，让 Lerp 自己平滑移过去
+    public void SetTargetSmooth(PlayerMotor player) {
+        Target = player;
+
+        // 用相机当前实际位置初始化，这样 Lerp 才从当前位置出发
+        _targetHorizontalSmoothFollow = transform.localPosition.x;
+        _targetVerticalSmoothFollow = transform.localPosition.y;
+    }
+
+    public void SetOffsets(float newHorizontal, float newVertical, float speed,float newMinY) {
+        _targetHorizontalOffset = newHorizontal;
+        _targetVerticalOffset = newVertical;
+        offsetTransitionSpeed = speed;
+        minY = newMinY;
+    }
+
+
     private void OnEnable() {
-        LevelManager.OnPlayerSpawn += CenterOnTarget;
+        LevelManager.OnPlayerSpawn += SetTargetSmooth;
     }
 
     private void OnDisable() {
-        LevelManager.OnPlayerSpawn -= CenterOnTarget;
+        LevelManager.OnPlayerSpawn -= SetTargetSmooth;
     }
 }
