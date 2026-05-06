@@ -35,6 +35,18 @@ public class MagicBall : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        
+
+        if (other.gameObject.CompareTag("Boss"))
+        {
+            hasHit = true;
+            BossHealth bossHealth = other.gameObject.GetComponent<BossHealth>();
+            if (bossHealth != null)
+            {
+                bossHealth.TakeDamage(1);
+            }
+            GameObject waterball = Instantiate(waterballDestroy, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+
     }
 }

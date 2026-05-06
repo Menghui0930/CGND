@@ -1,120 +1,77 @@
 ﻿using Unity.VisualScripting;
 using UnityEngine;
-
 public class Camera2D : MonoBehaviour
 {
     public static Camera2D instance;
-
     [Header("Follow Toggle")]
     [SerializeField] private bool horizontalFollow = true;
     [SerializeField] private bool verticalFollow = true;
-    public bool stopFollow = false; 
-
+    public bool stopFollow = false;
     [Header("Horizontal")]
     [SerializeField][Range(0, 1)] private float horizontalInfluence = 1f;
-    [SerializeField] private float horizontalOffset = -3f; 
+    [SerializeField] private float horizontalOffset = -3f;
     [SerializeField] private float horizontalSmoothness = 3f;
-
     [Header("Vertical")]
     [SerializeField][Range(0, 1)] private float verticalInfluence = 1f;
     [SerializeField] private float verticalOffset = 0f;
     [SerializeField] private float verticalSmoothness = 3f;
-
     [Header("Camera Bounds")]
     [SerializeField] private bool useBounds = true;
     [SerializeField] private float minX = -10f;
     [SerializeField] private float maxX = 100f;
     [SerializeField] private float minY = -10f;
     [SerializeField] private float maxY = 100f;
-
-    [Header("Boss Camera")]
-    [SerializeField] private float normalSize = 5f;
-    [SerializeField] private float bossSize = 8f;
-    [SerializeField] private float zoomSpeed = 2f;
-    [SerializeField] private float bossVerticalOffset = 3f; 
-    private float _originalVerticalOffset;
-    private Camera _camera;
-    private bool isBossZoom = false;
-
     private float _targetHorizontalSmoothFollow;
     private float _targetVerticalSmoothFollow;
-
     public PlayerMotor Target { get; set; }
-
-    private void Awake() {
+    private void Awake()
+    {
         instance = this;
     }
-    void Start()
+    private void Update()
     {
-        _camera = GetComponent<Camera>();
-    }
-
-    private void Update() {
         MoveCamera();
-        float targetSize = isBossZoom ? bossSize : normalSize;
-        _camera.orthographicSize = Mathf.Lerp(
-            _camera.orthographicSize, targetSize, zoomSpeed * Time.deltaTime);
     }
-
-    public void SetBossZoom(bool zoom)
+    private void MoveCamera()
     {
-        isBossZoom = zoom;
-        if (zoom)
-        {
-            verticalOffset = bossVerticalOffset; // 切换到 Boss offset
-        }
-        else
-        {
-            verticalOffset = _originalVerticalOffset; // 恢复原本 offset
-        }
-    }
-    private void MoveCamera() {
         if (Target == null) return;
-
         if (stopFollow) return;
-
         Vector3 targetPos = GetTargetPosition(Target);
-
         _targetHorizontalSmoothFollow = Mathf.Lerp(
             _targetHorizontalSmoothFollow, targetPos.x,
             horizontalSmoothness * Time.deltaTime);
-
         _targetVerticalSmoothFollow = Mathf.Lerp(
             _targetVerticalSmoothFollow, targetPos.y,
             verticalSmoothness * Time.deltaTime);
-
         float xPos = horizontalFollow ? _targetHorizontalSmoothFollow : transform.localPosition.x;
         float yPos = verticalFollow ? _targetVerticalSmoothFollow : transform.localPosition.y;
-
-        if (useBounds) {
+        if (useBounds)
+        {
             xPos = Mathf.Clamp(xPos, minX, maxX);
             yPos = Mathf.Clamp(yPos, minY, maxY);
         }
-
         transform.localPosition = new Vector3(xPos, yPos, transform.localPosition.z);
     }
-
-    private Vector3 GetTargetPosition(PlayerMotor player) {
+    private Vector3 GetTargetPosition(PlayerMotor player)
+    {
         float xPos = (player.transform.position.x + horizontalOffset) * horizontalInfluence;
         float yPos = (player.transform.position.y + verticalOffset) * verticalInfluence;
         return new Vector3(xPos, yPos, transform.position.z);
     }
-
-    private void CenterOnTarget(PlayerMotor player) {
+    private void CenterOnTarget(PlayerMotor player)
+    {
         Target = player;
-
         Vector3 targetPos = GetTargetPosition(Target);
         _targetHorizontalSmoothFollow = targetPos.x;
         _targetVerticalSmoothFollow = targetPos.y;
-
         transform.localPosition = targetPos;
     }
-
-    private void OnEnable() {
+    private void OnEnable()
+    {
         LevelManager.OnPlayerSpawn += CenterOnTarget;
     }
-
-    private void OnDisable() {
+    private void OnDisable()
+    {
         LevelManager.OnPlayerSpawn -= CenterOnTarget;
     }
 }
