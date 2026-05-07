@@ -14,6 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   skillName: Vitality Boost
   description: Increase maximum health by +2.
-  icon: {fileID: 21300000, guid: f4e762a49d5122a4882b7b7bf802c58a, type: 3}
+  icon: {fileID: 21300000, guid: dc46ef7c095fa6848a62b37caf491d2b, type: 3}
   upgradedIcon: {fileID: 21300000, guid: f4e762a49d5122a4882b7b7bf802c58a, type: 3}
   cost: 0
+  prerequisites:
+  - {fileID: 11400000, guid: bde4b2de60d06324d878ca8efc919226, type: 2}
+  - {fileID: 11400000, guid: 701e45d6317e6d44ca838d120769f41e, type: 2}
+  - {fileID: 11400000, guid: 81373f3cf707f1949afddf9649f3c8da, type: 2}
+  isBranchSkill: 0
+  branchGroupID: 

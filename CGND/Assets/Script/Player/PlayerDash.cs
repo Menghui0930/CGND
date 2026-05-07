@@ -14,6 +14,7 @@ public class PlayerDash : PlayerState
 
     [SerializeField] private LayerMask wallLayer;
 
+    private bool _isUnlocked = false;   
 
     protected override void Awake() {
         base.Awake();
@@ -24,7 +25,7 @@ public class PlayerDash : PlayerState
     }
 
     protected override void GetInput() {
-        if (dashing.WasPressedThisFrame() && canDash) {
+        if (dashing.WasPressedThisFrame() && canDash && _isUnlocked) {
             //Debug.Log("Start Dash");
             StartCoroutine(Dash());
             
@@ -75,6 +76,10 @@ public class PlayerDash : PlayerState
     public override void SetAnimation() {
         base.SetAnimation();
     }
+
+    // Skill Tree
+    public void UnlockDash() { _isUnlocked = true; }
+    public void LockDash() { _isUnlocked = false; }
 
 
     /*

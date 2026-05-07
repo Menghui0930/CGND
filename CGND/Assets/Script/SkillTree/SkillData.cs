@@ -8,4 +8,11 @@ public class SkillData : ScriptableObject {
     public Sprite icon;
     public Sprite upgradedIcon;
     public int cost;
+
+    [Header("Prerequisites")]
+    public SkillData[] prerequisites;       
+
+    [Header("Branch Settings")]
+    public bool isBranchSkill = false;     
+    public string branchGroupID = "";      
 }

@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   skillName: Twin Shot
   description: Your magic balls are now fired in pairs, doubling your offensive pressure.
-  icon: {fileID: 21300000, guid: f4e762a49d5122a4882b7b7bf802c58a, type: 3}
+  icon: {fileID: 21300000, guid: dc46ef7c095fa6848a62b37caf491d2b, type: 3}
   upgradedIcon: {fileID: 21300000, guid: f4e762a49d5122a4882b7b7bf802c58a, type: 3}
   cost: 2
+  prerequisites:
+  - {fileID: 11400000, guid: 0d2351f7a3e48784f9069f840cb87a2b, type: 2}
+  isBranchSkill: 1
+  branchGroupID: 1

@@ -22,6 +22,9 @@ public class Health : MonoBehaviour
     private bool invincible = false;
     private float invincibilityTimer = 0f;
 
+    // shield
+    private bool _isImmune = false;
+
     private void Awake() {
         Damage = InputSystem.actions.FindAction("Damage");
         //theSR = GetComponent<SpriteRenderer>();
@@ -46,6 +49,7 @@ public class Health : MonoBehaviour
 
     public void LoseLife() {
         if (invincible) return;
+        if (_isImmune) return;
 
         _currentLifes -= 1;
         if (_currentLifes <= 0) {
@@ -111,5 +115,10 @@ public class Health : MonoBehaviour
         foreach (SpriteRenderer sr in allSR) {
             sr.color = new Color(1, 1, 1, 1);
         }
+    }
+
+    // Shield
+    public void SetImmune(bool immune) {
+        _isImmune = immune;
     }
 }

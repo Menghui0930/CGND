@@ -1,13 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Playables;
 
 public class PlayerMotor : MonoBehaviour {
     private PlayerState[] _playerStates;
+    private PlayerController _playerController;
 
-    private bool isControllable = false;
+    [SerializeField] private bool isControllable = false;
 
     private void Start() {
         _playerStates = GetComponents<PlayerState>();
+        _playerController = GetComponentInParent<PlayerController>();
     }
 
 
@@ -29,9 +31,15 @@ public class PlayerMotor : MonoBehaviour {
 
     public void EnableControl() {
         isControllable = true;
+        if (_playerController != null)
+            _playerController.isPaused = false;
     }
 
     public void DisableControl() {
         isControllable = false;
+        if (_playerController != null) {
+            _playerController.isPaused = true;
+            _playerController.SetHorizontalForce(0f);  
+        }
     }
 }

@@ -15,6 +15,10 @@ MonoBehaviour:
   skillName: Stormcall
   description: Wind charged attacks transform into a tornado, pulling enemies in
     and dealing continuous damage.
-  icon: {fileID: 21300000, guid: f4e762a49d5122a4882b7b7bf802c58a, type: 3}
+  icon: {fileID: 21300000, guid: dc46ef7c095fa6848a62b37caf491d2b, type: 3}
   upgradedIcon: {fileID: 21300000, guid: f4e762a49d5122a4882b7b7bf802c58a, type: 3}
   cost: 2
+  prerequisites:
+  - {fileID: 11400000, guid: 16643032780ff284ab3ae09c7314eb49, type: 2}
+  isBranchSkill: 1
+  branchGroupID: 2
