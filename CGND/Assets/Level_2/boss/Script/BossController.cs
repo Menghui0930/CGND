@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum BossPhase { Idle, Phase1, Phase2, Enraged, Dead }
+public enum BossState { Flying, Dashing, Charging }
 
 public class BossController : MonoBehaviour
 {
     [Header("Boss Stats")]
     public float maxHP = 1000f;
     private float currentHP;
-
     public BossPhase currentPhase = BossPhase.Idle;
 
     [Header("Bullet Settings")]
@@ -22,15 +22,45 @@ public class BossController : MonoBehaviour
     public float maxPatternDuration = 5f;
     public float patternCooldown = 1f;
 
-  
+    [Header("Flying")]
+    public float flySpeed = 3f;
+    public float flyRadius = 4f;
+    public Transform roomCenter;
+
+    [Header("Dashing")]
+    public float dashSpeed = 15f;
+    public float dashDuration = 0.4f;
+
+    [Header("Charging")]
+    public float chargeDuration = 3f;
+    public float chargeStateDuration = 6f;
+    public GameObject trackingBulletPrefab;   // separate tracking bullet prefab
+
+    [Header("Defense")]
+    public float normalDefense = 1f;
+    public float chargeDefense = 0.2f;        // takes 20% damage while charging
+
+    [Header("Room")]
+    public BossRoom bossRoom;                 // drag BossRoom here
+
+    // private
+    private float currentDefense = 1f;
     private bool patternRunning = false;
+    private bool bossActive = false;
+    private BossState currentState = BossState.Flying;
+    private Vector2 flyTarget;
+    private Rigidbody2D rb;
+    private Animator anim;
 
     private List<System.Func<IEnumerator>> patterns;
 
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         currentHP = maxHP;
-        currentPhase = BossPhase.Phase1;
+        currentDefense = normalDefense;
+        rb.gravityScale = 0f;
 
         patterns = new List<System.Func<IEnumerator>>
         {
@@ -41,11 +71,144 @@ public class BossController : MonoBehaviour
             PatternRingExpand
         };
 
-        StartCoroutine(BossRoutine());
+        ActivateBoss();
     }
 
-  
+    void Update()
+    {
+        if (!bossActive) return;
 
+        switch (currentState)
+        {
+            case BossState.Flying: UpdateFlying(); break;
+        }
+    }
+
+    // ── ACTIVATE ────────────────────────────────────
+    public void ActivateBoss()
+    {
+        bossActive = true;
+        currentPhase = BossPhase.Phase1;
+        currentState = BossState.Flying;
+        PickNewFlyTarget();
+        StartCoroutine(BossRoutine());
+        Debug.Log("Boss activated!");
+    }
+
+    // ── FLYING ──────────────────────────────────────
+    void UpdateFlying()
+    {
+        transform.position = Vector2.MoveTowards(
+            transform.position, flyTarget,
+            flySpeed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, flyTarget) < 0.2f)
+            PickNewFlyTarget();
+    }
+
+    void PickNewFlyTarget()
+    {
+        Vector2 randomDir = Random.insideUnitCircle.normalized;
+        flyTarget = (Vector2)roomCenter.position
+                  + randomDir * Random.Range(1f, flyRadius);
+    }
+
+    // ── BOSS ROUTINE ────────────────────────────────
+    IEnumerator BossRoutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        while (currentPhase != BossPhase.Dead)
+        {
+            // pick random action: 0=bullet pattern, 1=dash, 2=charge
+            int action = Random.Range(0, 3);
+
+            if (action == 0)
+            {
+                // bullet pattern while flying
+                var pattern = patterns[Random.Range(0, patterns.Count)];
+                float duration = Random.Range(minPatternDuration, maxPatternDuration);
+                patternRunning = true;
+                StartCoroutine(pattern());
+                yield return new WaitForSeconds(duration);
+                patternRunning = false;
+                yield return new WaitForSeconds(0.1f);
+            }
+            else if (action == 1)
+            {
+                // dash state
+                yield return StartCoroutine(DashRoutine());
+            }
+            else
+            {
+                // charge state
+                yield return StartCoroutine(ChargeRoutine());
+            }
+
+            yield return new WaitForSeconds(patternCooldown);
+        }
+
+        Debug.Log("[Boss] Dead.");
+    }
+
+    // ── DASH ROUTINE ────────────────────────────────
+    IEnumerator DashRoutine()
+    {
+        currentState = BossState.Dashing;
+        anim.SetTrigger("Dash");
+        Debug.Log("[Boss] Dashing!");
+
+        Vector2 dashDir = ((Vector2)player.position
+                         - (Vector2)transform.position).normalized;
+
+        float timer = 0f;
+        while (timer < dashDuration)
+        {
+            rb.linearVelocity = dashDir * dashSpeed;
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        rb.linearVelocity = Vector2.zero;
+
+        // fly back opposite direction briefly
+        flyTarget = (Vector2)transform.position + (-dashDir * 2f);
+        currentState = BossState.Flying;
+    }
+
+    // ── CHARGE ROUTINE ──────────────────────────────
+    IEnumerator ChargeRoutine()
+    {
+        currentState = BossState.Charging;
+        anim.SetBool("isCharging", true);
+        currentDefense = chargeDefense;     // defense up!
+        Debug.Log("[Boss] Charging! Defense up!");
+
+        yield return new WaitForSeconds(chargeDuration);
+
+        // shoot tracking bullet after charge
+        ShootTrackingBullet();
+        Debug.Log("[Boss] Fired tracking bullet!");
+
+        yield return new WaitForSeconds(chargeStateDuration - chargeDuration);
+
+        // end charge
+        currentDefense = normalDefense;
+        anim.SetBool("isCharging", false);
+        currentState = BossState.Flying;
+    }
+
+    void ShootTrackingBullet()
+    {
+        if (trackingBulletPrefab == null) return;
+        GameObject bullet = Instantiate(trackingBulletPrefab,
+                                        firePoint.position,
+                                        Quaternion.identity);
+        TrackingBullet tb = bullet.GetComponent<TrackingBullet>();
+        if (tb != null) tb.target = player;
+    }
+
+    // ── PHASE CHECK ─────────────────────────────────
     void CheckPhase()
     {
         float pct = currentHP / maxHP;
@@ -64,6 +227,7 @@ public class BossController : MonoBehaviour
     void OnPhaseChanged()
     {
         Debug.Log($"[Boss] Phase changed to: {currentPhase}");
+
         bulletSpeed = currentPhase switch
         {
             BossPhase.Phase1 => 7f,
@@ -71,41 +235,43 @@ public class BossController : MonoBehaviour
             BossPhase.Enraged => 12f,
             _ => 7f
         };
-    }
 
-
-
-    IEnumerator BossRoutine()
-    {
-        yield return new WaitForSeconds(1.5f);
-
-        while (currentPhase != BossPhase.Dead)
+        // speed up in later phases
+        flySpeed = currentPhase switch
         {
-            // choose random patternf
-            var pattern = patterns[Random.Range(0, patterns.Count)];
-            float duration = Random.Range(minPatternDuration, maxPatternDuration);
+            BossPhase.Phase1 => 3f,
+            BossPhase.Phase2 => 4.5f,
+            BossPhase.Enraged => 6f,
+            _ => 3f
+        };
 
-            Debug.Log($"[Boss] Starting pattern: {pattern.Method.Name} for {duration:F1}s");
+        dashSpeed = currentPhase switch
+        {
+            BossPhase.Phase1 => 15f,
+            BossPhase.Phase2 => 20f,
+            BossPhase.Enraged => 25f,
+            _ => 15f
+        };
 
-            // run pattern
-            patternRunning = true;
-            StartCoroutine(pattern());           
-            yield return new WaitForSeconds(duration); 
-            patternRunning = false;             
-
-           
-            yield return new WaitForSeconds(0.1f);
-
-          
-            yield return new WaitForSeconds(patternCooldown);
+        if (currentPhase == BossPhase.Dead)
+        {
+            bossActive = false;
+            anim.SetTrigger("Die");
+            if (bossRoom != null) bossRoom.UnlockRoom();
         }
-
-        Debug.Log("[Boss] Dead.");
     }
 
-    // Some paatern
-   
+    // ── DAMAGE ───────────────────────────────────────
+    public void TakeDamage(float amount)
+    {
+        if (currentPhase == BossPhase.Dead) return;
+        float actualDamage = amount * currentDefense;
+        currentHP = Mathf.Clamp(currentHP - actualDamage, 0, maxHP);
+        Debug.Log($"[Boss] Took {actualDamage} damage! HP: {currentHP}");
+        CheckPhase();
+    }
 
+    // ── BULLET PATTERNS ──────────────────────────────
     IEnumerator PatternSpiral()
     {
         float angle = 0f;
@@ -124,7 +290,6 @@ public class BossController : MonoBehaviour
             int bulletsPerBurst = 16;
             for (int i = 0; i < bulletsPerBurst; i++)
                 FireBulletAtAngle(i * (360f / bulletsPerBurst));
-
             yield return new WaitForSeconds(0.5f);
         }
     }
@@ -151,7 +316,6 @@ public class BossController : MonoBehaviour
             float[] angles = { 0f, 90f, 180f, 270f, 45f, 135f, 225f, 315f };
             foreach (float a in angles)
                 FireBulletAtAngle(a + rotation);
-
             rotation += 10f;
             yield return new WaitForSeconds(0.3f);
         }
@@ -174,24 +338,12 @@ public class BossController : MonoBehaviour
         }
     }
 
- 
-
     void FireBulletAtAngle(float angleDeg, float? overrideSpeed = null)
     {
         float rad = angleDeg * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
         float spd = overrideSpeed ?? bulletSpeed;
-
         GameObject b = BulletPool.Instance.Get(firePoint.position, Quaternion.identity);
         b.GetComponent<Bullet>().Init(dir, spd);
-    }
-
- 
-
-    public void TakeDamage(float amount)
-    {
-        if (currentPhase == BossPhase.Dead) return;
-        currentHP = Mathf.Clamp(currentHP - amount, 0, maxHP);
-        CheckPhase();
     }
 }

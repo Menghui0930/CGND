@@ -19,6 +19,18 @@ public class BackgroundFollow : MonoBehaviour {
     public bool followX = true;
     public bool followY = true;
 
+
+    [Header("Scale with Camera")]
+    public bool scaleWithCamera = true;     
+    public float baseOrthographicSize = 6f;   
+    private Vector3 originalScale;
+
+
+    void Start()
+    {
+        originalScale = transform.localScale;  // save original size
+    }
+
     void LateUpdate() {
         if (cam == null) return;
 
@@ -29,5 +41,14 @@ public class BackgroundFollow : MonoBehaviour {
         float z = transform.position.z; // Z 轴保持原来的（2D 不动）
 
         transform.position = new Vector3(x, y, z);
+
+
+        if (scaleWithCamera)
+        {
+            float scaleFactor = cam.orthographicSize / baseOrthographicSize;
+            transform.localScale = originalScale * scaleFactor;
+        }
     }
+
+
 }
