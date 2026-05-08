@@ -41,7 +41,7 @@ public class TrackingBullet : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Tracking bullet hit player! Damage: " + damage);
-            // replace with your health system
+           
             Destroy(gameObject);
         }
 

@@ -30,7 +30,7 @@ public class BossRoom : MonoBehaviour
 
     System.Collections.IEnumerator DelayEntryBlock()
     {
-        yield return new WaitForSeconds(1f);    // wait 1 second
+        yield return new WaitForSeconds(1f);   
         entryBlocker.enabled = true;            // now block entry
         Debug.Log("Entry blocked!");
     }

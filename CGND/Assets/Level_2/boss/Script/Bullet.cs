@@ -28,7 +28,12 @@ public class Bullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            
+            Health health = other.GetComponent<Health>();
+            if (health != null)
+            {
+                health.LoseLife();    
+            }
+
             BulletPool.Instance.Return(gameObject);
         }
     }

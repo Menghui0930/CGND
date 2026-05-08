@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
 
         if (!isReversing) {
             rectMainMenu.anchoredPosition = Vector2.Lerp(startPosMainMenu, targetPos, t);
-            rectDeco.anchoredPosition = Vector2.Lerp(startPosDeco, targetPos, t);
+           rectDeco.anchoredPosition = Vector2.Lerp(startPosDeco, targetPos, t);
         } else {
             rectMainMenu.anchoredPosition = Vector2.Lerp(targetPos, startPosMainMenu, t);
             rectDeco.anchoredPosition = Vector2.Lerp(targetPos, startPosDeco, t);
@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
         if (isFading) {
             characterUI.alpha = t; // 同样用 smoothstep 后的 t，0 → 1
         }
-    }
+    } 
 
 
     public void StartGame()
@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
         isReversing = !isReversing;
         time = 0;
         isFading = true;
-        //SceneManager.LoadScene("Level_Tutorial");
+        SceneManager.LoadScene("Level_Tutorial");
 
     }
 
