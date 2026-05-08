@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
         isReversing = !isReversing;
         time = 0;
         isFading = true;
-        SceneManager.LoadScene("Level_Tutorial");
+       // SceneManager.LoadScene("Level_Tutorial");
 
     }
 
