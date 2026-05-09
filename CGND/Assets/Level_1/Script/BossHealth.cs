@@ -27,6 +27,7 @@ public class BossHealth : MonoBehaviour
     {
         anim.SetTrigger("Death");
         GetComponent<BossScript>().enabled = false;
+        GetComponent<BossAudio>().PlayLevelBGM();
         Destroy(gameObject, 2f);
     }
 }

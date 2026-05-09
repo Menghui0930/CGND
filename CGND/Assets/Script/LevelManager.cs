@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using Unity.Multiplayer.PlayMode;
 using UnityEngine;
@@ -74,6 +74,12 @@ public class LevelManager : MonoBehaviour
             currentPlayer.SpawnPlayer(spawnPoint);
             player.GetComponent<Health>().ResetLife();
             //player.GetComponent<Health>().Revive();
+
+        //    BossTrigger bossTrigger = FindFirstObjectByType<BossTrigger>();  // 重置 BossTrigger
+        //    if (bossTrigger != null)
+        //    {
+        //        bossTrigger.ResetTrigger();
+        //    }
         }
     }
 
@@ -82,6 +88,20 @@ public class LevelManager : MonoBehaviour
         //WipeController.instance.FadeOut();
         yield return new WaitForSeconds(1f);
         //WipeController.instance.FadeIn();
+
+        switch (SceneManager.GetActiveScene().name) //bgm切换
+        {
+            case "Level_1":
+                AudioManager.Instance.PlayBGM(AudioManager.Instance.level1BGM);
+                break;
+            case "Level_2":
+                AudioManager.Instance.PlayBGM(AudioManager.Instance.level2BGM);
+                break;
+            case "Level_3":
+                AudioManager.Instance.PlayBGM(AudioManager.Instance.level3BGM);
+                break;
+        }
+
         RevivePlayer();
     }
 
