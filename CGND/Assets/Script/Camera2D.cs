@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Camera2D : MonoBehaviour
@@ -34,6 +35,10 @@ public class Camera2D : MonoBehaviour
 
     private float _targetHorizontalSmoothFollow;
     private float _targetVerticalSmoothFollow;
+
+    // Camera Shake
+    private Vector3 _shakeOffset;
+    private Coroutine _shakeCoroutine;
 
     public PlayerMotor Target { get; set; }
 
@@ -76,7 +81,7 @@ public class Camera2D : MonoBehaviour
             yPos = Mathf.Clamp(yPos, minY, maxY);
         }
 
-        transform.localPosition = new Vector3(xPos, yPos, transform.localPosition.z);
+        transform.localPosition = new Vector3(xPos, yPos, transform.localPosition.z) + _shakeOffset;
     }
 
     private Vector3 GetTargetPosition(PlayerMotor player) {
@@ -104,11 +109,12 @@ public class Camera2D : MonoBehaviour
         _targetVerticalSmoothFollow = transform.localPosition.y;
     }
 
-    public void SetOffsets(float newHorizontal, float newVertical, float speed,float newMinY) {
+    public void SetOffsets(float newHorizontal, float newVertical, float speed,float newMinY, bool newIsStopFollowing) {
         _targetHorizontalOffset = newHorizontal;
         _targetVerticalOffset = newVertical;
         offsetTransitionSpeed = speed;
         minY = newMinY;
+        stopFollow = newIsStopFollowing;
     }
 
 
@@ -118,5 +124,35 @@ public class Camera2D : MonoBehaviour
 
     private void OnDisable() {
         LevelManager.OnPlayerSpawn -= SetTargetSmooth;
+    }
+
+
+
+    // Camera Shake
+
+    public void StartShake(float intensity, float speed) {
+        if (_shakeCoroutine != null) StopCoroutine(_shakeCoroutine);
+        _shakeCoroutine = StartCoroutine(ShakeCo(intensity, speed));
+    }
+
+    public void StopShake() {
+        if (_shakeCoroutine != null) {
+            StopCoroutine(_shakeCoroutine);
+            _shakeCoroutine = null;
+        }
+        _shakeOffset = Vector3.zero;
+    }
+
+    private IEnumerator ShakeCo(float intensity, float speed) {
+        float t = 0f;
+        while (true) {
+            t += Time.deltaTime * speed;
+            _shakeOffset = new Vector3(
+                Mathf.Sin(t * 1.3f) * intensity,
+                Mathf.Sin(t * 1.7f) * intensity,
+                0f
+            );
+            yield return null;
+        }
     }
 }

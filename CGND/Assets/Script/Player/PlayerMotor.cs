@@ -41,5 +41,11 @@ public class PlayerMotor : MonoBehaviour {
             _playerController.isPaused = true;
             _playerController.SetHorizontalForce(0f);  
         }
+
+        Animator anim = GetComponent<Animator>();
+        if (anim != null) {
+            anim.SetBool("Run", false);
+            anim.SetBool("Idle", true);
+        }
     }
 }

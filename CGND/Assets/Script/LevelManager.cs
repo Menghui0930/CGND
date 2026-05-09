@@ -26,6 +26,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private GameObject dummyCharacter;         
     [SerializeField] private Dialogue openingDialogue;
     [SerializeField] private Animator healthUIAnimator;
+    [SerializeField] private GameObject crystalParent;      // ← Parent（有 Animator）
+    [SerializeField] private GameObject[] crystals;         // ← 两颗水晶子物件
+    [SerializeField] private float crystalFlySpeed = 5f;   // ← 飞行速度
+    [SerializeField] private SkillTreeManager SkillTreeManager;   // ← 飞行速度
 
     [Header("level1_Only")]
     [SerializeField] private GameObject SkillTreeTutorialPanel;
@@ -75,6 +79,10 @@ public class LevelManager : MonoBehaviour
         // 等 Dialogue 结束
         yield return new WaitUntil(() => !DialogueManager.instance.isDialogueActive);
 
+        // ── 新加：播水晶飞起动画 ──
+        if (crystalParent != null)
+            yield return StartCoroutine(CrystalSequence());
+
         // 记录假角色的位置，生成真玩家在同样位置
         spawnPoint = dummyCharacter.transform.position;
         dummyCharacter.SetActive(false);
@@ -85,15 +93,88 @@ public class LevelManager : MonoBehaviour
             Camera2D.instance.SetTargetSmooth(currentPlayer);
 
         // 触发生命值 UI 动画
-        if (healthUIAnimator != null)
-            healthUIAnimator.SetBool("IN", true);
+        HealthUIFadeIn();
+
+
 
         // Level01_only
-        if(SkillTreeTutorialPanel!= null) 
+        if (SkillTreeTutorialPanel != null) {
             SkillTreeTutorialPanel.SetActive(true);
+        } else {
+            // Level 3：没有 Tutorial，直接开放控制
+            currentPlayer.EnableControl();
+        }
 
         OnGameStart?.Invoke();
     }
+
+    private IEnumerator CrystalSequence() {
+        // Step 1：播 Parent 的飞起动画
+        Animator crystalAnim = crystalParent.GetComponent<Animator>();
+        crystalAnim.Play("GetCrystal");
+
+        yield return null;
+        float clipLength = crystalAnim.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(clipLength);
+
+        // Step 2：把两颗水晶从 Parent 脱离，各自飞向玩家
+        foreach (GameObject crystal in crystals) {
+            Vector3 worldPos = crystal.transform.position;  // ← 先记录世界坐标
+            crystal.transform.SetParent(null);
+            crystal.transform.position = worldPos;           // ← 脱离后还原
+        }
+
+        // Step 2：把两颗水晶从 Parent 脱离，各自飞向玩家
+        foreach (GameObject crystal in crystals)
+            crystal.transform.SetParent(null);  // 脱离 Parent，独立移动
+
+        crystalAnim.enabled = false;   // ← 停止 Animator 继续影响
+
+        foreach (GameObject crystal in crystals) {
+            Vector3 worldPos = crystal.transform.position;
+            crystal.transform.SetParent(null);
+            crystal.transform.position = worldPos;
+        }
+
+        Transform playerTransform = dummyCharacter.transform;
+
+        // 两颗同时飞
+        bool[] arrived = new bool[crystals.Length];
+        while (!System.Array.TrueForAll(arrived, a => a)) {
+            for (int i = 0; i < crystals.Length; i++) {
+                if (arrived[i]) continue;
+                crystals[i].transform.position = Vector3.MoveTowards(
+                    crystals[i].transform.position,
+                    playerTransform.position,
+                    crystalFlySpeed * Time.deltaTime
+                );
+                if (Vector3.Distance(crystals[i].transform.position, playerTransform.position) < 0.2f)
+                    arrived[i] = true;
+            }
+            yield return null;
+        }
+
+        // Step 3：全部到达后消失
+        foreach (GameObject crystal in crystals)
+            Destroy(crystal);
+        Destroy(crystalParent);
+
+        SkillTreeManager.GetCrystal(2);
+        SkillTreeManager.UpdateSkillPointsUI();
+
+        yield return new WaitForSeconds(1.5f);
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -171,6 +252,16 @@ public class LevelManager : MonoBehaviour
 
         // Next Scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void HealthUIFadeIn() {
+        if (healthUIAnimator != null)
+            healthUIAnimator.SetTrigger("IN");
+    }
+
+    public void HealthUIFadeOut() {
+        if (healthUIAnimator != null)
+            healthUIAnimator.SetTrigger("OUT");
     }
 
 

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class Health : MonoBehaviour
 {
     public static Action<int> OnLifesChanged;
+    public static Action<int> OnMaxLifeChanged;
     public static Action<PlayerMotor> OnDeath;
     public InputAction Damage;
 
@@ -120,5 +121,12 @@ public class Health : MonoBehaviour
     // Shield
     public void SetImmune(bool immune) {
         _isImmune = immune;
+    }
+
+    public void AddMaxLife(int amount) {
+        _maxLifes += amount;
+        _currentLifes += amount;
+        OnMaxLifeChanged?.Invoke(_maxLifes); 
+        UpdateLifesUI();
     }
 }

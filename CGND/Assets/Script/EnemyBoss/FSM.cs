@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Multiplayer.PlayMode;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering;
@@ -49,6 +51,8 @@ public class Parameter {
     public ShieldController shieldObject;
     public bool shield1Used = false;
     public bool shield2Used = false;
+
+    public PlayerMotor currentPlayer;
 }
 
 public class FSM : MonoBehaviour
@@ -70,15 +74,48 @@ public class FSM : MonoBehaviour
         states.Add(StateType.Slam, new SlamState(this));
         states.Add(StateType.Cast, new CastState(this));        
 
-        TransitionState(StateType.Decision);
+        //TransitionState(StateType.Decision);
 
         //TransitionState(StateType.Idle);
         parameter.currentHealth = parameter.maxHealth;
     }
 
+    public void BossActivate() {
+        StartCoroutine(OpeningSequence());
+    }
+
+    private IEnumerator OpeningSequence() {
+        // 播放开场动画
+        LevelManager.Instance.HealthUIFadeOut();
+        parameter.anim.Play("Boss_Openning");
+
+        // 等动画播完
+        yield return null;
+        float clipLength = parameter.anim.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(clipLength);
+
+        parameter.currentPlayer.EnableControl();
+        
+        
+        LevelManager.Instance.HealthUIFadeIn();
+        // 正式开始 FSM
+        TransitionState(StateType.Decision);
+    }
+
+
+
+
+
+
+
+
+
+
+
     // Update is called once per frame
     void Update()
     {
+        if (currentState == null) return;
         currentState.OnUpdate();
         CheckShieldThreshold();
     }
@@ -162,5 +199,53 @@ public class FSM : MonoBehaviour
             parameter.anim.SetBool("Cast", false);
             TransitionState(StateType.Decision);
         }
+    }
+
+    private void SetCurrentPlayer(PlayerMotor new_currentPlayer) {
+        parameter.currentPlayer = new_currentPlayer;
+    }
+
+    private void OnEnable() {
+        LevelManager.OnPlayerSpawn += SetCurrentPlayer;
+    }
+
+    private void OnDisable() {
+        LevelManager.OnPlayerSpawn -= SetCurrentPlayer;
+    }
+
+    // Shake Camera
+    private void StartShakeCamera() {
+        Camera2D.instance.StartShake(0.15f, 8f);  // intensity / speed 自己调
+    }
+
+    private void StopShakeCamera() {
+        // 停止震动
+        Camera2D.instance.StopShake();
+        parameter.anim.applyRootMotion = true;
+    }
+
+    // Damage
+    public void TakeDamage(int damage) {
+        if (parameter.shieldObject != null && parameter.shieldObject.isActiveAndEnabled) return; // 有盾就无敌
+
+        parameter.currentHealth -= damage;
+        parameter.currentHealth = Mathf.Max(parameter.currentHealth, 0);
+
+        // 相机震动反馈
+        Camera2D.instance.StartShake(0.1f, 10f);
+        StartCoroutine(StopShakeAfter(0.15f));
+
+        if (parameter.currentHealth <= 0)
+            BossDeath();
+    }
+
+    private IEnumerator StopShakeAfter(float delay) {
+        yield return new WaitForSeconds(delay);
+        Camera2D.instance.StopShake();
+    }
+
+    private void BossDeath() {
+        // 之后你决定死亡动画、掉落、过关等
+        Debug.Log("Boss Dead");
     }
 }

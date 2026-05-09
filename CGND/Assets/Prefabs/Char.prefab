@@ -350,6 +350,9 @@ GameObject:
   - component: {fileID: 7904333211446826392}
   - component: {fileID: 7130908160702141424}
   - component: {fileID: 6837223625796062495}
+  - component: {fileID: 2705835180031772405}
+  - component: {fileID: 8631775371000048203}
+  - component: {fileID: 2896731300207182879}
   m_Layer: 0
   m_Name: Char
   m_TagString: Player
@@ -791,6 +794,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DashSkillEffect
   skillData: {fileID: 11400000, guid: 243baae024bf2734b933a76606526fbf, type: 2}
+--- !u!114 &2705835180031772405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089567270684831309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7a77f5a82ba1947914c277dfe4b64a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TornadoSkillEffect
+  skillData: {fileID: 11400000, guid: 81373f3cf707f1949afddf9649f3c8da, type: 2}
+--- !u!114 &8631775371000048203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089567270684831309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10cfecc7c230f234688f8b1732e24634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaxLifeSkillEffect
+  skillData: {fileID: 11400000, guid: 1fd12f8f56856f94aa3186c2f117b3bd, type: 2}
+--- !u!114 &2896731300207182879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7089567270684831309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68883289069937b4daf630721b36c245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RareGrassSkillEffect
+  skillData: {fileID: 11400000, guid: 701e45d6317e6d44ca838d120769f41e, type: 2}
 --- !u!1 &7181365446697738697
 GameObject:
   m_ObjectHideFlags: 0

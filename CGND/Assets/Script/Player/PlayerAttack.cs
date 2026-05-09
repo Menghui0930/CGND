@@ -24,7 +24,7 @@ public class PlayerAttack : PlayerState
 
     private PlayerElementSwitch _playerElementSwitch;
 
-    public bool isUpgradeWind;
+    public bool isUpgradeWind = false;
 
 
     protected override void Awake() {
@@ -220,6 +220,15 @@ public class PlayerAttack : PlayerState
     public bool CheckHoldingTornado() {
         bool isHoldingTornado = isHolding && isUpgradeWind && _playerElementSwitch.current_element == PlayerElementSwitch.Element.Wind;
         return isHoldingTornado;
+    }
+
+    // Skill Tree
+    public void UnlockTornado() {
+        isUpgradeWind = true;
+
+    }
+    public void LockTornado() {
+        isUpgradeWind = false;
     }
 
 }

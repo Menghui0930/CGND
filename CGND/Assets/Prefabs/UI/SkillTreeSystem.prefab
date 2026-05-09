@@ -1,0 +1,508 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4348894248885462319
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2664293665293338594}
+  - component: {fileID: 1627234161815281913}
+  m_Layer: 0
+  m_Name: SkillTreeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2664293665293338594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348894248885462319}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -929.8338, y: -530.4044, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2383666623437188456}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1627234161815281913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348894248885462319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97923c2c06e7bd5438096ebcf4fdf4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillTreeManager
+  skillPoints: 0
+  skillPointsText: {fileID: 5817061585128827199}
+  skillIcon: {fileID: 5555178655451277158}
+  skillNameText: {fileID: 6866077949996314171}
+  skillDescText: {fileID: 2678106062118903845}
+  upgradeButton: {fileID: 2862230354564681987}
+  upgradeButtonText: {fileID: 2084789724318898104}
+  allSkillButtons:
+  - {fileID: 4440908327647818893}
+  - {fileID: 3950878814540724435}
+  - {fileID: 971557267890919821}
+  - {fileID: 2640674586496485746}
+  - {fileID: 890794596765212909}
+  - {fileID: 5753429081746274548}
+  - {fileID: 983980798890577867}
+  - {fileID: 494470342985467193}
+  - {fileID: 3532074838017912527}
+  allConnections:
+  - {fileID: 6394139059135879203}
+  - {fileID: 7559565219290311402}
+  - {fileID: 1940003000693075505}
+  - {fileID: 2747959977141560461}
+  - {fileID: 3732251863264465424}
+  - {fileID: 7588763658183811894}
+  - {fileID: 3172918133901533765}
+  - {fileID: 7374033677768734599}
+  - {fileID: 2984283822594808433}
+  - {fileID: 955557556965355102}
+  - {fileID: 5786199258224408145}
+  - {fileID: 7693835557068873769}
+--- !u!1 &5168267885334328559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2383666623437188456}
+  m_Layer: 0
+  m_Name: SkillTreeSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2383666623437188456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168267885334328559}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2664293665293338594}
+  - {fileID: 2747840137857619936}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5632619282525672412
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2383666623437188456}
+    m_Modifications:
+    - target: {fileID: 3700414423892628872, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_Name
+      value: Skill Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+--- !u!114 &494470342985467193 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5257850642032498405, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &890794596765212909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4789483174704083761, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &955557556965355102 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4857633489667325314, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &971557267890919821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4850587170578303569, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &983980798890577867 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4867503031208958999, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &1940003000693075505 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6108942774956326381, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &2084789724318898104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5964380334993491044, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &2640674586496485746 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7678244764498729646, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &2678106062118903845 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7710617911112479737, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!224 &2747840137857619936 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7496627984902980668, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2747959977141560461 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7496701653290465105, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &2862230354564681987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7607628922638713567, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &2984283822594808433 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7440328348007401901, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &3172918133901533765 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7071616092030759321, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &3532074838017912527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9164656178797640979, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &3732251863264465424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9070401582312341964, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &3950878814540724435 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8718760230733064975, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &4440908327647818893 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8325559208656299857, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &5555178655451277158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 233308571913434298, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!114 &5753429081746274548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 140557311525923624, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166b17b48459b248a9bac790e5bee78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillButton
+--- !u!114 &5786199258224408145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2190896716187526541, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &5817061585128827199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2202629464911379171, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &6394139059135879203 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1627944603032996863, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &6866077949996314171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1252599799121280487, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!114 &7374033677768734599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2917982821578007643, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &7559565219290311402 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2793337769249159478, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &7588763658183811894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2845044826062581994, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection
+--- !u!114 &7693835557068873769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2661323682280469493, guid: 3ffa4a1b416cd7e4cb0d90d8215ac624, type: 3}
+  m_PrefabInstance: {fileID: 5632619282525672412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08bcd48ea14e9654a83ffefe0ff739d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillConnection

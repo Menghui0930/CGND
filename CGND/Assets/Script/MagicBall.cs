@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 public class MagicBall : MonoBehaviour
 {
     [SerializeField] private GameObject waterballDestroy;
+    [SerializeField] private int Damage;
     public string element;
     private bool hasHit = false; 
 
@@ -21,6 +22,10 @@ public class MagicBall : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy")) {
             hasHit = true;
             MagicPoint.Instance.IncreaseMP();
+            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            if (enemy != null) {
+                enemy.TakeDamage(10);
+            }
             GameObject waterball = Instantiate(waterballDestroy, transform.position, Quaternion.identity);
             Destroy(gameObject);
 

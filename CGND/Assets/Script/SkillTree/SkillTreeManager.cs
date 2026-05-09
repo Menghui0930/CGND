@@ -164,7 +164,11 @@ public class SkillTreeManager : MonoBehaviour {
             conn.UpdateVisual();
     }
 
-    private void UpdateSkillPointsUI() {
+    public void GetCrystal(int num) {
+        skillPoints += num;
+    }
+
+    public void UpdateSkillPointsUI() {
         skillPointsText.text = $"{skillPoints}";
     }
 

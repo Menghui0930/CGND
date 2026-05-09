@@ -31,6 +31,10 @@ public class UIController : MonoBehaviour {
         for (int i = 0; i < MP.Length; i++) {
             _mpOriginalPos[i] = MP[i].GetComponent<RectTransform>().anchoredPosition;
         }
+
+        // 默认隐藏第4、5颗心
+        for (int i = 3; i < HealthImage.Length; i++)
+            HealthImage[i].gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -73,7 +77,9 @@ public class UIController : MonoBehaviour {
         HealthPanel.anchoredPosition = originalPos; 
 
         for (int i = 0; i < HealthImage.Length; i++) {
-            HealthImage[i].sprite = i < currentLifes ? FullHealth : EmptyHealth;
+            // 只更新已激活的心
+            if (HealthImage[i].gameObject.activeSelf)
+                HealthImage[i].sprite = i < currentLifes ? FullHealth : EmptyHealth;
         }
     }
 
@@ -182,14 +188,20 @@ public class UIController : MonoBehaviour {
         rect.anchoredPosition = origin;
     }
 
-
     private void SetPlayer(PlayerMotor player) {
         currentPlayer= player.transform;
+    }
+
+    private void OnMaxLifeChanged(int maxLifes) {
+        // 激活对应数量的心
+        for (int i = 0; i < HealthImage.Length; i++)
+            HealthImage[i].gameObject.SetActive(i < maxLifes);
     }
 
     private void OnEnable() {
         LevelManager.OnPlayerSpawn += SetPlayer;
         Health.OnLifesChanged += OnPlayerLifes;
+        Health.OnMaxLifeChanged += OnMaxLifeChanged;
         MagicPoint.OnMPChanged += OnPlayerMP;
         //Health.OnMPChanged += OnPlayerMP;
     }
@@ -197,6 +209,7 @@ public class UIController : MonoBehaviour {
     private void OnDisable() {
         Health.OnLifesChanged -= OnPlayerLifes;
         LevelManager.OnPlayerSpawn -= SetPlayer;
+        Health.OnMaxLifeChanged -= OnMaxLifeChanged;
         MagicPoint.OnMPChanged -= OnPlayerMP;
         //Health.OnMPChanged -= OnPlayerMP;
     }
