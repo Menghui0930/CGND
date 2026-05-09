@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Update running");
 
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log("esc pressed");
             if (isPaused)
@@ -35,6 +35,12 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+    }
+
+    public void Home()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void Setting()

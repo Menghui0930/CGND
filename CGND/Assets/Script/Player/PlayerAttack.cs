@@ -90,7 +90,9 @@ public class PlayerAttack : PlayerState
         ChargeAttack.canceled -= OnAttackReleased;
     }
 
-    private void OnAttackStarted(InputAction.CallbackContext context) {     
+    private void OnAttackStarted(InputAction.CallbackContext context) {
+        if (Time.timeScale == 0f) 
+            return;
         _playerController.isChargeAttack = true;
         isHolding = true;
         holdTimer = 0f;
@@ -99,7 +101,9 @@ public class PlayerAttack : PlayerState
         
     }
 
-    private void OnAttackReleased(InputAction.CallbackContext context) {        
+    private void OnAttackReleased(InputAction.CallbackContext context) {
+        if (Time.timeScale == 0f) 
+            return;
         if (isCharged) {
             if (isUpgradeWind && _playerElementSwitch.current_element == PlayerElementSwitch.Element.Wind) {
                 ShootTornado();

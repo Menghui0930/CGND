@@ -48,6 +48,8 @@ public class PlayerBasicAttack : PlayerState {
     }
 
     private void OnAttackStarted(InputAction.CallbackContext context) {
+        if (Time.timeScale == 0f)
+            return;
         isHolding = true;
         fireTimer = fireRate;
     }
