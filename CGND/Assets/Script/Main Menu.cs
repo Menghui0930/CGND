@@ -54,7 +54,6 @@ public class MainMenu : MonoBehaviour
         //SceneManager.LoadScene("Level_Tutorial");
 
     }
-
     public void Setting()
     {
 
