@@ -194,3 +194,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaterMagicBall
   waterballDestroy: {fileID: 8855085987596910881, guid: b3b6cc03a2b8f4d42a1c0a795b6a3a61, type: 3}
   maxBounces: 2
+  hurt_Damage: 10
+  element: Water

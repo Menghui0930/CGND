@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Unity.Mathematics;
+using UnityEngine;
 
 public enum ShieldElement { Blue, Green, Yellow }
 
@@ -15,7 +17,7 @@ public class ShieldController : MonoBehaviour
     private float switchTimer = 0f;
     private float switchInterval = 5f;
 
-    private System.Action onShieldBroken;  // 盾破了通知 ShieldState
+    //private System.Action onShieldBroken;  // 盾破了通知 ShieldState
 
     private void Start() {
         theSR = GetComponent<SpriteRenderer>();    
@@ -40,7 +42,7 @@ public class ShieldController : MonoBehaviour
         // 随机选一个和当前不同的元素
         ShieldElement next;
         do {
-            next = (ShieldElement)Random.Range(0, 3);
+            next = (ShieldElement)UnityEngine.Random.Range(0, 3);
         } while (next == currentElement);
 
         currentElement = next;
@@ -66,7 +68,8 @@ public class ShieldController : MonoBehaviour
         Debug.Log($"盾受击 {hitCount}/{maxHit}");
 
         if (hitCount >= maxHit) {
-            onShieldBroken?.Invoke();
+            transform.gameObject.SetActive(false);
+            //OnSheildBroken?.Invoke();
         }
     }
 }

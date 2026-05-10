@@ -38,19 +38,30 @@ public class Parameter {
     public Transform slamSpikeCenter;    // 中间起始点
     public float spikeSpeed;
     public GameObject spikePrefabs;
+    public int spikeCount = 5;
+    public float spacing = 1.5f;
+    public float spawnDelay = 1f;      // 每个刺间隔 1s
+    public float spikeLifetime = 1.5f; // 刺存活 1.5s
+
 
     [Header("Cast")]
     public Transform castStartPoint;
     public GameObject rockPrefabs;
-    public Transform castPointLeft;
-    public Transform castPointRight;
+    public Transform[] castSpawnPoints;   // ← 改成数组，放4个点
 
     [Header("Shield")]
     public int shieldHealth = 300;
-    public float shieldDuration = 5f;
+    //public float shieldDuration = 5f;
     public ShieldController shieldObject;
     public bool shield1Used = false;
     public bool shield2Used = false;
+
+    [Header("SpawnPosition")]
+    public Transform bossStartPoint;   // ← 拖入 Boss 起始位置的 Transform
+
+    [Header("Death")]
+    public Transform bossDeadPoint;
+    public float deadMoveSpeed = 3f;
 
     public PlayerMotor currentPlayer;
 }
@@ -59,6 +70,8 @@ public class FSM : MonoBehaviour
 {
     public Parameter parameter;
     private IState currentState;
+
+    private bool isDead = false;   // ← 加这个
 
 
 
@@ -77,6 +90,8 @@ public class FSM : MonoBehaviour
         //TransitionState(StateType.Decision);
 
         //TransitionState(StateType.Idle);
+
+        parameter.shieldObject.gameObject.SetActive(false);
         parameter.currentHealth = parameter.maxHealth;
     }
 
@@ -116,11 +131,13 @@ public class FSM : MonoBehaviour
     void Update()
     {
         if (currentState == null) return;
+        if (isDead) return;        // ← 加这个
         currentState.OnUpdate();
         CheckShieldThreshold();
     }
 
     public void TransitionState(StateType type) {
+        if (isDead) return;        // ← 加这个
         if (currentState!= null) {
             currentState.OnExit();
         }
@@ -169,7 +186,7 @@ public class FSM : MonoBehaviour
     public void FlyEnd() {
         //parameter.flystart = false;
         if (currentState is FlyState) {
-            parameter.anim.SetBool("Fly", false);
+            //parameter.anim.SetBool("Fly", false);
             TransitionState(StateType.Decision);
         }
     }
@@ -189,9 +206,9 @@ public class FSM : MonoBehaviour
     }
 
     // cast
-    public void PushRock() {
+    public void SpawnRock() {
         if (currentState is CastState castState)
-            castState.OnPushRock();
+            castState.OnSpawnRock();
     }
 
     public void CastEnd() {
@@ -207,10 +224,12 @@ public class FSM : MonoBehaviour
 
     private void OnEnable() {
         LevelManager.OnPlayerSpawn += SetCurrentPlayer;
+        Health.OnDeath += ResetBoss;
     }
 
     private void OnDisable() {
         LevelManager.OnPlayerSpawn -= SetCurrentPlayer;
+        Health.OnDeath -= ResetBoss;
     }
 
     // Shake Camera
@@ -244,8 +263,65 @@ public class FSM : MonoBehaviour
         Camera2D.instance.StopShake();
     }
 
-    private void BossDeath() {
-        // 之后你决定死亡动画、掉落、过关等
-        Debug.Log("Boss Dead");
+    public void BossDeath() {
+        isDead = true;             // ← 第一件事锁死
+        StopAllCoroutines();
+        currentState = null;  // 停止 FSM 所有行为
+
+        // 停止所有动画 bool，回到 idle
+        parameter.anim.SetBool("Fly", false);
+        parameter.anim.SetBool("Slam", false);
+        parameter.anim.SetBool("Cast", false);
+
+        StartCoroutine(DeathSequence());
+    }
+
+    private IEnumerator DeathSequence() {
+        // 飞向死亡点
+        while (Vector2.Distance(transform.position, parameter.bossDeadPoint.position) > 0.1f) {
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                parameter.bossDeadPoint.position,
+                parameter.deadMoveSpeed * Time.deltaTime
+            );
+            yield return null;
+        }
+
+        // 到达后对齐
+        transform.position = parameter.bossDeadPoint.position;
+
+        parameter.anim.applyRootMotion = false;
+        // 播放死亡动画，永远不再动
+        parameter.anim.Play("Boss_Dead");
+    }
+
+    private void ResetBoss(PlayerMotor playerMotor) {
+        // 停止所有 Coroutine
+        isDead = false;
+        StopAllCoroutines();
+
+        // 重置位置
+        if (parameter.bossStartPoint != null)
+            transform.position = parameter.bossStartPoint.position;
+
+        // 重置血量（包括 BossL3Health 自己的）
+        GetComponent<BossL3Health>()?.ResetHealth();   // ← 加这行
+        parameter.currentHealth = parameter.maxHealth;
+
+        // 重置盾
+        parameter.shield1Used = false;
+        parameter.shield2Used = false;
+        if (parameter.shieldObject != null)
+            parameter.shieldObject.gameObject.SetActive(false);
+
+        // 清空 CastState 的石头
+        if (states.ContainsKey(StateType.Cast))
+            (states[StateType.Cast] as CastState)?.Reset();
+
+        // 重置 FSM 状态
+        currentState = null;
+
+        // 重置动画
+        parameter.anim.Play("Boss_BeforeOpenning");  // 改成你的待机动画名字
     }
 }

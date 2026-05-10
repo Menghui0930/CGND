@@ -193,3 +193,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrassMagicBall
   grassballDestroy: {fileID: 822649077703719597, guid: 6f1bfa32aa02f9446aed21e5a8383cc5, type: 3}
+  hurt_Damage: 10
+  element: Grass

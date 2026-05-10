@@ -30,11 +30,16 @@ public class BossL3Health : EnemyHealth {
 
     protected override void Die() {
         Debug.Log("Boss Dead");
-        // 播死亡动画、过关等
+        _fsm.BossDeath();
     }
 
     private IEnumerator StopShakeAfter(float delay) {
         yield return new WaitForSeconds(delay);
         Camera2D.instance.StopShake();
+    }
+
+    public void ResetHealth() {
+        currentHealth = maxHealth;
+        _fsm.parameter.currentHealth = maxHealth;
     }
 }

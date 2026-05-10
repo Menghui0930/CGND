@@ -193,9 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c119a9b8d5d2c0141a85d64b506e9236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindMagicBall
-  windBallDestroy: {fileID: 0}
+  windBallDestroy: {fileID: 5684173933949714385, guid: 66a22b87ce2bcc243b4daf3214e58551, type: 3}
   speedBonus: 1
   boostDuration: 0.5
+  hurt_Damage: 10
+  element: Wind
 --- !u!1 &7421454817372160502
 GameObject:
   m_ObjectHideFlags: 0

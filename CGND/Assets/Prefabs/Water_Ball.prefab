@@ -194,6 +194,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicBall
   waterballDestroy: {fileID: 8743999797898131317, guid: a1b8107a9b470a94a9ea95e214f8e3c6, type: 3}
+  hurt_Damage: 10
+  element: Water
 --- !u!1 &3478445943450985793
 GameObject:
   m_ObjectHideFlags: 0

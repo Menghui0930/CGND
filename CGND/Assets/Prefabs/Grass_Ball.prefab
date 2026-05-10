@@ -5030,3 +5030,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicBall
   waterballDestroy: {fileID: 8743999797898131317, guid: 77a9b42137914244fbb87a3172e1fe51, type: 3}
+  hurt_Damage: 10
+  element: Grass
