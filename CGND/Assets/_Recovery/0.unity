@@ -2294,8 +2294,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583a17bcaa8bac749b5fa3fe36bd7d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Disappearplatform
-  fallDelay: 5
+  shakeCount: 3
+  shakeAmount: 0.15
+  shakeDuration: 0.12
   respawnDelay: 3
+  theSR01: {fileID: 0}
+  theSR02: {fileID: 0}
+  theSR03: {fileID: 0}
+  theSR04: {fileID: 0}
 --- !u!1001 &312572577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3441,9 +3447,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9ace77346b0254da1cdf3920d6bea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikePlatform1
-  spikes: {fileID: 0}
+  spike1: {fileID: 0}
+  spike2: {fileID: 0}
   waitTime: 3
+  flashDuration: 1.5
   flashSpeed: 5
+  hideDelay: 2
 --- !u!1001 &486242854
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4314,7 +4323,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000d5f5fdcc11cc4db6
+  m_ApplyToSortingLayers: 636c7924093f682800000000
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -5726,6 +5735,7 @@ MonoBehaviour:
   radius: 2
   speed: 100
   yOffset: 3
+  xOffset: 0
   startAngle: 180
 --- !u!212 &807412445
 SpriteRenderer:
@@ -7419,8 +7429,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583a17bcaa8bac749b5fa3fe36bd7d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Disappearplatform
-  fallDelay: 5
+  shakeCount: 3
+  shakeAmount: 0.15
+  shakeDuration: 0.12
   respawnDelay: 3
+  theSR01: {fileID: 0}
+  theSR02: {fileID: 0}
+  theSR03: {fileID: 0}
+  theSR04: {fileID: 0}
 --- !u!1 &929091320 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1049023302621363167, guid: c4728654af6c1b84fb5102e3f29ffb8f, type: 3}
@@ -18252,9 +18268,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9ace77346b0254da1cdf3920d6bea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikePlatform1
-  spikes: {fileID: 0}
+  spike1: {fileID: 0}
+  spike2: {fileID: 0}
   waitTime: 3
+  flashDuration: 1.5
   flashSpeed: 5
+  hideDelay: 2
 --- !u!1001 &1559081982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21272,6 +21291,7 @@ MonoBehaviour:
   radius: 2
   speed: 90
   yOffset: 4
+  xOffset: 0
   startAngle: 0
 --- !u!212 &1701699264
 SpriteRenderer:
@@ -21512,9 +21532,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9ace77346b0254da1cdf3920d6bea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikePlatform1
-  spikes: {fileID: 0}
+  spike1: {fileID: 0}
+  spike2: {fileID: 0}
   waitTime: 3
+  flashDuration: 1.5
   flashSpeed: 5
+  hideDelay: 2
 --- !u!1 &1787626721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4460813094189888139, guid: 35ff5f2cc18840a4ca4ecf97ed2779c2, type: 3}
@@ -21532,9 +21555,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9ace77346b0254da1cdf3920d6bea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  spikes: {fileID: 0}
+  spike1: {fileID: 0}
+  spike2: {fileID: 0}
   waitTime: 3
+  flashDuration: 1.5
   flashSpeed: 5
+  hideDelay: 2
 --- !u!1 &1802605691 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6072232795771451288, guid: faa8413b1d9e4cd48ab117de84514e7c, type: 3}
@@ -21552,9 +21578,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9ace77346b0254da1cdf3920d6bea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikePlatform1
-  spikes: {fileID: 0}
+  spike1: {fileID: 0}
+  spike2: {fileID: 0}
   waitTime: 3
+  flashDuration: 1.5
   flashSpeed: 5
+  hideDelay: 2
 --- !u!1 &1823818745
 GameObject:
   m_ObjectHideFlags: 0
@@ -21840,9 +21869,9 @@ MonoBehaviour:
   dashSpeed: 15
   dashDuration: 0.5
   dashCooldown: 0.5
-  leftLimit: -50
-  rightLimit: 50
   bounceForce: 15
+  headTolerance: 0.1
+  _triggerCol: {fileID: 0}
 --- !u!50 &1844785640
 Rigidbody2D:
   serializedVersion: 5
@@ -21908,7 +21937,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -22526,9 +22555,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9ace77346b0254da1cdf3920d6bea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikePlatform1
-  spikes: {fileID: 0}
+  spike1: {fileID: 0}
+  spike2: {fileID: 0}
   waitTime: 3
+  flashDuration: 1.5
   flashSpeed: 5
+  hideDelay: 2
 --- !u!1 &1933035492
 GameObject:
   m_ObjectHideFlags: 0
@@ -23965,9 +23997,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab9ace77346b0254da1cdf3920d6bea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpikePlatform1
-  spikes: {fileID: 0}
+  spike1: {fileID: 0}
+  spike2: {fileID: 0}
   waitTime: 3
+  flashDuration: 1.5
   flashSpeed: 5
+  hideDelay: 2
 --- !u!1 &2088679043 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2183321564951531335, guid: 367acab6b4839d34f847dc791e026c4d, type: 3}
@@ -24128,8 +24163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583a17bcaa8bac749b5fa3fe36bd7d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Disappearplatform
-  fallDelay: 5
+  shakeCount: 3
+  shakeAmount: 0.15
+  shakeDuration: 0.12
   respawnDelay: 3
+  theSR01: {fileID: 0}
+  theSR02: {fileID: 0}
+  theSR03: {fileID: 0}
+  theSR04: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerJump : PlayerState {
     [Header("Settings")]
     [SerializeField] private float jumpHeight = 5f;
-    [SerializeField] private int maxJumps = 2;
+    [SerializeField] private int maxJumps = 1;
 
     public int JumpLeft;
 
@@ -64,5 +64,10 @@ public class PlayerJump : PlayerState {
             _animator.SetBool("Jump",false);
             _animator.SetBool("ClimbFall",false);
         }
+    }
+
+    // Skill Tree
+    public void UnlockDoubleJump() {
+        maxJumps = 2;
     }
 }

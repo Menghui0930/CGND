@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -10,6 +10,11 @@ public class GrassTilemapManager : MonoBehaviour {
     public GameObject[] grassPrefabs;
     [SerializeField] private int spreadWidth = 4;
     [SerializeField] private float spreadDelay = 0.06f;
+
+    [Header("Rare Grass (Skill Unlock)")]
+    [SerializeField] private GameObject[] rareGrassPrefabs;   // 拖入3种稀有草
+    [SerializeField] private float rareChance = 0.05f;        // 5% 几率
+    [HideInInspector] public bool rareGrassUnlocked = false;
 
 
     private void Awake() {
@@ -45,10 +50,19 @@ public class GrassTilemapManager : MonoBehaviour {
 
         Vector3 worldPos = tilemap.GetCellCenterWorld(cell);
 
-        GameObject selectedGrass = grassPrefabs[Random.Range(0, grassPrefabs.Length)];
-        GameObject grass = Instantiate(selectedGrass, worldPos,Quaternion.identity);
+        // 判断生成普通草还是稀有草
+        GameObject selectedGrass;
+        if (rareGrassUnlocked && rareGrassPrefabs.Length > 0 && Random.value < rareChance)
+            selectedGrass = rareGrassPrefabs[Random.Range(0, rareGrassPrefabs.Length)];
+        else
+            selectedGrass = grassPrefabs[Random.Range(0, grassPrefabs.Length)];
 
-        // grass position
+        GameObject grass = Instantiate(selectedGrass, worldPos, Quaternion.identity);
         grass.GetComponent<GrassObject>().Init(cell);
     }
+
+
+    //Skill tree
+    public void UnlockRareGrass() { rareGrassUnlocked = true; }
+    public void LockRareGrass() { rareGrassUnlocked = false; }
 }

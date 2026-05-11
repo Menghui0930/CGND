@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
-public class MovingTilemap : MonoBehaviour
-{
-    public float moveDistance = 3f;   
-    public float moveSpeed = 2f;      
+public class MovingTilemap : MonoBehaviour {
+    public float moveDistance = 3f;
+    public float moveSpeed = 2f;
+    [SerializeField] private float waitSecond = 1f;
 
     private Vector3 startPos;
     private Vector3 targetPos;
@@ -15,32 +16,31 @@ public class MovingTilemap : MonoBehaviour
     }
 
     void Update() {
-        if (isMoving) {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                targetPos,
-                moveSpeed * Time.deltaTime
-            );
-        } else {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                startPos,
-                moveSpeed * Time.deltaTime
-            );
-        }
+        Vector3 destination = isMoving ? targetPos : startPos;
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            destination,
+            moveSpeed * Time.deltaTime
+        );
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
-            isMoving = true;
-            other.gameObject.transform.SetParent(transform);
+            other.transform.SetParent(transform);
+            StartCoroutine(DelayedMove());   
         }
     }
 
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player")) {
+            StopAllCoroutines();            
             isMoving = false;
-            other.gameObject.transform.SetParent(null);
+            other.transform.SetParent(null);
         }
+    }
+
+    private IEnumerator DelayedMove() {
+        yield return new WaitForSeconds(waitSecond);  
+        isMoving = true;
     }
 }

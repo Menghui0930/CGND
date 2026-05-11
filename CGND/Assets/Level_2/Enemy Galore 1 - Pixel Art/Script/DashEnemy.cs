@@ -33,6 +33,7 @@ public class DashEnemy : MonoBehaviour {
     }
 
     void Update() {
+        if(player == null) return;  
         // check player
         bool playerInRange = Vector2.Distance(transform.position, player.position) <= detectionRange;
 

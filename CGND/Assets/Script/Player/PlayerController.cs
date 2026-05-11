@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour {
     [Header("Climbing")]
     public bool isClimbing = false;
 
+    [HideInInspector] public bool isPaused = false;
+
     public void SetHorizontalForce(float xForce) => _force.x = xForce;
     public void SetVerticalForce(float yForce) => _force.y = yForce;
 
@@ -44,6 +46,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+
+        if (isPaused) {
+            theRB.linearVelocity = new Vector2(0, theRB.linearVelocity.y); 
+            return;
+        }
+
         // Face Direction
         FaceDirection();
         RotateModel();

@@ -193,3 +193,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicBall
   waterballDestroy: {fileID: 8766632411823735967, guid: e2378b71b3ce4e040a6a932cdcb0acdd, type: 3}
+  hurt_Damage: 10
+  element: Wind

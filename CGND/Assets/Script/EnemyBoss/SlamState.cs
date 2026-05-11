@@ -30,23 +30,35 @@ public class SlamState : IState {
     }
 
     public void OnSpawnSpike() {
-        Debug.Log("SpawnSPike");
-        // 生成往左的刺
-        GameObject leftSpike = UnityEngine.Object.Instantiate(
+        manager.StartCoroutine(SpawnSpikeWave());
+    }
+
+    private System.Collections.IEnumerator SpawnSpikeWave() {
+
+        // 先在原地生成一个
+        GameObject center = SpawnSpike(parameter.slamSpikeCenter.position);
+        UnityEngine.Object.Destroy(center, parameter.spikeLifetime);
+
+        // 往左往右同时扩散
+        for (int i = 1; i <= parameter.spikeCount; i++) {
+            yield return new WaitForSeconds(parameter.spawnDelay);
+
+            Vector3 leftPos = parameter.slamSpikeCenter.position + Vector3.left * parameter.spacing * i;
+            Vector3 rightPos = parameter.slamSpikeCenter.position + Vector3.right * parameter.spacing * i;
+
+            GameObject left = SpawnSpike(leftPos);
+            GameObject right = SpawnSpike(rightPos);
+
+            UnityEngine.Object.Destroy(left, parameter.spikeLifetime);
+            UnityEngine.Object.Destroy(right, parameter.spikeLifetime);
+        }
+    }
+
+    private GameObject SpawnSpike(Vector3 position) {
+        return UnityEngine.Object.Instantiate(
             parameter.spikePrefabs,
-            parameter.slamSpikeCenter.position,
+            position,
             Quaternion.identity
         );
-        leftSpike.GetComponent<Rigidbody2D>().linearVelocity = Vector2.left * parameter.spikeSpeed;
-
-        // 生成往右的刺
-        GameObject rightSpike = UnityEngine.Object.Instantiate(
-            parameter.spikePrefabs,
-            parameter.slamSpikeCenter.position,
-            Quaternion.identity
-        );
-        rightSpike.GetComponent<Rigidbody2D>().linearVelocity = Vector2.right * parameter.spikeSpeed;
-
-        Debug.Log("刺生成！");
     }
 }

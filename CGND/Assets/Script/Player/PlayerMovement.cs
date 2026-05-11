@@ -6,6 +6,9 @@ public class PlayerMovement : PlayerState {
     [SerializeField] private float speed = 10f;
     private float _movement;
 
+    // flower
+    public float _speedBonus = 0f;
+
     protected override void Awake() {
         base.Awake();
     }
@@ -22,8 +25,12 @@ public class PlayerMovement : PlayerState {
     }
 
     private void MovePlayer() {
-        _playerController.SetHorizontalForce(_movement * speed);
+        _playerController.SetHorizontalForce(_movement * (speed + _speedBonus));
     }
+
+    public void AddSpeedBonus(float bonus) {
+        Debug.Log("Add bonus");
+        _speedBonus += bonus; }
 
     public override void SetAnimation() {
         _animator.SetBool("Idle", _horizontalInput == 0 && _playerController.isGrounded);

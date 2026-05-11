@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5307659168585019884}
   - component: {fileID: 5023146777802873417}
   - component: {fileID: 4655946910125806792}
-  - component: {fileID: 5436589897673866668}
+  - component: {fileID: 7426779853019873134}
   m_Layer: 0
   m_Name: Wind_Ball
   m_TagString: Untagged
@@ -181,7 +181,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.0101746945, y: 0}
   m_Radius: 0.5081981
---- !u!114 &5436589897673866668
+--- !u!114 &7426779853019873134
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,10 +190,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1532130184104291775}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f14bb9cf3878014d995ce71494c2635, type: 3}
+  m_Script: {fileID: 11500000, guid: c119a9b8d5d2c0141a85d64b506e9236, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicBall
-  waterballDestroy: {fileID: 5684173933949714385, guid: 66a22b87ce2bcc243b4daf3214e58551, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::WindMagicBall
+  windBallDestroy: {fileID: 5684173933949714385, guid: 66a22b87ce2bcc243b4daf3214e58551, type: 3}
+  speedBonus: 1
+  boostDuration: 0.5
+  hurt_Damage: 10
+  element: Wind
 --- !u!1 &7421454817372160502
 GameObject:
   m_ObjectHideFlags: 0
