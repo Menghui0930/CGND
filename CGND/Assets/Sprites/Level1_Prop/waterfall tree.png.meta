@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: 48605e14b5be0714a9cf47cf76067f61
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 755445697233981471
+    second: waterfall tree_0
+  - first:
+      213: 3788286823294238105
+    second: waterfall tree_1
+  - first:
+      213: 4229968351280380260
+    second: waterfall tree_2
+  - first:
+      213: -144571764487198733
+    second: waterfall tree_3
+  - first:
+      213: -6702677876553667078
+    second: waterfall tree_4
+  - first:
+      213: -4506834641990254992
+    second: waterfall tree_5
+  - first:
+      213: 5451285054562110029
+    second: waterfall tree_6
+  - first:
+      213: -2056208588728374606
+    second: waterfall tree_7
+  - first:
+      213: 6956147846787046607
+    second: waterfall tree_8
+  - first:
+      213: -6098994633876044568
+    second: waterfall tree_9
+  - first:
+      213: -2756430054486005732
+    second: waterfall tree_10
+  - first:
+      213: 4837639946153825802
+    second: waterfall tree_11
+  - first:
+      213: 5821357385246893391
+    second: waterfall tree_12
+  - first:
+      213: 8709868476418031318
+    second: waterfall tree_13
+  - first:
+      213: -2250207840142435421
+    second: waterfall tree_14
+  - first:
+      213: 4004968090982611705
+    second: waterfall tree_15
+  - first:
+      213: -7004238000182969212
+    second: waterfall tree_16
+  - first:
+      213: 1733553253480480371
+    second: waterfall tree_17
+  - first:
+      213: -6231256776159072925
+    second: waterfall tree_18
+  - first:
+      213: 4956248193963394355
+    second: waterfall tree_19
+  - first:
+      213: 4649124345911583660
+    second: waterfall tree_20
+  - first:
+      213: -4139122806623455361
+    second: waterfall tree_21
+  - first:
+      213: -3766212819873739907
+    second: waterfall tree_22
+  - first:
+      213: -8190961048442310305
+    second: waterfall tree_23
+  - first:
+      213: 2329090902609659286
+    second: waterfall tree_24
+  - first:
+      213: -7655775375185999729
+    second: waterfall tree_25
+  - first:
+      213: 2646333186383075595
+    second: waterfall tree_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: waterfall tree_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2024
+        width: 170
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f109abeebd1eb7a00800000000000000
+      internalID: 755445697233981471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_1
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 2088
+        width: 298
+        height: 224
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99dfeb96bc2b29430800000000000000
+      internalID: 3788286823294238105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_2
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 2049
+        width: 522
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469363dddcdd3ba30800000000000000
+      internalID: 4229968351280380260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_3
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1808
+        width: 477
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f760350fb06efdf0800000000000000
+      internalID: -144571764487198733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_4
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1464
+        width: 462
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd262ccbfd4bf2a0800000000000000
+      internalID: -6702677876553667078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_5
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1726
+        width: 463
+        height: 325
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07efeb675c18471c0800000000000000
+      internalID: -4506834641990254992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_6
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 1685
+        width: 170
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4a029effdad6ab40800000000000000
+      internalID: 5451285054562110029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_7
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1181
+        width: 489
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2baecbcce21e673e0800000000000000
+      internalID: -2056208588728374606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_8
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 1348
+        width: 578
+        height: 332
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc17d48c93398060800000000000000
+      internalID: 6956147846787046607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_9
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 973
+        width: 514
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e40ec0c1b40c5ba0800000000000000
+      internalID: -6098994633876044568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_10
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 1063
+        width: 133
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c18a62a38713fb9d0800000000000000
+      internalID: -2756430054486005732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1118
+        width: 188
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a061dbd66efb22340800000000000000
+      internalID: 4837639946153825802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_12
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 1020
+        width: 38
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45ec32f2bd99c050800000000000000
+      internalID: 5821357385246893391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_13
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 1050
+        width: 72
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6def4418b3bafd870800000000000000
+      internalID: 8709868476418031318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_14
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 1037
+        width: 89
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3abd28934e7a5c0e0800000000000000
+      internalID: -2250207840142435421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_15
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 1024
+        width: 87
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fafacf6241849730800000000000000
+      internalID: 4004968090982611705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_16
+      rect:
+        serializedVersion: 2
+        x: 775
+        y: 960
+        width: 172
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48c3dcc16a2fbce90800000000000000
+      internalID: -7004238000182969212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_17
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 937
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37e3de0df71de0810800000000000000
+      internalID: 1733553253480480371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_18
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 930
+        width: 85
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36deac80af02689a0800000000000000
+      internalID: -6231256776159072925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_19
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 960
+        width: 102
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3350cdb197128c440800000000000000
+      internalID: 4956248193963394355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_20
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 896
+        width: 104
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca32ea2e5f1058040800000000000000
+      internalID: 4649124345911583660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_21
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 807
+        width: 150
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f77bd75ccb1ee86c0800000000000000
+      internalID: -4139122806623455361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_22
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 864
+        width: 121
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7b47e20569bbbbc0800000000000000
+      internalID: -3766212819873739907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_23
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 453
+        width: 330
+        height: 341
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f51f882f25cd35e80800000000000000
+      internalID: -8190961048442310305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_24
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 154
+        width: 435
+        height: 503
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69584abf5d7925020800000000000000
+      internalID: 2329090902609659286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_25
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 511
+        width: 493
+        height: 331
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f880bd9bbd831c590800000000000000
+      internalID: -7655775375185999729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: waterfall tree_26
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 17
+        width: 422
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b09d0bb130aa9b420800000000000000
+      internalID: 2646333186383075595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      waterfall tree_0: 755445697233981471
+      waterfall tree_1: 3788286823294238105
+      waterfall tree_10: -2756430054486005732
+      waterfall tree_11: 4837639946153825802
+      waterfall tree_12: 5821357385246893391
+      waterfall tree_13: 8709868476418031318
+      waterfall tree_14: -2250207840142435421
+      waterfall tree_15: 4004968090982611705
+      waterfall tree_16: -7004238000182969212
+      waterfall tree_17: 1733553253480480371
+      waterfall tree_18: -6231256776159072925
+      waterfall tree_19: 4956248193963394355
+      waterfall tree_2: 4229968351280380260
+      waterfall tree_20: 4649124345911583660
+      waterfall tree_21: -4139122806623455361
+      waterfall tree_22: -3766212819873739907
+      waterfall tree_23: -8190961048442310305
+      waterfall tree_24: 2329090902609659286
+      waterfall tree_25: -7655775375185999729
+      waterfall tree_26: 2646333186383075595
+      waterfall tree_3: -144571764487198733
+      waterfall tree_4: -6702677876553667078
+      waterfall tree_5: -4506834641990254992
+      waterfall tree_6: 5451285054562110029
+      waterfall tree_7: -2056208588728374606
+      waterfall tree_8: 6956147846787046607
+      waterfall tree_9: -6098994633876044568
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -15,6 +15,7 @@ TagManager:
   - Water
   - Flower
   - Hand
+  - MagicBall
   layers:
   - Default
   - TransparentFX
@@ -52,6 +53,12 @@ TagManager:
   - name: BG
     uniqueID: 611937379
     locked: 0
+  - name: BG_F1
+    uniqueID: 1059617771
+    locked: 0
+  - name: BG_F2
+    uniqueID: 1201421557
+    locked: 0
   - name: Ground
     uniqueID: 677920521
     locked: 0
@@ -63,6 +70,9 @@ TagManager:
     locked: 0
   - name: Front
     uniqueID: 3347772847
+    locked: 0
+  - name: Non_Light
+    uniqueID: 301465429
     locked: 0
   m_RenderingLayers:
   - Default

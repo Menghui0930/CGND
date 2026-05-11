@@ -1,93 +1,139 @@
 ﻿using UnityEngine;
+using System.Collections;
 
-public class BossScript : MonoBehaviour
-{
-    public Transform player;
-    public Animator anim;
-    public float walkSpeed = 2f;
-    public float walkRange = 5f;
-    public float biteRange = 2f;
+public class BossScript : MonoBehaviour {
+    [Header("References")]
+    private PlayerMotor player;
+    private Animator anim;
+    public GameObject bulletPrefab;
+    public Transform shootPoint;
+
+    [Header("Bite Attack")]
+    public float biteRange = 5f;
     public float biteCooldown = 2f;
     public float biteDamageDelay = 0.3f;
 
+    [Header("Shoot Attack")]
+    public float shootRange = 8f;
+    public float shootCooldown = 3f;
+
     private float biteTimer = 0f;
+    private float shootTimer = 0f;
     private bool isAttacking = false;
 
-    void Update()
-    {
-        if (player == null) return;
+    //private float bossScale;
 
-        float distance = Vector2.Distance(transform.position, player.position);
-        Debug.Log("Distance: " + distance);
-        Debug.Log("isAttacking: " + isAttacking);
-        Debug.Log("Walk condition: " + (distance <= walkRange && distance > biteRange && !isAttacking));
-        Debug.Log("Boss Position: " + transform.position);
-        biteTimer -= Time.deltaTime;
+    void Start() {
+        anim = GetComponent<Animator>();
+        //bossScale = Mathf.Abs(transform.localScale.x);
+        //StartCoroutine(FindPlayer());
+    }
 
-        // 玩家在检测范围内
-        if (distance <= walkRange)
-        {
-            FacePlayer();
+    /*
+    private IEnumerator FindPlayer() {
+        yield return new WaitForSeconds(0.5f);
 
-            // 走向玩家
-            if (distance > biteRange && !isAttacking)
-            {
-                transform.position = Vector2.MoveTowards(
-                    transform.position,
-                    player.position,
-                    walkSpeed * Time.deltaTime);
-                anim.SetFloat("Walk", 1f);
+        if (LevelManager.Instance != null) {
+            GameObject playerObj = LevelManager.Instance.CurrentPlayer;
+            if (playerObj != null) {
+                player = playerObj.transform;
+                Debug.Log("Boss found player!");
+            } else {
+                Debug.Log("Player not found!");
             }
-            else
-            {
-                anim.SetFloat("Walk", 0f);
-            }
-
-            // 咬攻击
-            if (distance <= biteRange && biteTimer <= 0 && !isAttacking)
-            {
-                StartCoroutine(BiteAttack());
-            }
-        }
-        else
-        {
-            anim.SetFloat("Walk", 0f);
         }
     }
 
-    private System.Collections.IEnumerator BiteAttack()
-    {
+    */
+
+    void Update() {
+        if (player == null) return;
+
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+
+        biteTimer -= Time.deltaTime;
+        shootTimer -= Time.deltaTime;
+
+        //FacePlayer();
+
+        // 咬攻击（近距离）
+        if (distance <= biteRange && biteTimer <= 0 && !isAttacking) {
+            StartCoroutine(BiteAttack());
+        }
+        
+        // 射击攻击（远距离）
+        else if (distance > biteRange &&
+                 distance <= shootRange &&
+                 shootTimer <= 0 && !isAttacking) {
+            StartCoroutine(ShootAttack());
+        }
+        
+    }
+
+    private IEnumerator BiteAttack() {
         isAttacking = true;
         biteTimer = biteCooldown;
+        anim.SetBool("isAttack", true);
         anim.SetTrigger("Attack");
 
         yield return new WaitForSeconds(biteDamageDelay);
-
-        float distance = Vector2.Distance(transform.position, player.position);
-        if (distance <= biteRange)
-        {
-            Health playerHealth = player.GetComponentInParent<Health>();
-            if (playerHealth != null)
-            {
-                playerHealth.LoseLife();
-            }
-        }
-
-        yield return new WaitForSeconds(0.5f);
+        
         isAttacking = false;
+        anim.SetBool("isAttack", false);
     }
 
-    void FacePlayer()
-    {
-        if (player.position.x < transform.position.x)
-        {
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),
-                transform.localScale.y, 1);
+    private IEnumerator ShootAttack() {
+        isAttacking = true;
+        shootTimer = shootCooldown;
+        anim.SetBool("isShoot", true);
+        anim.SetTrigger("Shoot");
+
+        yield return new WaitForSeconds(1f);
+        isAttacking = false;
+        anim.SetBool("isShoot",false);
+    }
+
+    // Check in Animation Event
+    private void CheckAndBite() {
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        if (distance <= biteRange) {
+            Debug.Log("Bite Player");
+            Health playerHealth = player.GetComponentInParent<Health>();
+            playerHealth?.LoseLife();
         }
-        else
-        {
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x),
-                transform.localScale.y, 1);
+    }
+
+    private void CheckAndShoot() {
+        if (bulletPrefab != null && shootPoint != null) {
+            GameObject bullet = Instantiate(bulletPrefab,shootPoint.position,Quaternion.identity);
+
+            Vector2 direction = (player.transform.position - shootPoint.position).normalized;
+            bullet.GetComponent<BulletScript>().direction = direction;
         }
+    }
+
+    /*
+    void FacePlayer() {
+        if (player.position.x < transform.position.x) {
+            transform.localScale = new Vector3(
+                bossScale, bossScale, 1);
+        } else {
+            transform.localScale = new Vector3(
+                -bossScale, bossScale, 1);
+        }
+    }
+    */
+
+    private void OnEnable() {
+        LevelManager.OnPlayerSpawn += OnPlayerSpawn;
+    }
+
+    private void OnDisable() {
+        LevelManager.OnPlayerSpawn -= OnPlayerSpawn;
+    }
+
+    private void OnPlayerSpawn(PlayerMotor playerMotor) {
+        player = playerMotor;
+        //Debug.Log("Boss updated player reference!");
     }
 }
