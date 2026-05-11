@@ -61,14 +61,6 @@ public class BossController : MonoBehaviour
         if (Vector2.Distance(transform.position, flyTarget) < 0.2f)
             PickNewFlyTarget();
 
-        // TEMP: press B to manually activate boss for testing
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Debug.Log("Manual boss activate!");
-            ActivateBoss();
-        }
-#endif
     }
 
     void PickNewFlyTarget()

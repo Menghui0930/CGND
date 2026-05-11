@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
     {
         direction = dir.normalized;
         speed = spd;
-        timer = 0f;
+      
     }
 
     void OnEnable()
