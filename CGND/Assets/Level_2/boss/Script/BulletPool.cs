@@ -22,14 +22,24 @@ public class BulletPool : MonoBehaviour
         }
     }
 
+
     public GameObject Get(Vector2 position, Quaternion rotation)
+    {
+        GameObject b = pool.Dequeue();
+        b.SetActive(true);
+        return b;
+       
+    }
+
+   /* public GameObject Get(Vector2 position, Quaternion rotation)
     {
         GameObject b = pool.Count > 0 ? pool.Dequeue() : Instantiate(bulletPrefab, transform);
         b.transform.position = position;
         b.transform.rotation = rotation;
         b.SetActive(true);
         return b;
-    }
+    } */
+
 
     public void Return(GameObject b)
     {

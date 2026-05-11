@@ -8,11 +8,17 @@ public class Bullet : MonoBehaviour
     private Vector2 direction;
     private float timer;
 
+
     public void Init(Vector2 dir, float spd)
     {
         direction = dir.normalized;
         speed = spd;
         timer = 0f;
+    }
+
+    void OnEnable()
+    {
+        timer = 0f; 
     }
 
     void Update()

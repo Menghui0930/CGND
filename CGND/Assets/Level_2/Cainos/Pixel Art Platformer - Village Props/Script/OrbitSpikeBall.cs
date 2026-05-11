@@ -31,9 +31,11 @@ public class OrbitSpikeBall : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player Hit");
-            
-            
+            Health health = collision.GetComponent<Health>();
+            if (health != null)
+            {
+                health.LoseLife();
+            }
         }
     }
 }

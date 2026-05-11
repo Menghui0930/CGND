@@ -19,12 +19,12 @@ public class BossRoom : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player" && !bossDefeated)
+        if (collision.CompareTag("Player") && !bossDefeated)
         {
             exitBlocker.enabled = true;         // exit blocks immediately
             StartCoroutine(DelayEntryBlock());  // entry blocks after delay
             boss.ActivateBoss();
-            Debug.Log("Both doors locked!");
+            Debug.Log("Both doors locked");
         }
     }
 

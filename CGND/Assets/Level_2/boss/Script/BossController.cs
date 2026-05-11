@@ -56,19 +56,25 @@ public class BossController : MonoBehaviour
         if (!bossActive) return;
 
         // fly randomly around room
-        transform.position = Vector2.MoveTowards(
-            transform.position, flyTarget,
-            flySpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards( transform.position, flyTarget, flySpeed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, flyTarget) < 0.2f)
             PickNewFlyTarget();
+
+        // TEMP: press B to manually activate boss for testing
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            Debug.Log("Manual boss activate!");
+            ActivateBoss();
+        }
+#endif
     }
 
     void PickNewFlyTarget()
     {
         Vector2 randomDir = Random.insideUnitCircle.normalized;
-        flyTarget = (Vector2)roomCenter.position
-                  + randomDir * Random.Range(1f, flyRadius);
+        flyTarget = (Vector2)roomCenter.position + randomDir * Random.Range(2f, flyRadius);
     }
 
     public void ActivateBoss()
@@ -81,6 +87,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator BossRoutine()
     {
+        Debug.Log("BossRoutine started!");
         yield return new WaitForSeconds(1.5f);
 
         while (bossActive)
@@ -88,10 +95,13 @@ public class BossController : MonoBehaviour
             var pattern = patterns[Random.Range(0, patterns.Count)];
             float duration = Random.Range(minPatternDuration, maxPatternDuration);
 
+            Debug.Log("Running pattern for " + duration + "s");
             patternRunning = true;
-            StartCoroutine(pattern());
+            Coroutine activePattern = StartCoroutine(pattern());
             yield return new WaitForSeconds(duration);
+
             patternRunning = false;
+            StopCoroutine(activePattern);
 
             yield return new WaitForSeconds(0.1f);
             yield return new WaitForSeconds(patternCooldown);
@@ -168,6 +178,7 @@ public class BossController : MonoBehaviour
 
     void FireBulletAtAngle(float angleDeg, float? overrideSpeed = null)
     {
+        Debug.Log("Firing bullet at angle: " + angleDeg);
         float rad = angleDeg * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
         float spd = overrideSpeed ?? bulletSpeed;
