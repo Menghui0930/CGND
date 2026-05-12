@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("level1_Only")]
     [SerializeField] private GameObject SkillTreeTutorialPanel;
+    [SerializeField] private GameObject MapName;
 
     
 
@@ -62,6 +63,9 @@ public class LevelManager : MonoBehaviour
             // 有 Timeline → 不立刻生成玩家，等 Timeline 结束
             openingTimeline.stopped += OnTimelineFinished;
             openingTimeline.Play();
+            if (MapName != null) {
+                MapName.GetComponent<Animator>().Play("MapName_IN");
+            }
         } else {
             // 没有 Timeline → 直接生成玩家
             SpawnPlayer(playerPrefab);
