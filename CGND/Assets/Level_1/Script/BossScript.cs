@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Data.Common;
 
 public class BossScript : MonoBehaviour {
     [Header("References")]
@@ -20,11 +21,13 @@ public class BossScript : MonoBehaviour {
     private float biteTimer = 0f;
     private float shootTimer = 0f;
     private bool isAttacking = false;
+    public bool isStart = false;
 
     //private float bossScale;
 
     void Start() {
         anim = GetComponent<Animator>();
+        anim.Play("BossBeforeStart");
         //bossScale = Mathf.Abs(transform.localScale.x);
         //StartCoroutine(FindPlayer());
     }
@@ -47,6 +50,7 @@ public class BossScript : MonoBehaviour {
     */
 
     void Update() {
+        if(!isStart) return;
         if (player == null) return;
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
@@ -88,7 +92,7 @@ public class BossScript : MonoBehaviour {
         anim.SetBool("isShoot", true);
         anim.SetTrigger("Shoot");
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         isAttacking = false;
         anim.SetBool("isShoot",false);
     }
@@ -126,14 +130,46 @@ public class BossScript : MonoBehaviour {
 
     private void OnEnable() {
         LevelManager.OnPlayerSpawn += OnPlayerSpawn;
+        Health.OnDeath += BossReset;
     }
 
     private void OnDisable() {
         LevelManager.OnPlayerSpawn -= OnPlayerSpawn;
+        Health.OnDeath -= BossReset;
     }
 
     private void OnPlayerSpawn(PlayerMotor playerMotor) {
         player = playerMotor;
         //Debug.Log("Boss updated player reference!");
+    }
+
+    public void BossActivate() {
+        StartCoroutine(OpeningSequence());
+    }
+
+    private IEnumerator OpeningSequence() {
+        // 播放开场动画
+        LevelManager.Instance.HealthUIFadeOut();
+        anim.Play("BossOpenning");
+
+        // 等动画播完
+        yield return null;
+        float clipLength = anim.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(clipLength);
+
+        isStart = true;
+        player.EnableControl();
+
+        LevelManager.Instance.HealthUIFadeIn();
+        yield return new WaitForSeconds(1f);
+        Camera2D.instance.stopFollow = true;
+        Camera2D.instance.horizontalFollow = false;
+    }
+
+    public void BossReset(PlayerMotor playerMotor) {
+        Camera2D.instance.stopFollow = false;
+        Camera2D.instance.horizontalFollow = true;
+        anim.Play("BossBeforeStart");
+        transform.GetComponent<BossHealth>().ResetHealth();
     }
 }

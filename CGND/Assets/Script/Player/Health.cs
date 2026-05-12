@@ -57,6 +57,8 @@ public class Health : MonoBehaviour
             _currentLifes = 0;
             //Death
             UpdateLifesUI();
+            Camera2D.instance.stopFollow = false;
+            Camera2D.instance.verticalFollow = true;
             OnDeath?.Invoke(gameObject.GetComponent<PlayerMotor>());
             return;
         }

@@ -7,8 +7,8 @@ public class Camera2D : MonoBehaviour
     public static Camera2D instance;
 
     [Header("Follow Toggle")]
-    [SerializeField] private bool horizontalFollow = true;
-    [SerializeField] private bool verticalFollow = true;
+    [SerializeField] public bool horizontalFollow = true;
+    [SerializeField] public bool verticalFollow = true;
     public bool stopFollow = false; 
 
     [Header("Horizontal")]
