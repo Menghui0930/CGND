@@ -46620,7 +46620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942004941016410978, guid: d399e54f3006fcc4abebd89aa8bf2a7e, type: 3}
       propertyPath: maxHP
-      value: 60
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4942004941016410978, guid: d399e54f3006fcc4abebd89aa8bf2a7e, type: 3}
       propertyPath: bossRoom
@@ -46652,7 +46652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4942004941016410978, guid: d399e54f3006fcc4abebd89aa8bf2a7e, type: 3}
       propertyPath: patternCooldown
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4942004941016410978, guid: d399e54f3006fcc4abebd89aa8bf2a7e, type: 3}
       propertyPath: minPatternDuration
@@ -46664,7 +46664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5620706238214100129, guid: d399e54f3006fcc4abebd89aa8bf2a7e, type: 3}
       propertyPath: poolSize
-      value: 53
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5692945604446532627, guid: d399e54f3006fcc4abebd89aa8bf2a7e, type: 3}
       propertyPath: m_LocalScale.x
