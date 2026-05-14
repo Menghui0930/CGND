@@ -10,7 +10,7 @@ public class CrystalGet : MonoBehaviour
     [SerializeField] private GameObject[] crystals;      // 两颗水晶子物件
     [SerializeField] private float flySpeed = 5f;
 
-    private bool _playerInRange = false;
+    public bool _bossIsDeath = false;
     private bool _isFlying = false;
 
     private void Start() {
@@ -22,9 +22,9 @@ public class CrystalGet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Player") && !_isFlying) {
+        if (collision.CompareTag("Player") && !_isFlying && _bossIsDeath) {
             currentPlayer = collision.gameObject;
-            _playerInRange = true;
+            //_bossIsDeath = true;
             StartCoroutine(GetCrystal());
         }
     }

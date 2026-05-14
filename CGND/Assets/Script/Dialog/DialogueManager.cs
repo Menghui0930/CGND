@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextDialogueLine() {
         if (lines.Count == 0) {
-            EndDialogue();
+            StartCoroutine( EndDialogue());
             return;
         }
 
@@ -100,9 +100,12 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    void EndDialogue() {
+    IEnumerator EndDialogue() {
         isDialogueActive = false;
         animator.Play("Dialog_OUT");
+        float clipLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(clipLength);
+        transform.gameObject.SetActive(false);
     }
 
     private void Update() {

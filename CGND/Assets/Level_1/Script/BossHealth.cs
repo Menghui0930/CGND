@@ -4,6 +4,7 @@ using UnityEngine;
 public class BossHealth : EnemyHealth {
     private Animator _anim;
     public BoxCollider2D _blockPlayer;
+    public BoxCollider2D _blockPlayerBehind;
     private bool isStart;
 
     [Header("Camera Offset Override")]
@@ -42,11 +43,13 @@ public class BossHealth : EnemyHealth {
         Camera2D.instance.horizontalFollow = true;
         Camera2D.instance.SetOffsets(horizontalOffset, verticalOffset, transitionSpeed, MinY, isStopfollowing);
         _blockPlayer.gameObject.SetActive(false);
+        _blockPlayerBehind.gameObject.SetActive(false);
         GetComponent<BossScript>().enabled = false;
         //GetComponent<BossAudio>().PlayLevelBGM();
 
         if (crystalGet != null)
             crystalGet.PlayAnimationCrystal();   // ← 触发水晶动画
+        crystalGet._bossIsDeath = true;
 
         Destroy(gameObject, 2f);
     }

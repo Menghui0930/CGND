@@ -62,6 +62,7 @@ public class Parameter {
     [Header("Death")]
     public Transform bossDeadPoint;
     public float deadMoveSpeed = 3f;
+    public GameObject flowerObject;      // ← 新增：拖入 Flower GameObject（默认关掉）
 
     public PlayerMotor currentPlayer;
 }
@@ -277,6 +278,9 @@ public class FSM : MonoBehaviour
     }
 
     private IEnumerator DeathSequence() {
+        parameter.currentPlayer.DisableControl();
+
+
         // 飞向死亡点
         while (Vector2.Distance(transform.position, parameter.bossDeadPoint.position) > 0.1f) {
             transform.position = Vector2.MoveTowards(
@@ -293,6 +297,35 @@ public class FSM : MonoBehaviour
         parameter.anim.applyRootMotion = false;
         // 播放死亡动画，永远不再动
         parameter.anim.Play("Boss_Dead");
+
+        yield return null; // 等一帧让 Animator 切换到新状态
+        float deathClipLength = parameter.anim.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(deathClipLength);
+
+
+        // 4. 显示 Flower 并播放动画
+        if (parameter.flowerObject != null) {
+            parameter.flowerObject.SetActive(true);
+            Animator flowerAnim = parameter.flowerObject.GetComponent<Animator>();
+            if (flowerAnim != null) {
+                flowerAnim.Play("FinalFlower");
+
+                yield return null; // 等一帧让 Animator 切换
+                //float flowerClipLength = flowerAnim.GetCurrentAnimatorStateInfo(0).length;
+                yield return new WaitForSeconds(2f);
+            }
+        }
+
+        // 5. 等待 2s
+        yield return new WaitForSeconds(2f);
+
+        // 6. Fade In → 跳转 Ending Scene
+        WipeController.instance.FadeIn();
+
+        // 等 Fade 完成后再切场景（根据你的 WipeController fade 时长调整）
+        yield return new WaitForSeconds(1f);
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Ending_Scene");
     }
 
     private void ResetBoss(PlayerMotor playerMotor) {
@@ -312,7 +345,7 @@ public class FSM : MonoBehaviour
         parameter.shield1Used = false;
         parameter.shield2Used = false;
         if (parameter.shieldObject != null)
-            parameter.shieldObject.gameObject.SetActive(false);
+            parameter.shieldObject.ResetShield();
 
         // 清空 CastState 的石头
         if (states.ContainsKey(StateType.Cast))

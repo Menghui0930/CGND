@@ -64,7 +64,7 @@
                     "name": "Previous",
                     "type": "Button",
                     "id": "2776c80d-3c14-4091-8c56-d04ced07a2b0",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -127,6 +127,15 @@
                     "name": "ESC",
                     "type": "Button",
                     "id": "649c1516-98b5-4047-aafb-9464d4ef5223",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Cheat",
+                    "type": "Button",
+                    "id": "d9ffa2be-e428-42a0-9409-2742646e8a4e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -593,6 +602,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "ESC",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "25ff3bb0-7370-4d39-bd68-9b090110d507",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
