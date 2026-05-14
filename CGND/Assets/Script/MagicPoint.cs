@@ -6,7 +6,7 @@ public class MagicPoint : MonoBehaviour
     public static Action<int,string> OnMPChanged;
     public static MagicPoint Instance;
     [Header("MP")]
-    private int currentMP;
+    public int currentMP;
     [SerializeField] private int maxMP = 5;
 
 

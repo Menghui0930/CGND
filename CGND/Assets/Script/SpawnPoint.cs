@@ -13,6 +13,8 @@ public class SpawnPoint : MonoBehaviour
     private bool _playerInRange = false;
     private bool toggle = true;
 
+    public static SpawnPoint ActiveSkillTree; // 当前开着的那个
+
     private PlayerMotor _playerMotor;
 
     private void Awake() {
@@ -28,13 +30,14 @@ public class SpawnPoint : MonoBehaviour
     private void Update() {
         if (_playerInRange && _OpenSkillTree.WasPressedThisFrame() && toggle) {
             toggle = false;
-            _skillTree.SetActive(true);  
+            _skillTree.SetActive(true);
+            ActiveSkillTree = this;          // ← 加这行
             _playerMotor?.DisableControl();
         }
-
         if (_playerInRange && _CloseSkillTree.WasPressedThisFrame() && !toggle) {
             toggle = true;
             _skillTree.SetActive(false);
+            ActiveSkillTree = null;          // ← 加这行
             _playerMotor?.EnableControl();
         }
     }

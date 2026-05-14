@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
     public static Action<int> OnMaxLifeChanged;
     public static Action<PlayerMotor> OnDeath;
     public InputAction Damage;
+    public InputAction Cheat;
 
     [Header("Settings")]
     [SerializeField] private SpriteRenderer[] allSR;
@@ -25,9 +26,11 @@ public class Health : MonoBehaviour
 
     // shield
     private bool _isImmune = false;
+    private bool _cheatMode = false;   // ← 新增
 
     private void Awake() {
         Damage = InputSystem.actions.FindAction("Damage");
+        Cheat = InputSystem.actions.FindAction("Cheat");
         //theSR = GetComponent<SpriteRenderer>();
         allSR = GetComponentsInChildren<SpriteRenderer>();
         _maxLifes = lifes;
@@ -44,6 +47,13 @@ public class Health : MonoBehaviour
         if (Damage.WasPressedThisFrame()) {
             Debug.Log("Damage");
             LoseLife();
+        }
+
+        // 按 O 切换作弊模式
+        if (Cheat.WasPressedThisFrame()) {
+            _cheatMode = !_cheatMode;
+            _isImmune = _cheatMode;
+            Debug.Log(_cheatMode ? "Cheat ON：无敌模式" : "Cheat OFF：恢复正常");
         }
 
     }
@@ -122,7 +132,8 @@ public class Health : MonoBehaviour
 
     // Shield
     public void SetImmune(bool immune) {
-        _isImmune = immune;
+        // 作弊模式中不让盾覆盖状态，退出作弊后盾才能正常关闭
+        _isImmune = immune || _cheatMode;
     }
 
     public void AddMaxLife(int amount) {

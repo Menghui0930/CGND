@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private PlayableDirector openingTimeline; 
     [SerializeField] private GameObject dummyCharacter;         
     [SerializeField] private Dialogue openingDialogue;
+    [SerializeField] private bool IsopeningDialogue = true;
     [SerializeField] private Animator healthUIAnimator;
     [SerializeField] private GameObject crystalParent;      // ← Parent（有 Animator）
     [SerializeField] private GameObject[] crystals;         // ← 两颗水晶子物件
@@ -52,7 +53,9 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spawnPoint = levelStartPoint.position;
+        if (levelStartPoint != null) {
+            spawnPoint = levelStartPoint.position;
+        }
 
         // Level1_only
         if (SkillTreeTutorialPanel != null) {
@@ -75,8 +78,12 @@ public class LevelManager : MonoBehaviour
     // Timeline 结束时自动调用
     private void OnTimelineFinished(PlayableDirector director) {
         openingTimeline.stopped -= OnTimelineFinished;
-        DialogueManager.instance.StartDialogue(openingDialogue);
-        StartCoroutine(WaitForDialogueToEnd());
+        if (IsopeningDialogue) {
+            DialogueManager.instance.StartDialogue(openingDialogue);
+            StartCoroutine(WaitForDialogueToEnd());
+        } else {
+            StartCoroutine(DirectStartGame());
+        }
     }
 
     private IEnumerator WaitForDialogueToEnd() {
@@ -109,6 +116,25 @@ public class LevelManager : MonoBehaviour
             currentPlayer.EnableControl();
         }
 
+        OnGameStart?.Invoke();
+    }
+
+    private IEnumerator DirectStartGame() {
+        // 记录假角色的位置，生成真玩家在同样位置
+        spawnPoint = dummyCharacter.transform.position;
+        dummyCharacter.SetActive(false);
+        SpawnPlayer(playerPrefab);
+
+        // 相机平滑移动（不 snap）
+        if (currentPlayer != null)
+            Camera2D.instance.SetTargetSmooth(currentPlayer);
+
+        // 触发生命值 UI 动画
+        HealthUIFadeIn();
+
+        yield return new WaitForSeconds(0.5f);
+
+        currentPlayer.EnableControl();
         OnGameStart?.Invoke();
     }
 

@@ -654,6 +654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba9e9687864227459c298783629dbd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MagicPoint
+  currentMP: 0
   maxMP: 5
 --- !u!114 &7709516707505948417
 MonoBehaviour:
@@ -781,7 +782,7 @@ MonoBehaviour:
   waterBallPrefab: {fileID: 5300786572387539733, guid: 3042ec390edd32244919a0c414ae6f77, type: 3}
   windBallPrefab: {fileID: 66808777465483706, guid: dda585dece3e8e740a706e844f1248af, type: 3}
   windTornadoPrefab: {fileID: 1682484094481008963, guid: 4fccd3cd0ef454f4f9ee23cd0149e534, type: 3}
-  isUpgradeWind: 1
+  isUpgradeWind: 0
 --- !u!114 &1762805250429374564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1167,7 +1168,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: 8470990847197991615, guid: ee804c6ff5ec01c4082ca17e957494a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

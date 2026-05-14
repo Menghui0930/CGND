@@ -7,6 +7,7 @@ using TouchPhase = UnityEngine.InputSystem.TouchPhase;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 视觉小说场景播放器 - 支持图片和视频混合
@@ -523,6 +524,7 @@ public class VisualNovelPlayer : MonoBehaviour
     void OnStoryEnd()
     {
         Debug.Log("故事播放完毕！");
+        SceneManager.LoadScene("Level_Tutorial");
     }
 
     void OnDestroy()

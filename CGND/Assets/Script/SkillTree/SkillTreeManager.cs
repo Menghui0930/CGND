@@ -5,8 +5,9 @@ using UnityEngine.UI;
 public class SkillTreeManager : MonoBehaviour {
     public static SkillTreeManager instance;
 
+
     [Header("Skill Points")]
-    public int skillPoints = 1;
+    public int skillPoints = 0;
     public TextMeshProUGUI skillPointsText;
 
     [Header("Info Panel")]
@@ -17,7 +18,7 @@ public class SkillTreeManager : MonoBehaviour {
     public TextMeshProUGUI upgradeButtonText;
 
     [Header("All Skill Buttons")]
-    public SkillButton[] allSkillButtons;   
+    public SkillButton[] allSkillButtons;
 
     [Header("All Connections")]
     public SkillConnection[] allConnections;
@@ -26,11 +27,28 @@ public class SkillTreeManager : MonoBehaviour {
 
     private SkillButton selectedSkill;
 
+
     private void Awake() {
         instance = this;
     }
 
     private void Start() {
+        if (LevelEntryContext.IsFromLevelSelect) {
+            // ── 从选关界面进来：清掉技能存档，给固定 SP ──────────────────
+            SkillTreeSaveSystem.DeleteSave(allSkillButtons);
+            skillPoints = LevelEntryContext.BonusSP;
+            LevelEntryContext.Consume(); // 用完即清，避免影响下一次
+        } else {
+            // ── 正常通关进来：读存档继承技能，不额外给 SP ─────────────────
+            // defaultSP = 0，如果没有存档（第一次进 Level_1）就给 0
+            skillPoints = SkillTreeSaveSystem.Load(allSkillButtons, defaultSP: 0);
+        }
+
+
+        // 2. 刷新所有按钮视觉（让已解锁的按钮显示高亮状态）
+        RefreshAllButtons();
+
+
         UpdateSkillPointsUI();
         upgradeButton.onClick.AddListener(OnUpgradeClicked);
         // 默认隐藏 info panel
@@ -95,6 +113,9 @@ public class SkillTreeManager : MonoBehaviour {
             RefreshAllButtons();
             SelectSkill(selectedSkill);
         }
+
+        // ← 解锁后立刻存档，下一关进来就能读到
+        SkillTreeSaveSystem.Save(allSkillButtons, skillPoints);
     }
 
     private void SwitchBranch(SkillButton target) {
@@ -116,6 +137,9 @@ public class SkillTreeManager : MonoBehaviour {
 
         RefreshAllButtons();
         SelectSkill(target);
+
+        // ← 切换分支后也存档
+        SkillTreeSaveSystem.Save(allSkillButtons, skillPoints);
     }
 
     // 把同组所有分支设为 inactive
@@ -166,6 +190,9 @@ public class SkillTreeManager : MonoBehaviour {
 
     public void GetCrystal(int num) {
         skillPoints += num;
+        UpdateSkillPointsUI();
+        // 切换分支后也保存
+        SkillTreeSaveSystem.Save(allSkillButtons, skillPoints);
     }
 
     public void UpdateSkillPointsUI() {
@@ -183,6 +210,11 @@ public class SkillTreeManager : MonoBehaviour {
     private void OnPlayerSpawn(PlayerMotor playerMotor) {
         skillEffects = playerMotor.GetComponentsInChildren<SkillEffect>();
         Debug.Log($"[SkillTree] 玩家出生，找到 {skillEffects.Length} 个 SkillEffect");
+
+        // 把所有 isActive == true 的技能效果重新应用给新生成的玩家
+        foreach (SkillButton btn in allSkillButtons)
+            if (btn.isActive)
+                ApplySkillEffect(btn.skillData);
     }
 
     // Skill Tree
@@ -207,6 +239,4 @@ public class SkillTreeManager : MonoBehaviour {
             }
         }
     }
-
-
 }

@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
@@ -51,8 +52,15 @@ public class MainMenu : MonoBehaviour
         isReversing = !isReversing;
         time = 0;
         isFading = true;
-        //SceneManager.LoadScene("Level_Tutorial");
+        StartCoroutine(StartWipeController());
+        
 
+    }
+
+    private IEnumerator StartWipeController() {
+        WipeController.instance.FadeOut();
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("Opening_scene");
     }
 
     public void Setting()
