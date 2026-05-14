@@ -13,7 +13,7 @@ public class WaterMagicBall : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other) {
+   private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Ground") || other.CompareTag("Wall")) {
             if (bounces >= maxBounces) {
                 DestroyBall();
@@ -46,6 +46,16 @@ public class WaterMagicBall : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy")) {
             //MagicPoint.Instance.IncreaseMP();
             DestroyBall();
+        }
+
+        if (other.CompareTag("Boss"))
+        {
+            Debug.Log("Attacking enemy!!!");
+            BossController boss = other.GetComponentInParent<BossController>();
+            boss?.TakeDamage(2f);
+            MagicPoint.Instance.IncreaseMP();
+            GameObject waterball = Instantiate(waterballDestroy, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 

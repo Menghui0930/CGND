@@ -5,6 +5,7 @@ public class BulletPool : MonoBehaviour
 {
     public static BulletPool Instance;
 
+
     [Header("Pool Settings")]
     public GameObject bulletPrefab;
     public int poolSize = 300;

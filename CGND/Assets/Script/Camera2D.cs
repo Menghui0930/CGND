@@ -80,6 +80,7 @@ public class Camera2D : MonoBehaviour
         _targetVerticalSmoothFollow = targetPos.y;
 
         transform.localPosition = targetPos;
+
     }
 
     private void OnEnable() {

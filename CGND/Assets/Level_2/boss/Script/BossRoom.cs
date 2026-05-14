@@ -4,6 +4,7 @@ public class BossRoom : MonoBehaviour
 {
     [Header("References")]
     public BossController boss;
+    public GameObject bossRoomCamera;
 
     [Header("Blockers")]
     public Collider2D entryBlocker;    // left entrance
@@ -15,16 +16,24 @@ public class BossRoom : MonoBehaviour
     {
         entryBlocker.enabled = false;
         exitBlocker.enabled = false;
+
+        bossRoomCamera.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("TRIGGER HIT BY: " + collision.gameObject.name);
+
+        if (!collision.CompareTag("Player")) return;
+
         if (collision.CompareTag("Player") && !bossDefeated)
         {
             exitBlocker.enabled = true;         // exit blocks immediately
             StartCoroutine(DelayEntryBlock());  // entry blocks after delay
             boss.ActivateBoss();
             Debug.Log("Both doors locked");
+            bossRoomCamera.SetActive(true);
+
         }
     }
 
@@ -38,6 +47,7 @@ public class BossRoom : MonoBehaviour
     public void UnlockRoom()
     {
         bossDefeated = true;
+        bossRoomCamera.SetActive(false);
         entryBlocker.enabled = false;   // open entry
         exitBlocker.enabled = false;    // open exit
         Debug.Log("Boss defeated! Both doors unlocked!");

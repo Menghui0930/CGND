@@ -42,5 +42,8 @@ public class Bullet : MonoBehaviour
 
             BulletPool.Instance.Return(gameObject);
         }
+
     }
+
+
 }

@@ -18,5 +18,15 @@ public class Tornado : MonoBehaviour
             MagicPoint.Instance.IncreaseMP();
             Destroy(gameObject);
         }
+
+        if (other.CompareTag("Boss"))
+        {
+            Debug.Log("Attacking enemy!!!");
+            BossController boss = other.GetComponentInParent<BossController>();
+            boss?.TakeDamage(5f);
+            MagicPoint.Instance.IncreaseMP();
+            GameObject waterball = Instantiate(waterballDestroy, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 }

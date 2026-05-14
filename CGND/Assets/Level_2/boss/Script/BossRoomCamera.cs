@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 public class BossRoomCamera : MonoBehaviour
 {
-    public float normalSize = 6f;      // normal camera size
-    public float bossSize = 8f;        // zoomed out size for boss room
-    public float zoomSpeed = 2f;       // how fast it zooms
+    public float normalSize = 6f;     
+    public float bossSize = 8f;        // houw mch can zoom out 
+    public float zoomSpeed = 2f;       
 
     private Camera cam;
     private bool playerInRoom = false;
@@ -38,5 +39,10 @@ public class BossRoomCamera : MonoBehaviour
             playerInRoom = false;
             Debug.Log("Left boss room");
         }
+    }
+
+    internal static void SetActive(bool v)
+    {
+        throw new NotImplementedException();
     }
 }

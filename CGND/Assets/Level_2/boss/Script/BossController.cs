@@ -22,7 +22,7 @@ public class BossController : MonoBehaviour
     [Header("Room")]
     public BossRoom bossRoom;
 
-    public float maxHP = 500f;
+    public float maxHP = 50f;
     private float currentHP;
     private bool bossActive = false;
     private Vector2 flyTarget;
@@ -53,7 +53,17 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
-        if (!bossActive) return;
+        // if (!bossActive) return;
+        // TEMP: force activate with Space
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Debug.Log("SPACE PRESSED - forcing ActivateBoss");
+            ActivateBoss();
+        }
+#endif
+
+         if (!bossActive) return;
 
         // fly randomly around room
         transform.position = Vector2.MoveTowards( transform.position, flyTarget, flySpeed * Time.deltaTime);
@@ -71,6 +81,7 @@ public class BossController : MonoBehaviour
 
     public void ActivateBoss()
     {
+        Debug.Log("1. ActivateBoss called! BulletPool = " + BulletPool.Instance);
         bossActive = true;
         PickNewFlyTarget();
         StartCoroutine(BossRoutine());
@@ -79,8 +90,11 @@ public class BossController : MonoBehaviour
 
     IEnumerator BossRoutine()
     {
+        Debug.Log("2. BossRoutine started!");
         Debug.Log("BossRoutine started!");
         yield return new WaitForSeconds(1.5f);
+        Debug.Log("3. Starting patterns!");
+
 
         while (bossActive)
         {
@@ -88,6 +102,7 @@ public class BossController : MonoBehaviour
             float duration = Random.Range(minPatternDuration, maxPatternDuration);
 
             Debug.Log("Running pattern for " + duration + "s");
+            Debug.Log("4. Running pattern: " + pattern.Method.Name);
             patternRunning = true;
             Coroutine activePattern = StartCoroutine(pattern());
             yield return new WaitForSeconds(duration);
@@ -170,6 +185,7 @@ public class BossController : MonoBehaviour
 
     void FireBulletAtAngle(float angleDeg, float? overrideSpeed = null)
     {
+        Debug.Log("5. FireBulletAtAngle called! Pool = " + BulletPool.Instance);
         Debug.Log("Firing bullet at angle: " + angleDeg);
         float rad = angleDeg * Mathf.Deg2Rad;
         Vector2 dir = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
@@ -190,7 +206,11 @@ public class BossController : MonoBehaviour
     {
         bossActive = false;
         anim.SetTrigger("Die");
+    
         if (bossRoom != null) bossRoom.UnlockRoom();
         Debug.Log("[Boss] Defeated!");
+
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
     }
 }

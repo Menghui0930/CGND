@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using Unity.Multiplayer.PlayMode;
 using UnityEngine;
@@ -22,17 +22,21 @@ public class LevelManager : MonoBehaviour
     private PlayerMotor currentPlayer;
 
     public GameObject CurrentPlayer => player;
+
     private void Awake() {
         Instance = this;
         Revive = InputSystem.actions.FindAction("Revive");
+  
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+   void Start()
     {
         spawnPoint = levelStartPoint.position;
         SpawnPlayer(playerPrefab);
-    }
+    } 
+
+
 
     // Update is called once per frame
     void Update()

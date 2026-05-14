@@ -19,6 +19,17 @@ public class GrassMagicBall : MonoBehaviour
             // MagicPoint.Instance.IncreaseMP();
             DestroyBall();
         }
+
+        if (other.CompareTag("Boss"))
+        {
+
+            Debug.Log("Attacking enemy!!!");
+            BossController boss = other.GetComponentInParent<BossController>();
+            boss?.TakeDamage(2f);
+            MagicPoint.Instance.IncreaseMP();
+            GameObject waterball = Instantiate(grassballDestroy, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     private void DestroyBall() {
