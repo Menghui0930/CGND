@@ -70243,7 +70243,7 @@ MonoBehaviour:
   mainMenuBGM: {fileID: 0}
   LevelTutorialBGM: {fileID: 0}
   level1BGM: {fileID: 0}
-  level2BGM: {fileID: 0}
+  level2BGM: {fileID: 8300000, guid: 42207e87bbeaa4a45b0c0939c4fe5925, type: 3}
   level3BGM: {fileID: 0}
   boss1BGM: {fileID: 0}
   boss2BGM: {fileID: 0}
@@ -70266,7 +70266,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

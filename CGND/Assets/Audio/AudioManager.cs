@@ -58,7 +58,8 @@ public class AudioManager : MonoBehaviour
     {
         switch (scene.name)
         {
-            case "Main Menu":
+            case "MainMenu":
+                PlayBGM(mainMenuBGM); break;
             case "LevelSelect":
                 PlayBGM(mainMenuBGM);
                 break;
