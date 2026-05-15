@@ -1164,6 +1164,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "T1",
+                    "type": "Button",
+                    "id": "dcd71ae4-b3c2-4b3c-8534-438015858796",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "T2",
+                    "type": "Button",
+                    "id": "43cb66db-b261-4d06-8866-d472f0a3759d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1197,6 +1215,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "TriggerBlackFade",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7942eea1-3f3e-45be-8199-430951951533",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "T1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d39426c3-6b1a-4656-823f-3d15c7a74537",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "T2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

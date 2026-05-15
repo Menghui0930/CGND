@@ -27,13 +27,12 @@ public class OrbitSpikeBall : MonoBehaviour
         transform.position = center + new Vector3(x, y, 0f);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log("Player Hit");
-            
-            
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Player") {
+            Health health = collision.GetComponent<Health>();
+            if (health != null) {
+                health.LoseLife();
+            }
         }
     }
 }
