@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class SpawnPoint : MonoBehaviour
-{
+public class SpawnPoint : MonoBehaviour {
     public InputAction _OpenSkillTree;
     public InputAction _CloseSkillTree;
 
@@ -13,7 +12,14 @@ public class SpawnPoint : MonoBehaviour
     private bool _playerInRange = false;
     private bool toggle = true;
 
-    public static SpawnPoint ActiveSkillTree; // 当前开着的那个
+    public static SpawnPoint ActiveSkillTree = null;
+
+    /// <summary>
+    /// 记录 SkillTree 被 ESC 关掉时的帧号。
+    /// PauseManager 用 Time.frameCount 对比，同帧就跳过 Pause。
+    /// 不依赖 LateUpdate，不受执行顺序影响。
+    /// </summary>
+    public static int SkillTreeClosedFrame = -1;
 
     private PlayerMotor _playerMotor;
 
@@ -31,13 +37,15 @@ public class SpawnPoint : MonoBehaviour
         if (_playerInRange && _OpenSkillTree.WasPressedThisFrame() && toggle) {
             toggle = false;
             _skillTree.SetActive(true);
-            ActiveSkillTree = this;          // ← 加这行
+            ActiveSkillTree = this;
             _playerMotor?.DisableControl();
         }
+
         if (_playerInRange && _CloseSkillTree.WasPressedThisFrame() && !toggle) {
             toggle = true;
             _skillTree.SetActive(false);
-            ActiveSkillTree = null;          // ← 加这行
+            ActiveSkillTree = null;
+            SkillTreeClosedFrame = Time.frameCount; // ← 记录关闭时的帧号
             _playerMotor?.EnableControl();
         }
     }
@@ -50,12 +58,10 @@ public class SpawnPoint : MonoBehaviour
 
             if (_TalkBubble != null) {
                 _TalkBubble.SetActive(true);
-
-                if (!_LongBubble) {
+                if (!_LongBubble)
                     _TalkBubble.GetComponent<Animator>().Play("Talk_checkpoint");
-                } else {
+                else
                     _TalkBubble.GetComponent<Animator>().Play("Long_Speech_checkpoint");
-                }
             }
         }
     }
@@ -63,10 +69,8 @@ public class SpawnPoint : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             _playerInRange = false;
-            if (_TalkBubble != null) {
+            if (_TalkBubble != null)
                 _TalkBubble.SetActive(false);
-            }
-            //_skillTree.SetActive(false);  // 走出范围自动关闭
         }
     }
 }
