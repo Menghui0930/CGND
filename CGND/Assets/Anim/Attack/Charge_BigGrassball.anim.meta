@@ -1,8 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:CGND/Assets/Scenes/gamePlay_Scene.unity.meta
+guid: 2a7bedd21e70ca94c883414a11127c18
+DefaultImporter:
+========
 guid: 16fd4b6b9a1aad34ea0d855d0ab49278
 NativeFormatImporter:
+>>>>>>>> MengHui:CGND/Assets/Anim/Attack/Charge_BigGrassball.anim.meta
   externalObjects: {}
-  mainObjectFileID: 7400000
   userData: 
   assetBundleName: 
   assetBundleVariant: 
