@@ -24,6 +24,10 @@ public class CameraZoomTrigger : MonoBehaviour {
     [Header("References")]
     public BossController boss;
 
+    [Header("BGM")]
+    [Tooltip("Boss 触发时切换的音乐，不填则保持原本的关卡 BGM")]
+    [SerializeField] private AudioClip bossBGM;
+
     private Camera _cam;
     private bool _triggered = false;
 
@@ -43,6 +47,7 @@ public class CameraZoomTrigger : MonoBehaviour {
     private void OnPlayerDeath(PlayerMotor playerMotor) {
         StopAllCoroutines();
         _triggered = false;
+        AudioManager.Instance.RestoreSceneBGM();
 
         // 相机立刻恢复跟随（由 BossL2_Health 控制 size，这里只重置 stopFollow）
         Camera2D.instance.SetTargetSmooth(Camera2D.instance.Target);
@@ -57,6 +62,11 @@ public class CameraZoomTrigger : MonoBehaviour {
         _triggered = true;
         leftBlocker.gameObject.SetActive(true);
         rightBlocker.gameObject.SetActive(true);
+
+        // 切换成 Boss BGM
+        if (bossBGM != null)
+            AudioManager.Instance.PlayBGM(bossBGM);
+
         StartCoroutine(ZoomAndLock());
     }
 

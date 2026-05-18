@@ -4694,7 +4694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   mainMenuBGM: {fileID: 0}
   LevelTutorialBGM: {fileID: 0}
-  level1BGM: {fileID: 8300000, guid: 5f8ba89b4dd81ae498c0686d54db689c, type: 3}
+  level1BGM: {fileID: 8300000, guid: 8f4cd865a03d0464b9f51ce125f2d25a, type: 3}
   level2BGM: {fileID: 0}
   level3BGM: {fileID: 0}
   boss1BGM: {fileID: 0}
@@ -58775,6 +58775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Boss01Openning
   boss: {fileID: 865961538}
   bossBoxCol: {fileID: 2054933261}
+  bossBGM: {fileID: 8300000, guid: 1645ceef1dc874d4aae41cdae0108406, type: 3}
 --- !u!114 &2125088584 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8623658067084408645, guid: 5984128ece0eff04788a8be13d41bf8c, type: 3}

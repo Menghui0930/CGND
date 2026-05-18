@@ -5942,6 +5942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossOpenning
   boss: {fileID: 1058047590}
   wallBlock: {fileID: 1337211021}
+  bossBGM: {fileID: 8300000, guid: ad66fb415ad633244b3c4a5e54976df2, type: 3}
 --- !u!61 &1065680886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8750,7 +8751,7 @@ MonoBehaviour:
   LevelTutorialBGM: {fileID: 0}
   level1BGM: {fileID: 0}
   level2BGM: {fileID: 0}
-  level3BGM: {fileID: 8300000, guid: 4bed09ba30ff56842ab6ec8854e49788, type: 3}
+  level3BGM: {fileID: 8300000, guid: 40aaaab330aa35543ba7b5b1845497e2, type: 3}
   boss1BGM: {fileID: 0}
   boss2BGM: {fileID: 0}
   boss3BGM: {fileID: 0}

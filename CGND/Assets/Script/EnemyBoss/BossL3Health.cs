@@ -30,6 +30,7 @@ public class BossL3Health : EnemyHealth {
 
     protected override void Die() {
         Debug.Log("Boss Dead");
+        AudioManager.Instance.RestoreSceneBGM();
         _fsm.BossDeath();
     }
 

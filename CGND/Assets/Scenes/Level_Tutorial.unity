@@ -6264,6 +6264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseManager
   pauseCanvas: {fileID: 789218744}
+  restartSPByBuildIndex: 00000000000000000000000000000000000000000200000004000000
 --- !u!4 &1039027925
 Transform:
   m_ObjectHideFlags: 0
@@ -11669,7 +11670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   mainMenuBGM: {fileID: 0}
-  LevelTutorialBGM: {fileID: 8300000, guid: 04255be36d6702c40a244322b4b10927, type: 3}
+  LevelTutorialBGM: {fileID: 8300000, guid: 55d272177061f3846b896bebe2e5f2e3, type: 3}
   level1BGM: {fileID: 0}
   level2BGM: {fileID: 0}
   level3BGM: {fileID: 0}

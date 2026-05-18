@@ -64,6 +64,7 @@ public class BossL2_Health : EnemyHealth
 
         leftBlocker.gameObject.SetActive(false);
         rightBlocker.gameObject.SetActive(false);
+        AudioManager.Instance.RestoreSceneBGM();
 
         StartCoroutine(FlyThenDie());
     }

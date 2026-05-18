@@ -103,8 +103,6 @@ public class BossController : MonoBehaviour
 
     public void ActivateBoss()
     {
-
-        if (bossActive) return;
         Debug.Log("1. ActivateBoss called! BulletPool = " + BulletPool.Instance);
         bossActive = true;
         PickNewFlyTarget();
@@ -133,7 +131,6 @@ public class BossController : MonoBehaviour
 
             patternRunning = false;
             StopCoroutine(activePattern);
-            
 
             yield return new WaitForSeconds(0.1f);
             yield return new WaitForSeconds(patternCooldown);
@@ -147,7 +144,6 @@ public class BossController : MonoBehaviour
         //float angle = 0f;
         Vector2 dir = (player.position - firePoint.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
         while (patternRunning)
         {
             FireBulletAtAngle(angle);
@@ -177,7 +173,6 @@ public class BossController : MonoBehaviour
                 Vector2 dir = (player.position - firePoint.position).normalized;
                 float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 FireBulletAtAngle(baseAngle + Random.Range(-10f, 10f));
-
                 // Fire 3 bullets in a spread instead of 1
                 FireBulletAtAngle(baseAngle);
                 FireBulletAtAngle(baseAngle + 15f);
