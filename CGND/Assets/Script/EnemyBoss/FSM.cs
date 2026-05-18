@@ -296,7 +296,8 @@ public class FSM : MonoBehaviour
 
         parameter.anim.applyRootMotion = false;
         // 播放死亡动画，永远不再动
-        parameter.anim.Play("Boss_Dead");
+        parameter.anim.SetTrigger("Dead");
+        //parameter.anim.Play("Boss_Dead");
 
         yield return null; // 等一帧让 Animator 切换到新状态
         float deathClipLength = parameter.anim.GetCurrentAnimatorStateInfo(0).length;

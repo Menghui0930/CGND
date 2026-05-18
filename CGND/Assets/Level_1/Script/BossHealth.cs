@@ -39,6 +39,7 @@ public class BossHealth : EnemyHealth {
     protected override void Die() {
         _anim.ResetTrigger("Hurt");
         _anim.SetTrigger("Death");
+        AudioManager.Instance.RestoreSceneBGM();
         Camera2D.instance.stopFollow = false;
         Camera2D.instance.horizontalFollow = true;
         Camera2D.instance.SetOffsets(horizontalOffset, verticalOffset, transitionSpeed, MinY, isStopfollowing);

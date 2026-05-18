@@ -24209,7 +24209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9163f67f77c18ae4cb8e845bc30c6717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossL2_Health
-  maxHealth: 100
+  maxHealth: 300
   leftBlocker: {fileID: 130554874}
   rightBlocker: {fileID: 1014778701}
   deathPoint: {fileID: 242196494}
@@ -78934,6 +78934,7 @@ MonoBehaviour:
   leftBlocker: {fileID: 130554874}
   rightBlocker: {fileID: 1014778701}
   boss: {fileID: 681110129}
+  bossBGM: {fileID: 8300000, guid: edf13c48bb78cfd4ab9aeb524cff6aa4, type: 3}
 --- !u!61 &2139850493
 BoxCollider2D:
   m_ObjectHideFlags: 0

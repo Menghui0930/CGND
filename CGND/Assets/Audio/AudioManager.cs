@@ -25,6 +25,9 @@ public class AudioManager : MonoBehaviour
     private float _lastVolume = 0.75f;
     private bool _isMuted = false;
 
+    // 记录当前场景对应的关卡 BGM，死亡后用来恢复
+    private AudioClip _currentSceneBGM;
+
     void Awake()
     {
         Instance = this;
@@ -54,26 +57,20 @@ public class AudioManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        switch (scene.name)
-        {
-            case "MainMenu":
-                PlayBGM(mainMenuBGM); break;
-            case "LevelSelect":
-                PlayBGM(mainMenuBGM);
-                break;
-            case "Level_Tutorial":
-                PlayBGM(LevelTutorialBGM); break;
-            case "Level_1":
-                PlayBGM(level1BGM);
-                break;
-            case "Level_2":
-                PlayBGM(level2BGM);
-                break;
-            case "Level_3":
-                PlayBGM(level3BGM);
-                break;
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        AudioClip clip = scene.name switch {
+            "MainMenu" => mainMenuBGM,
+            "LevelSelect" => mainMenuBGM,
+            "Level_Tutorial" => LevelTutorialBGM,
+            "Level_1" => level1BGM,
+            "Level_2" => level2BGM,
+            "Level_3" => level3BGM,
+            _ => null
+        };
+
+        if (clip != null) {
+            _currentSceneBGM = clip;   // 记录关卡 BGM
+            PlayBGM(clip);
         }
     }
 
@@ -84,6 +81,12 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = clip;
         audioSource.Play();
     }
+
+    public void RestoreSceneBGM() {
+        if (_currentSceneBGM != null)
+            PlayBGM(_currentSceneBGM);
+    }
+
 
     // Slider 拖动
     private void OnSliderChanged(float value) {

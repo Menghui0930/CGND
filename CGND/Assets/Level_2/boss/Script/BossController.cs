@@ -114,7 +114,7 @@ public class BossController : MonoBehaviour
     {
         Debug.Log("2. BossRoutine started!");
         Debug.Log("BossRoutine started!");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0f);
         Debug.Log("3. Starting patterns!");
 
 
@@ -141,7 +141,9 @@ public class BossController : MonoBehaviour
 
     IEnumerator PatternSpiral()
     {
-        float angle = 0f;
+        //float angle = 0f;
+        Vector2 dir = (player.position - firePoint.position).normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         while (patternRunning)
         {
             FireBulletAtAngle(angle);
@@ -171,6 +173,10 @@ public class BossController : MonoBehaviour
                 Vector2 dir = (player.position - firePoint.position).normalized;
                 float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                 FireBulletAtAngle(baseAngle + Random.Range(-10f, 10f));
+                // Fire 3 bullets in a spread instead of 1
+                FireBulletAtAngle(baseAngle);
+                FireBulletAtAngle(baseAngle + 15f);
+                FireBulletAtAngle(baseAngle - 15f);
             }
             yield return new WaitForSeconds(AimedStreamWaitSecond);
         }
@@ -194,7 +200,7 @@ public class BossController : MonoBehaviour
         float offset = 0f;
         while (patternRunning)
         {
-            int n = 12;
+            int n = 8;
             for (int i = 0; i < n; i++)
             {
                 float a = i * (360f / n) + offset;
@@ -202,7 +208,7 @@ public class BossController : MonoBehaviour
                 FireBulletAtAngle(a + (180f / n), bulletSpeed * 1.4f);
             }
             offset += 15f;
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.8f);
         }
     }
 
